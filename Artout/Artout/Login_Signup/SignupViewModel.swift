@@ -16,3 +16,4 @@ class SignupViewModel: ObservableObject, Identifiable {
         return false;
     }
 }
+

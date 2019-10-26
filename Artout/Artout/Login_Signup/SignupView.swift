@@ -17,15 +17,19 @@ struct SignupView: View {
             
             TextField("Full Name", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                 .padding(.bottom)
+                .multilineTextAlignment(.center)
             
             TextField("Email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                 .padding(.bottom)
+                .multilineTextAlignment(.center)
             
             TextField("Phone Number", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                 .padding(.bottom)
+                .multilineTextAlignment(.center)
             
             TextField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                 .padding(.bottom)
+                .multilineTextAlignment(.center)
             
             Button(action: {}) {
                 Text("Sign Up")

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
             VStack {
                 Text("Artout")
@@ -16,9 +18,13 @@ struct ContentView: View {
                 
                 TextField("Email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                     .padding(.bottom)
+                    .border(Color.black)
+                    .multilineTextAlignment(.center)
                 
                 TextField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                     .padding(.bottom)
+                    .border(Color.black)
+                    .multilineTextAlignment(.center)
                 
                 Button(action: {}) {
                     Text("Login")
