@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SignupView: View {
-    @ObservedObject var viewModel : SignupViewModel
+//    @ObservedObject var viewModel : SignupViewModel
     var body: some View {
         VStack{
             Text("Sign Up")
