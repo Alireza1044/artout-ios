@@ -34,7 +34,6 @@ struct ContentView: View {
                     Text("Sign Up")
                 }.disabled(false).padding(.bottom)
         }
-        
     }
 }
 
