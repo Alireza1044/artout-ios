@@ -27,6 +27,7 @@ class LoginViewModel: ObservableObject {
     }
     
     func Login(With email: String, And password: String) -> Bool {
+        service.Validator(Email: email, Password: password)
         self.LoginStatus.toggle()
         return false
     }
