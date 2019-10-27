@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA38B70A2365B93500B1BDBD /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38B7092365B93500B1BDBD /* LoginService.swift */; };
+		FA38B70B2365B93500B1BDBD /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38B7092365B93500B1BDBD /* LoginService.swift */; };
+		FA38B70C2365B93500B1BDBD /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38B7092365B93500B1BDBD /* LoginService.swift */; };
+		FA38B7182365CBEC00B1BDBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86113236491BF00674E04 /* ContentView.swift */; };
+		FA38B7192365CBED00B1BDBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86113236491BF00674E04 /* ContentView.swift */; };
+		FA38B71A2365CBFB00B1BDBD /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8613F236491F900674E04 /* SignupView.swift */; };
+		FA38B71B2365CBFB00B1BDBD /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8613F236491F900674E04 /* SignupView.swift */; };
+		FA38B71C2365CBFD00B1BDBD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE861422364979B00674E04 /* LoginViewModel.swift */; };
+		FA38B71D2365CBFD00B1BDBD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE861422364979B00674E04 /* LoginViewModel.swift */; };
+		FA38B71E2365CC0000B1BDBD /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86144236498A000674E04 /* SignupViewModel.swift */; };
+		FA38B71F2365CC0000B1BDBD /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86144236498A000674E04 /* SignupViewModel.swift */; };
 		FAE8610D236491BF00674E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8610C236491BF00674E04 /* AppDelegate.swift */; };
 		FAE8610F236491BF00674E04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8610E236491BF00674E04 /* SceneDelegate.swift */; };
 		FAE86112236491BF00674E04 /* Artout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAE86110236491BF00674E04 /* Artout.xcdatamodeld */; };
@@ -39,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA38B7092365B93500B1BDBD /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginService.swift; path = Services/LoginService.swift; sourceTree = "<group>"; };
 		FAE86109236491BF00674E04 /* Artout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE8610C236491BF00674E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE8610E236491BF00674E04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +96,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA38B7112365BF2100B1BDBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = Artout;
+			sourceTree = SOURCE_ROOT;
+		};
+		FA38B7122365BF3200B1BDBD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FAE861422364979B00674E04 /* LoginViewModel.swift */,
+				FAE86144236498A000674E04 /* SignupViewModel.swift */,
+			);
+			name = ViewModels;
+			path = Artout;
+			sourceTree = SOURCE_ROOT;
+		};
+		FA38B7132365BF4100B1BDBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAE86113236491BF00674E04 /* ContentView.swift */,
+				FAE8613F236491F900674E04 /* SignupView.swift */,
+			);
+			name = Views;
+			path = Artout;
+			sourceTree = SOURCE_ROOT;
+		};
+		FA38B7162365BF6E00B1BDBD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA38B7092365B93500B1BDBD /* LoginService.swift */,
+			);
+			name = Services;
+			path = Artout;
+			sourceTree = SOURCE_ROOT;
+		};
 		FAE86100236491BF00674E04 = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +156,10 @@
 		FAE8610B236491BF00674E04 /* Artout */ = {
 			isa = PBXGroup;
 			children = (
-				FAE861412364971100674E04 /* Login_Signup */,
+				FA38B7162365BF6E00B1BDBD /* Services */,
+				FA38B7132365BF4100B1BDBD /* Views */,
+				FA38B7122365BF3200B1BDBD /* ViewModels */,
+				FA38B7112365BF2100B1BDBD /* Models */,
 				FAE8610C236491BF00674E04 /* AppDelegate.swift */,
 				FAE8610E236491BF00674E04 /* SceneDelegate.swift */,
 				FAE86115236491C000674E04 /* Assets.xcassets */,
@@ -143,17 +195,6 @@
 				FAE86133236491C000674E04 /* Info.plist */,
 			);
 			path = ArtoutUITests;
-			sourceTree = "<group>";
-		};
-		FAE861412364971100674E04 /* Login_Signup */ = {
-			isa = PBXGroup;
-			children = (
-				FAE86113236491BF00674E04 /* ContentView.swift */,
-				FAE8613F236491F900674E04 /* SignupView.swift */,
-				FAE861422364979B00674E04 /* LoginViewModel.swift */,
-				FAE86144236498A000674E04 /* SignupViewModel.swift */,
-			);
-			path = Login_Signup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +333,7 @@
 				FAE86112236491BF00674E04 /* Artout.xcdatamodeld in Sources */,
 				FAE86145236498A000674E04 /* SignupViewModel.swift in Sources */,
 				FAE86114236491BF00674E04 /* ContentView.swift in Sources */,
+				FA38B70A2365B93500B1BDBD /* LoginService.swift in Sources */,
 				FAE8610F236491BF00674E04 /* SceneDelegate.swift in Sources */,
 				FAE86140236491F900674E04 /* SignupView.swift in Sources */,
 			);
@@ -301,7 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA38B71E2365CC0000B1BDBD /* SignupViewModel.swift in Sources */,
+				FA38B71A2365CBFB00B1BDBD /* SignupView.swift in Sources */,
 				FAE86127236491C000674E04 /* ArtoutTests.swift in Sources */,
+				FA38B70B2365B93500B1BDBD /* LoginService.swift in Sources */,
+				FA38B71C2365CBFD00B1BDBD /* LoginViewModel.swift in Sources */,
+				FA38B7182365CBEC00B1BDBD /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +356,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA38B71F2365CC0000B1BDBD /* SignupViewModel.swift in Sources */,
+				FA38B71B2365CBFB00B1BDBD /* SignupView.swift in Sources */,
 				FAE86132236491C000674E04 /* ArtoutUITests.swift in Sources */,
+				FA38B70C2365B93500B1BDBD /* LoginService.swift in Sources */,
+				FA38B71D2365CBFD00B1BDBD /* LoginViewModel.swift in Sources */,
+				FA38B7192365CBED00B1BDBD /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
