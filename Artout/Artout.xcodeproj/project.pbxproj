@@ -50,11 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA66B43B2365D21F00EDE227 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginService.swift; path = Services/LoginService.swift; sourceTree = "<group>"; };
-		FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = ViewModels/LoginViewModel.swift; sourceTree = "<group>"; };
-		FA66B4402365D22D00EDE227 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewModel.swift; path = ViewModels/SignupViewModel.swift; sourceTree = "<group>"; };
-		FA66B4472365D23800EDE227 /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupView.swift; path = Views/SignupView.swift; sourceTree = "<group>"; };
-		FA66B4482365D23800EDE227 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = Views/ContentView.swift; sourceTree = "<group>"; };
+		FA66B43B2365D21F00EDE227 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		FA66B4402365D22D00EDE227 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		FA66B4472365D23800EDE227 /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		FA66B4482365D23800EDE227 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAE86109236491BF00674E04 /* Artout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE8610C236491BF00674E04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE8610E236491BF00674E04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +96,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB77D4B72365DCDC00B823B2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FA66B4482365D23800EDE227 /* ContentView.swift */,
+				FA66B4472365D23800EDE227 /* SignupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB77D4B82365DCE400B823B2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */,
+				FA66B4402365D22D00EDE227 /* SignupViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BB77D4B92365DCE900B823B2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA66B43B2365D21F00EDE227 /* LoginService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		FAE86100236491BF00674E04 = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +145,9 @@
 		FAE8610B236491BF00674E04 /* Artout */ = {
 			isa = PBXGroup;
 			children = (
-				FA66B4482365D23800EDE227 /* ContentView.swift */,
-				FA66B4472365D23800EDE227 /* SignupView.swift */,
-				FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */,
-				FA66B4402365D22D00EDE227 /* SignupViewModel.swift */,
-				FA66B43B2365D21F00EDE227 /* LoginService.swift */,
+				BB77D4B72365DCDC00B823B2 /* Views */,
+				BB77D4B82365DCE400B823B2 /* ViewModels */,
+				BB77D4B92365DCE900B823B2 /* Services */,
 				FAE8610C236491BF00674E04 /* AppDelegate.swift */,
 				FAE8610E236491BF00674E04 /* SceneDelegate.swift */,
 				FAE86115236491C000674E04 /* Assets.xcassets */,
