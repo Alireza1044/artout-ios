@@ -29,6 +29,7 @@ class LoginViewModel: ObservableObject {
     func Login(With email: String, And password: String) -> Bool {
         service.fetchJSON(email: email, password: password)//(Email: email, Password: password)
         self.LoginStatus.toggle()
+        self.LoginMessage = "\(self.LoginStatus)"
         return false
     }
     

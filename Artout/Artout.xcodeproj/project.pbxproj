@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BB77D4BB2366574900B823B2 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
 		BB77D4BD23666FBE00B823B2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BC23666FBE00B823B2 /* LoginService.swift */; };
+		FA5DFE352366FAE500F6E459 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
+		FA5DFE362366FAE500F6E459 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
 		FA66B4412365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
 		FA66B4422365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
 		FA66B4432365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
@@ -27,8 +29,6 @@
 		FAE86116236491C000674E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE86115236491C000674E04 /* Assets.xcassets */; };
 		FAE86119236491C000674E04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE86118236491C000674E04 /* Preview Assets.xcassets */; };
 		FAE8611C236491C000674E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE8611A236491C000674E04 /* LaunchScreen.storyboard */; };
-		FAE86127236491C000674E04 /* ArtoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86126236491C000674E04 /* ArtoutTests.swift */; };
-		FAE86132236491C000674E04 /* ArtoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE86131236491C000674E04 /* ArtoutUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +64,7 @@
 		FAE8611B236491C000674E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAE8611D236491C000674E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE86122236491C000674E04 /* ArtoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE86126236491C000674E04 /* ArtoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtoutTests.swift; sourceTree = "<group>"; };
-		FAE86128236491C000674E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE8612D236491C000674E04 /* ArtoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE86131236491C000674E04 /* ArtoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtoutUITests.swift; sourceTree = "<group>"; };
-		FAE86133236491C000674E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				FAE8610B236491BF00674E04 /* Artout */,
-				FAE86125236491C000674E04 /* ArtoutTests */,
-				FAE86130236491C000674E04 /* ArtoutUITests */,
 				FAE8610A236491BF00674E04 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,24 +160,6 @@
 				FAE86118236491C000674E04 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		FAE86125236491C000674E04 /* ArtoutTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAE86126236491C000674E04 /* ArtoutTests.swift */,
-				FAE86128236491C000674E04 /* Info.plist */,
-			);
-			path = ArtoutTests;
-			sourceTree = "<group>";
-		};
-		FAE86130236491C000674E04 /* ArtoutUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAE86131236491C000674E04 /* ArtoutUITests.swift */,
-				FAE86133236491C000674E04 /* Info.plist */,
-			);
-			path = ArtoutUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,9 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE86127236491C000674E04 /* ArtoutTests.swift in Sources */,
 				FA66B44D2365D23800EDE227 /* ContentView.swift in Sources */,
 				FA66B4452365D22D00EDE227 /* SignupViewModel.swift in Sources */,
+				FA5DFE352366FAE500F6E459 /* TokenService.swift in Sources */,
 				FA66B4422365D22D00EDE227 /* LoginViewModel.swift in Sources */,
 				FA66B44A2365D23800EDE227 /* SignupView.swift in Sources */,
 			);
@@ -345,9 +321,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAE86132236491C000674E04 /* ArtoutUITests.swift in Sources */,
 				FA66B44E2365D23800EDE227 /* ContentView.swift in Sources */,
 				FA66B4462365D22D00EDE227 /* SignupViewModel.swift in Sources */,
+				FA5DFE362366FAE500F6E459 /* TokenService.swift in Sources */,
 				FA66B4432365D22D00EDE227 /* LoginViewModel.swift in Sources */,
 				FA66B44B2365D23800EDE227 /* SignupView.swift in Sources */,
 			);

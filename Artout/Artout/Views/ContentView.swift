@@ -24,12 +24,10 @@ struct ContentView: View {
                 
                 TextField("Email", text: $email)
                     .padding(.bottom)
-                    .border(Color.black)
                     .multilineTextAlignment(.center)
                 
                 TextField("Password", text: $password)
                     .padding(.bottom)
-                    .border(Color.black)
                     .multilineTextAlignment(.center)
                 
                 Button(action: {

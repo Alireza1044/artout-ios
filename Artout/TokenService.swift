@@ -12,7 +12,6 @@ import Combine
 let baseURL = "https://34be09c0-58f0-4be2-ad6b-6df87262928b.mock.pstmn.io"
 
 class TokenService: ObservableObject {
-    
     //    var didChange = PassthroughSubject<TokenService, Error>()
     
     @Published var login : loginData = nil
@@ -30,7 +29,6 @@ class TokenService: ObservableObject {
         }
         
         request.httpMethod = "POST"
-        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil { return }
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else { return }
