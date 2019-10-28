@@ -9,20 +9,10 @@
 /* Begin PBXBuildFile section */
 		BB77D4BB2366574900B823B2 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
 		BB77D4BD23666FBE00B823B2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BC23666FBE00B823B2 /* LoginService.swift */; };
-		FA5DFE352366FAE500F6E459 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
-		FA5DFE362366FAE500F6E459 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
 		FA66B4412365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
-		FA66B4422365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
-		FA66B4432365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
 		FA66B4442365D22D00EDE227 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4402365D22D00EDE227 /* SignupViewModel.swift */; };
-		FA66B4452365D22D00EDE227 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4402365D22D00EDE227 /* SignupViewModel.swift */; };
-		FA66B4462365D22D00EDE227 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4402365D22D00EDE227 /* SignupViewModel.swift */; };
 		FA66B4492365D23800EDE227 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4472365D23800EDE227 /* SignupView.swift */; };
-		FA66B44A2365D23800EDE227 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4472365D23800EDE227 /* SignupView.swift */; };
-		FA66B44B2365D23800EDE227 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4472365D23800EDE227 /* SignupView.swift */; };
 		FA66B44C2365D23800EDE227 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4482365D23800EDE227 /* ContentView.swift */; };
-		FA66B44D2365D23800EDE227 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4482365D23800EDE227 /* ContentView.swift */; };
-		FA66B44E2365D23800EDE227 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B4482365D23800EDE227 /* ContentView.swift */; };
 		FAE8610D236491BF00674E04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8610C236491BF00674E04 /* AppDelegate.swift */; };
 		FAE8610F236491BF00674E04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE8610E236491BF00674E04 /* SceneDelegate.swift */; };
 		FAE86112236491BF00674E04 /* Artout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAE86110236491BF00674E04 /* Artout.xcdatamodeld */; };
@@ -30,23 +20,6 @@
 		FAE86119236491C000674E04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAE86118236491C000674E04 /* Preview Assets.xcassets */; };
 		FAE8611C236491C000674E04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE8611A236491C000674E04 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FAE86123236491C000674E04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAE86101236491BF00674E04 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAE86108236491BF00674E04;
-			remoteInfo = Artout;
-		};
-		FAE8612E236491C000674E04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAE86101236491BF00674E04 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAE86108236491BF00674E04;
-			remoteInfo = Artout;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BB77D4BA2366574900B823B2 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = SOURCE_ROOT; };
@@ -63,26 +36,10 @@
 		FAE86118236491C000674E04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAE8611B236491C000674E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAE8611D236491C000674E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAE86122236491C000674E04 /* ArtoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAE8612D236491C000674E04 /* ArtoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FAE86106236491BF00674E04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE8611F236491C000674E04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE8612A236491C000674E04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -131,8 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				FAE86109236491BF00674E04 /* Artout.app */,
-				FAE86122236491C000674E04 /* ArtoutTests.xctest */,
-				FAE8612D236491C000674E04 /* ArtoutUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,42 +137,6 @@
 			productReference = FAE86109236491BF00674E04 /* Artout.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAE86121236491C000674E04 /* ArtoutTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAE86139236491C000674E04 /* Build configuration list for PBXNativeTarget "ArtoutTests" */;
-			buildPhases = (
-				FAE8611E236491C000674E04 /* Sources */,
-				FAE8611F236491C000674E04 /* Frameworks */,
-				FAE86120236491C000674E04 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAE86124236491C000674E04 /* PBXTargetDependency */,
-			);
-			name = ArtoutTests;
-			productName = ArtoutTests;
-			productReference = FAE86122236491C000674E04 /* ArtoutTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FAE8612C236491C000674E04 /* ArtoutUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAE8613C236491C000674E04 /* Build configuration list for PBXNativeTarget "ArtoutUITests" */;
-			buildPhases = (
-				FAE86129236491C000674E04 /* Sources */,
-				FAE8612A236491C000674E04 /* Frameworks */,
-				FAE8612B236491C000674E04 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAE8612F236491C000674E04 /* PBXTargetDependency */,
-			);
-			name = ArtoutUITests;
-			productName = ArtoutUITests;
-			productReference = FAE8612D236491C000674E04 /* ArtoutUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -230,14 +149,6 @@
 				TargetAttributes = {
 					FAE86108236491BF00674E04 = {
 						CreatedOnToolsVersion = 11.0;
-					};
-					FAE86121236491C000674E04 = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = FAE86108236491BF00674E04;
-					};
-					FAE8612C236491C000674E04 = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = FAE86108236491BF00674E04;
 					};
 				};
 			};
@@ -255,8 +166,6 @@
 			projectRoot = "";
 			targets = (
 				FAE86108236491BF00674E04 /* Artout */,
-				FAE86121236491C000674E04 /* ArtoutTests */,
-				FAE8612C236491C000674E04 /* ArtoutUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,20 +178,6 @@
 				FAE8611C236491C000674E04 /* LaunchScreen.storyboard in Resources */,
 				FAE86119236491C000674E04 /* Preview Assets.xcassets in Resources */,
 				FAE86116236491C000674E04 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE86120236491C000674E04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE8612B236491C000674E04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,44 +200,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAE8611E236491C000674E04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA66B44D2365D23800EDE227 /* ContentView.swift in Sources */,
-				FA66B4452365D22D00EDE227 /* SignupViewModel.swift in Sources */,
-				FA5DFE352366FAE500F6E459 /* TokenService.swift in Sources */,
-				FA66B4422365D22D00EDE227 /* LoginViewModel.swift in Sources */,
-				FA66B44A2365D23800EDE227 /* SignupView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAE86129236491C000674E04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA66B44E2365D23800EDE227 /* ContentView.swift in Sources */,
-				FA66B4462365D22D00EDE227 /* SignupViewModel.swift in Sources */,
-				FA5DFE362366FAE500F6E459 /* TokenService.swift in Sources */,
-				FA66B4432365D22D00EDE227 /* LoginViewModel.swift in Sources */,
-				FA66B44B2365D23800EDE227 /* SignupView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FAE86124236491C000674E04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAE86108236491BF00674E04 /* Artout */;
-			targetProxy = FAE86123236491C000674E04 /* PBXContainerItemProxy */;
-		};
-		FAE8612F236491C000674E04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAE86108236491BF00674E04 /* Artout */;
-			targetProxy = FAE8612E236491C000674E04 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FAE8611A236491C000674E04 /* LaunchScreen.storyboard */ = {
@@ -510,90 +368,6 @@
 			};
 			name = Release;
 		};
-		FAE8613A236491C000674E04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y97LJN6DF;
-				INFOPLIST_FILE = ArtoutTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pooyakab.ArtoutTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Artout.app/Artout";
-			};
-			name = Debug;
-		};
-		FAE8613B236491C000674E04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y97LJN6DF;
-				INFOPLIST_FILE = ArtoutTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pooyakab.ArtoutTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Artout.app/Artout";
-			};
-			name = Release;
-		};
-		FAE8613D236491C000674E04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y97LJN6DF;
-				INFOPLIST_FILE = ArtoutUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pooyakab.ArtoutUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Artout;
-			};
-			name = Debug;
-		};
-		FAE8613E236491C000674E04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Y97LJN6DF;
-				INFOPLIST_FILE = ArtoutUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pooyakab.ArtoutUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Artout;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -611,24 +385,6 @@
 			buildConfigurations = (
 				FAE86137236491C000674E04 /* Debug */,
 				FAE86138236491C000674E04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAE86139236491C000674E04 /* Build configuration list for PBXNativeTarget "ArtoutTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAE8613A236491C000674E04 /* Debug */,
-				FAE8613B236491C000674E04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAE8613C236491C000674E04 /* Build configuration list for PBXNativeTarget "ArtoutUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAE8613D236491C000674E04 /* Debug */,
-				FAE8613E236491C000674E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
