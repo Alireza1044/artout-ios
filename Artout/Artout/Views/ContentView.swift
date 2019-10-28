@@ -51,7 +51,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: LoginViewModel(service: LoginService()))
+        ContentView(viewModel: LoginViewModel(service: TokenService()))
     }
     
 }
+

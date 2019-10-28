@@ -9,8 +9,6 @@
 import Foundation
 import Combine
 
-let baseURL = "https://34be09c0-58f0-4be2-ad6b-6df87262928b.mock.pstmn.io/login"
-
 class LoginService {
     
     var manager = HttpAuth()

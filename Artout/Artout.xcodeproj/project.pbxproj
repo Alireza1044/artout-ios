@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA66B43C2365D21F00EDE227 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43B2365D21F00EDE227 /* LoginService.swift */; };
-		FA66B43D2365D21F00EDE227 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43B2365D21F00EDE227 /* LoginService.swift */; };
-		FA66B43E2365D21F00EDE227 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43B2365D21F00EDE227 /* LoginService.swift */; };
+		BB77D4BB2366574900B823B2 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
+		BB77D4BD23666FBE00B823B2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BC23666FBE00B823B2 /* LoginService.swift */; };
 		FA66B4412365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
 		FA66B4422365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
 		FA66B4432365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
@@ -50,7 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FA66B43B2365D21F00EDE227 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		BB77D4BA2366574900B823B2 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = SOURCE_ROOT; };
+		BB77D4BC23666FBE00B823B2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = SOURCE_ROOT; };
 		FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FA66B4402365D22D00EDE227 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		FA66B4472365D23800EDE227 /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -117,7 +117,8 @@
 		BB77D4B92365DCE900B823B2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FA66B43B2365D21F00EDE227 /* LoginService.swift */,
+				BB77D4BA2366574900B823B2 /* TokenService.swift */,
+				BB77D4BC23666FBE00B823B2 /* LoginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -316,14 +317,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB77D4BB2366574900B823B2 /* TokenService.swift in Sources */,
 				FA66B4492365D23800EDE227 /* SignupView.swift in Sources */,
 				FA66B4442365D22D00EDE227 /* SignupViewModel.swift in Sources */,
 				FA66B44C2365D23800EDE227 /* ContentView.swift in Sources */,
+				BB77D4BD23666FBE00B823B2 /* LoginService.swift in Sources */,
 				FAE8610D236491BF00674E04 /* AppDelegate.swift in Sources */,
 				FAE86112236491BF00674E04 /* Artout.xcdatamodeld in Sources */,
 				FAE8610F236491BF00674E04 /* SceneDelegate.swift in Sources */,
 				FA66B4412365D22D00EDE227 /* LoginViewModel.swift in Sources */,
-				FA66B43C2365D21F00EDE227 /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +334,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE86127236491C000674E04 /* ArtoutTests.swift in Sources */,
-				FA66B43D2365D21F00EDE227 /* LoginService.swift in Sources */,
 				FA66B44D2365D23800EDE227 /* ContentView.swift in Sources */,
 				FA66B4452365D22D00EDE227 /* SignupViewModel.swift in Sources */,
 				FA66B4422365D22D00EDE227 /* LoginViewModel.swift in Sources */,
@@ -345,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAE86132236491C000674E04 /* ArtoutUITests.swift in Sources */,
-				FA66B43E2365D21F00EDE227 /* LoginService.swift in Sources */,
 				FA66B44E2365D23800EDE227 /* ContentView.swift in Sources */,
 				FA66B4462365D22D00EDE227 /* SignupViewModel.swift in Sources */,
 				FA66B4432365D22D00EDE227 /* LoginViewModel.swift in Sources */,
