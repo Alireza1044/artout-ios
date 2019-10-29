@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var user: UserModel
     @ObservedObject var viewModel: LoginViewModel
     @State private var password: String = ""
     @State private var email: String = ""
@@ -49,7 +50,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: LoginViewModel(service: TokenService()))
+        ContentView(viewModel: LoginViewModel())
     }
     
 }

@@ -12,10 +12,10 @@ import Combine
 class LoginService {
     
     var manager = HttpAuth()
-
-    func Validator(Email: String, Password: String) -> Bool {
+    
+    func ValidateLogin(email: String, password: String, user:UserModel) -> Bool {
         /* Code */
-        manager.checkDetails(username: Email, password: Password)
+        manager.checkDetails(username: email, password: password, user: user)
         return false
     }
 }
@@ -27,7 +27,7 @@ class HttpAuth: ObservableObject {
         didSet { didChange.send(self)}
     }
     
-    func checkDetails(username: String, password: String) {
+    func checkDetails(username: String, password: String, user: UserModel) {
         guard let url = URL(string: baseURL) else { return }
         
         let body: [String: String] = ["username" : username, "password" : password]

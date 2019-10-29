@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB6B546523676C02009D592B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6B546423676C02009D592B /* UserModel.swift */; };
 		BB77D4BB2366574900B823B2 /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BA2366574900B823B2 /* TokenService.swift */; };
 		BB77D4BD23666FBE00B823B2 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB77D4BC23666FBE00B823B2 /* LoginService.swift */; };
 		FA66B4412365D22D00EDE227 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB6B546423676C02009D592B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		BB77D4BA2366574900B823B2 /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = SOURCE_ROOT; };
 		BB77D4BC23666FBE00B823B2 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = SOURCE_ROOT; };
 		FA66B43F2365D22D00EDE227 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB6B546323676A9E009D592B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB6B546423676C02009D592B /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		BB77D4B72365DCDC00B823B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 		FAE8610B236491BF00674E04 /* Artout */ = {
 			isa = PBXGroup;
 			children = (
+				BB6B546323676A9E009D592B /* Models */,
 				BB77D4B72365DCDC00B823B2 /* Views */,
 				BB77D4B82365DCE400B823B2 /* ViewModels */,
 				BB77D4B92365DCE900B823B2 /* Services */,
@@ -196,6 +207,7 @@
 				FAE8610D236491BF00674E04 /* AppDelegate.swift in Sources */,
 				FAE86112236491BF00674E04 /* Artout.xcdatamodeld in Sources */,
 				FAE8610F236491BF00674E04 /* SceneDelegate.swift in Sources */,
+				BB6B546523676C02009D592B /* UserModel.swift in Sources */,
 				FA66B4412365D22D00EDE227 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

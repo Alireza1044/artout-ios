@@ -9,19 +9,17 @@
 import Foundation
 import Combine
 
-let baseURL = "https://34be09c0-58f0-4be2-ad6b-6df87262928b.mock.pstmn.io"
+let baseURL = "https://my.api.mockaroo.com"
 
 class TokenService: ObservableObject {
     //    var didChange = PassthroughSubject<TokenService, Error>()
     
-    @Published var login : loginData = nil
-    
-    func fetchJSON(email: String, password: String) {
+    func validateLogin(email: String, password: String,user: UserModel, loginStatus:Bool) {
         
-        let url = URL(string: "\(baseURL)/login")!
+        let url = URL(string: "\(baseURL)/users.json")!
         
         var request = URLRequest(url: url)
-        
+        request.setValue("cee1b8e0", forHTTPHeaderField: "x-api-key")
         do{
             request.httpBody = try JSONSerialization.data(withJSONObject: ["username":email,"password":password], options: .prettyPrinted)
         } catch {
@@ -36,8 +34,11 @@ class TokenService: ObservableObject {
             guard let data = data else { return }
             
             do{
-                let parsedData = try JSONDecoder().decode(loginData.self, from: data)
-                self.login = parsedData
+                let parsedData = try JSONDecoder().decode(LoginData.self, from: data)
+                DispatchQueue.main.async {
+                    user.id = parsedData.id
+                    //loginStatus.toggle()
+                }
             } catch {
                 return
             }
@@ -45,9 +46,9 @@ class TokenService: ObservableObject {
     }
 }
 
-class loginData: Decodable{
-    var access:String
-    var refresh:String
-    let id:String
+struct LoginData: Decodable{
+    var access:String = ""
+    var refresh:String = ""
+    let id:String = ""
 }
 

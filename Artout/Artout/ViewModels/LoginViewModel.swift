@@ -11,26 +11,18 @@ import Combine
 
 class LoginViewModel: ObservableObject {
     var Token : String?
-
-    let didChange = PassthroughSubject<LoginViewModel,Never>()
-
-    @Published private(set) var LoginStatus: Bool
+    
+    @Published var user = UserModel()
+    
+    @Published var LoginStatus: Bool = false
     
     @Published var LoginMessage: String = ""
     
-    var service: TokenService
-    
-    init(service: TokenService) {
-        self.service = service
-        self.LoginStatus = false
-        self.LoginMessage = ""
-    }
+    var service = TokenService()
     
     func Login(With email: String, And password: String) -> Bool {
-        service.fetchJSON(email: email, password: password)//(Email: email, Password: password)
-        self.LoginStatus.toggle()
+        service.validateLogin(email: email, password: password, user:user, loginStatus: LoginStatus)
         self.LoginMessage = "\(self.LoginStatus)"
         return false
     }
-    
-    }
+}
