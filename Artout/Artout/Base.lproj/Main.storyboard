@@ -41,6 +41,9 @@
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="MtD-We-cAK" kind="show" id="LA9-EW-qGN"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Not Valid" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEb-9Y-eMT">
                                         <rect key="frame" x="0.0" y="248" width="314" height="20.5"/>
@@ -86,6 +89,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="262" y="49"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="wqw-W6-NgL">
+            <objects>
+                <viewController id="MtD-We-cAK" customClass="SignUpViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UO0-Cs-3d9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register in ArtOut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-75-hGK">
+                                <rect key="frame" x="138.5" y="223.5" width="137" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-AZ-HDh">
+                                <rect key="frame" x="50" y="294" width="314" height="286"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-W6-Dr3">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wg-Xk-av9">
+                                        <rect key="frame" x="0.0" y="64" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ej-5N-Zf3">
+                                        <rect key="frame" x="0.0" y="128" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ku3-36-Bke">
+                                        <rect key="frame" x="0.0" y="192" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-GZ-jmE">
+                                        <rect key="frame" x="0.0" y="256" width="314" height="30"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UY6-BO-Wxh" firstAttribute="trailing" secondItem="gGb-AZ-HDh" secondAttribute="trailing" constant="50" id="0al-Nz-7qv"/>
+                            <constraint firstItem="gGb-AZ-HDh" firstAttribute="leading" secondItem="UY6-BO-Wxh" secondAttribute="leading" constant="50" id="Eqr-52-Q8r"/>
+                            <constraint firstItem="gGb-AZ-HDh" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" constant="16" id="GAM-yu-iH4"/>
+                            <constraint firstItem="yhB-75-hGK" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" id="TAj-lN-bFe"/>
+                            <constraint firstItem="gGb-AZ-HDh" firstAttribute="top" secondItem="yhB-75-hGK" secondAttribute="bottom" constant="50" id="bqA-p3-X2e"/>
+                            <constraint firstItem="gGb-AZ-HDh" firstAttribute="centerY" secondItem="UO0-Cs-3d9" secondAttribute="centerY" constant="16" id="cF0-e0-0mi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UY6-BO-Wxh"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Lfe-Y3-CDO"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="TjM-W6-Dr3" id="jna-eY-jAJ"/>
+                        <outlet property="fullNameTextField" destination="6Ej-5N-Zf3" id="RFZ-S5-9Lj"/>
+                        <outlet property="passwordTextField" destination="Ku3-36-Bke" id="lTW-dE-hUL"/>
+                        <outlet property="phoneNumberTextField" destination="6Wg-Xk-av9" id="9mp-B2-Rcb"/>
+                        <outlet property="registerButton" destination="F9G-GZ-jmE" id="nMm-Fv-RMw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fL3-eQ-bpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="47"/>
         </scene>
     </scenes>
 </document>

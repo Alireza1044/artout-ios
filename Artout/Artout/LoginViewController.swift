@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.passwordText)
         _ = viewModel.isValid.bind(to: loginButton.rx.isEnabled)
         viewModel.isValid.subscribe(onNext: { [unowned self] isValid in
-            self.validLabel.text = isValid ? "Password is valid" : "Password ins not valid"
+            self.validLabel.text = isValid ? "Password is valid" : "Password is not valid"
             self.validLabel.textColor = isValid ? .green : .red
         })
         .disposed(by: disposeBag)
