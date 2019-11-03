@@ -19,19 +19,23 @@ class SignUpViewController: UIViewController{
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
-    var signupViewMode = SignUpViewModel()
+    var signupViewModel = SignUpViewModel()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = firstNameTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewMode.firstNameText)
-        _ = lastNameTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewMode.lastNameText)
-        _ = phoneNumberTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewMode.phoneNumberText)
-        _ = passwordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewMode.passwordText)
-        _ = repeatPasswordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewMode.repeatPasswordText)
+        _ = firstNameTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.firstNameText)
+        _ = lastNameTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.lastNameText)
+        _ = phoneNumberTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.phoneNumberText)
+        _ = passwordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.passwordText)
+        _ = repeatPasswordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.repeatPasswordText)
         
-        signupViewMode.isSame.subscribe(onNext: { isEnabled in
-            self.signupViewMode.isEmpty.subscribe(onNext: { isEmpty in
+//        self.registerButton.isEnabled = Observable.combineLatest(signupViewModel.isSame,signupViewModel.isEmpty) { isSame, isEmpty in
+//            isSame && isEmpty
+//        }
+
+        signupViewModel.isSame.subscribe(onNext: { isEnabled in
+            self.signupViewModel.isEmpty.subscribe(onNext: { isEmpty in
                 self.registerButton.isEnabled = isEnabled && isEmpty
             })
             }).disposed(by: disposeBag)

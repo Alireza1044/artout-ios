@@ -25,7 +25,7 @@ class LoginViewModel {
     }
     
     func Login() {
-        //        service.FetchToken(With: emailText, And: passwordText)
+//        service.FetchToken(With: emailText.value(), And: passwordText.value())
     }
     
 }
