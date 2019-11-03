@@ -13,7 +13,7 @@ class LoginViewModel {
     var emailText: BehaviorSubject<String>
     var passwordText: BehaviorSubject<String>
     var isValid: Observable<Bool>
-//    var loginStatus: BehaviorSubject<Bool>
+    //    var loginStatus: BehaviorSubject<Bool>
     var service = TokenService()
     
     init() {
@@ -22,10 +22,10 @@ class LoginViewModel {
         self.isValid = Observable.combineLatest(emailText.asObservable(),passwordText.asObservable()) { email, password in
             password.count >= 8
         }
-}
+    }
     
     func Login() {
-//        service.FetchToken(With: emailText, And: passwordText)
+        //        service.FetchToken(With: emailText, And: passwordText)
     }
     
 }

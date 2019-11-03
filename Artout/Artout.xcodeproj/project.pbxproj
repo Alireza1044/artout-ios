@@ -10,6 +10,7 @@
 		6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0C994299F38BBA70880A9 /* Pods_Artout.framework */; };
 		BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */; };
 		BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */; };
+		BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC7608236E410D00AE5634 /* RegisterService.swift */; };
 		FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9A8236B081E0089E1FF /* AppDelegate.swift */; };
 		FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9AA236B081E0089E1FF /* SceneDelegate.swift */; };
 		FA03F9AD236B081E0089E1FF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9AC236B081E0089E1FF /* LoginViewController.swift */; };
@@ -26,6 +27,7 @@
 		40D0C994299F38BBA70880A9 /* Pods_Artout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "/Users/alireza/Desktop/Developer/SE/artout-ios/Artout/Artout/SignUpViewController.swift"; sourceTree = "<absolute>"; };
 		BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		BBFC7608236E410D00AE5634 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		F0D5449698CD23048B8E9BCD /* Pods-Artout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.release.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.release.xcconfig"; sourceTree = "<group>"; };
 		FA03F9A5236B081E0089E1FF /* Artout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA03F9A8236B081E0089E1FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,33 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BBCFD904236E2CFC00DABEB1 /* ViewContollers */ = {
+			isa = PBXGroup;
+			children = (
+				BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */,
+				FA03F9AC236B081E0089E1FF /* LoginViewController.swift */,
+			);
+			path = ViewContollers;
+			sourceTree = "<group>";
+		};
+		BBCFD905236E2D0600DABEB1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */,
+				BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BBCFD906236E2D1000DABEB1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FAFAFABC236B1DBD0057E6DA /* TokenService.swift */,
+				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		FA03F99C236B081E0089E1FF = {
 			isa = PBXGroup;
 			children = (
@@ -92,16 +121,14 @@
 			children = (
 				FA03F9A8236B081E0089E1FF /* AppDelegate.swift */,
 				FA03F9AA236B081E0089E1FF /* SceneDelegate.swift */,
-				BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */,
-				FA03F9AC236B081E0089E1FF /* LoginViewController.swift */,
+				BBCFD904236E2CFC00DABEB1 /* ViewContollers */,
+				BBCFD905236E2D0600DABEB1 /* ViewModels */,
+				BBCFD906236E2D1000DABEB1 /* Services */,
 				FA03F9AE236B081E0089E1FF /* Main.storyboard */,
-				FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */,
-				BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */,
 				FA03F9B4236B081F0089E1FF /* Assets.xcassets */,
 				FA03F9B6236B081F0089E1FF /* LaunchScreen.storyboard */,
 				FA03F9B9236B081F0089E1FF /* Info.plist */,
 				FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */,
-				FAFAFABC236B1DBD0057E6DA /* TokenService.swift */,
 			);
 			path = Artout;
 			sourceTree = "<group>";
@@ -227,6 +254,7 @@
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */,
+				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
 			);

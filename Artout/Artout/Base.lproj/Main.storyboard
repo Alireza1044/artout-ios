@@ -99,36 +99,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register in ArtOut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-75-hGK">
-                                <rect key="frame" x="138.5" y="223.5" width="137" height="20.5"/>
+                                <rect key="frame" x="138.5" y="191.5" width="137" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-AZ-HDh">
-                                <rect key="frame" x="50" y="294" width="314" height="286"/>
+                                <rect key="frame" x="50" y="262" width="314" height="350"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-W6-Dr3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ej-5N-Zf3">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wg-Xk-av9">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Fi-ue-bGS">
                                         <rect key="frame" x="0.0" y="64" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="family-name"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Ej-5N-Zf3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Wg-Xk-av9">
                                         <rect key="frame" x="0.0" y="128" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="tel"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ku3-36-Bke">
                                         <rect key="frame" x="0.0" y="192" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="new-password"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-W6-Dr3">
+                                        <rect key="frame" x="0.0" y="256" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="new-password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9G-GZ-jmE">
-                                        <rect key="frame" x="0.0" y="256" width="314" height="30"/>
+                                        <rect key="frame" x="0.0" y="320" width="314" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,11 +155,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Lfe-Y3-CDO"/>
                     <connections>
-                        <outlet property="emailTextField" destination="TjM-W6-Dr3" id="jna-eY-jAJ"/>
-                        <outlet property="fullNameTextField" destination="6Ej-5N-Zf3" id="RFZ-S5-9Lj"/>
-                        <outlet property="passwordTextField" destination="Ku3-36-Bke" id="lTW-dE-hUL"/>
-                        <outlet property="phoneNumberTextField" destination="6Wg-Xk-av9" id="9mp-B2-Rcb"/>
+                        <outlet property="firstNameTextField" destination="6Ej-5N-Zf3" id="nbQ-iI-ERS"/>
+                        <outlet property="lastNameTextField" destination="2Fi-ue-bGS" id="AGB-2j-Ko7"/>
+                        <outlet property="passwordTextField" destination="Ku3-36-Bke" id="rST-37-Bgk"/>
+                        <outlet property="phoneNumberTextField" destination="6Wg-Xk-av9" id="ZSz-E7-ZVq"/>
                         <outlet property="registerButton" destination="F9G-GZ-jmE" id="nMm-Fv-RMw"/>
+                        <outlet property="repeatPasswordTextField" destination="TjM-W6-Dr3" id="Q5S-iE-NZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL3-eQ-bpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
