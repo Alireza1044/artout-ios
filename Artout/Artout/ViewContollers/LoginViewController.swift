@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var validLabel: UILabel!
-    
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        viewModel.Login()
+    }
     var viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
@@ -31,8 +33,14 @@ class LoginViewController: UIViewController {
             self.validLabel.textColor = isValid ? .green : .red
         })
         .disposed(by: disposeBag)
+        
+        _ = viewModel.loginStatus.subscribe(onNext: { [unowned self] status in
+                let alertController = UIAlertController(title: "Login Successful", message:
+                    "Welcome to Artout", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        )
     }
-
-
 }
 

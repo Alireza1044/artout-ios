@@ -6,5 +6,6 @@ target 'Artout' do
   use_frameworks!
 
   # Pods for Artout
+  pod 'RxSwift'
   pod 'RxCocoa'
 end
