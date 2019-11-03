@@ -15,6 +15,8 @@ class SignUpViewModel{
     var phoneNumberText: BehaviorSubject<String>
     var passwordText: BehaviorSubject<String>
     var repeatPasswordText: BehaviorSubject<String>
+    var registerStatus = PublishSubject<Bool>()
+    var isLoading = PublishSubject<Bool>()
     
     var isSame: Observable<Bool>
     var isEmpty: Observable<Bool>
@@ -40,6 +42,25 @@ class SignUpViewModel{
     }
     
     func Register() {
-        //service.Register(firstName: self.firstNameText , lastName: self.lastNameText, phoneNumber: self.phoneNumberText, password: self.passwordText)
+        
+        service.isLoading.subscribe({
+            switch $0{
+            case .next(true):
+                self.isLoading.on(.next(true))
+            case .next(false):
+                self.isLoading.on(.next(false))
+            default:
+                self.isLoading.on(.next(false))
+            }
+            })
+        
+        try? service.Register(firstName: firstNameText.value(), lastName: lastNameText.value(), phoneNumber: phoneNumberText.value(), password: passwordText.value()).subscribe({ event in
+            switch event{
+            case .success:
+                self.registerStatus.on(.next(true))
+            case .error:
+                self.registerStatus.on(.next(false))
+            }
+        })
     }
 }

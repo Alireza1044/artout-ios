@@ -15,6 +15,7 @@ class RegisterService {
     
     let endpoint = "TBA"
     let disposeBag = DisposeBag()
+    let isLoading = PublishSubject<Bool>()
     
     struct Registerar: Codable {
         var firstName: String
@@ -35,6 +36,8 @@ class RegisterService {
     }
     
     func Register(firstName:String,lastName:String,phoneNumber:String, password:String) -> Single<String> {
+
+        isLoading.onNext(true)
         
         let jsonData = try! JSONEncoder().encode(Registerar(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, password: password))
         
@@ -55,10 +58,12 @@ class RegisterService {
             .subscribe(onNext: { [weak self] response, data in
                 let decoder = JSONDecoder()
                 guard let json = try? decoder.decode([[String:String]].self, from: data) else {
+                    self?.isLoading.onNext(false)
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     return
                 }
                 if let accessToken = json[0]["Access"] {
+                    self?.isLoading.onNext(false)
                     single(.success(accessToken))
                 }
                 

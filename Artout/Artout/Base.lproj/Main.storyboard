@@ -141,9 +141,15 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="MtD-We-cAK" eventType="touchUpInside" id="Ged-gQ-lxO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="K9X-ga-8Gl">
+                                <rect key="frame" x="197" y="652" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -151,6 +157,8 @@
                             <constraint firstItem="gGb-AZ-HDh" firstAttribute="leading" secondItem="UY6-BO-Wxh" secondAttribute="leading" constant="50" id="Eqr-52-Q8r"/>
                             <constraint firstItem="gGb-AZ-HDh" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" constant="16" id="GAM-yu-iH4"/>
                             <constraint firstItem="yhB-75-hGK" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" id="TAj-lN-bFe"/>
+                            <constraint firstItem="K9X-ga-8Gl" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" id="UpG-67-KrU"/>
+                            <constraint firstItem="K9X-ga-8Gl" firstAttribute="top" secondItem="gGb-AZ-HDh" secondAttribute="bottom" constant="40" id="bSl-Fq-LOU"/>
                             <constraint firstItem="gGb-AZ-HDh" firstAttribute="top" secondItem="yhB-75-hGK" secondAttribute="bottom" constant="50" id="bqA-p3-X2e"/>
                             <constraint firstItem="gGb-AZ-HDh" firstAttribute="centerY" secondItem="UO0-Cs-3d9" secondAttribute="centerY" constant="16" id="cF0-e0-0mi"/>
                         </constraints>
@@ -158,6 +166,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Lfe-Y3-CDO"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="K9X-ga-8Gl" id="vGo-Nb-Mao"/>
                         <outlet property="firstNameTextField" destination="6Ej-5N-Zf3" id="nbQ-iI-ERS"/>
                         <outlet property="lastNameTextField" destination="2Fi-ue-bGS" id="AGB-2j-Ko7"/>
                         <outlet property="passwordTextField" destination="Ku3-36-Bke" id="rST-37-Bgk"/>
