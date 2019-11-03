@@ -11,7 +11,7 @@ import UIKit
 
 class SignUpViewController: UIViewController{
     
-
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
@@ -30,14 +30,9 @@ class SignUpViewController: UIViewController{
         _ = passwordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.passwordText)
         _ = repeatPasswordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.repeatPasswordText)
         
-//        self.registerButton.isEnabled = Observable.combineLatest(signupViewModel.isSame,signupViewModel.isEmpty) { isSame, isEmpty in
-//            isSame && isEmpty
-//        }
-
-        signupViewModel.isSame.subscribe(onNext: { isEnabled in
-            self.signupViewModel.isEmpty.subscribe(onNext: { isEmpty in
-                self.registerButton.isEnabled = isEnabled && isEmpty
-            })
-            }).disposed(by: disposeBag)
+        Observable.combineLatest(signupViewModel.isEmpty,signupViewModel.isSame).map{ !$0 && $1}.subscribe{
+            self.registerButton.isEnabled = $0.element!
+            print("register: \(self.registerButton.isEnabled)")
+        }.disposed(by: disposeBag)
     }
 }

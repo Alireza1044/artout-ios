@@ -29,7 +29,7 @@ class SignUpViewModel{
         repeatPasswordText = BehaviorSubject<String>(value: "")
         
         self.isSame = Observable.combineLatest(passwordText.asObservable(),repeatPasswordText.asObservable()) { password, repeatPassword in
-            password == repeatPassword
+            !password.isEmpty && password == repeatPassword
         }
         
         self.isEmpty = Observable.combineLatest(firstNameText.asObservable(),lastNameText.asObservable(),phoneNumberText.asObservable()) { first,last,phone in
