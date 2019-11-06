@@ -36,6 +36,7 @@
                                         </state>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DQb-SG-jOp"/>
+                                            <segue destination="piZ-c4-mtO" kind="showDetail" id="fy4-rn-RoM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sq-5r-6J4">
@@ -178,6 +179,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL3-eQ-bpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="47"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="SVr-FF-ckT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="piZ-c4-mtO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BT2-r4-Wgg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q9a-uF-jBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="428"/>
         </scene>
     </scenes>
 </document>
