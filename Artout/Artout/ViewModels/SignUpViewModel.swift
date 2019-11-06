@@ -37,8 +37,8 @@ class SignUpViewModel{
         
         self.isEmpty = Observable.combineLatest(firstNameText.asObservable(),lastNameText.asObservable(),phoneNumberText.asObservable()) { first,last,phone in
             first.isEmpty &&
-            last.isEmpty &&
-            phone.isEmpty
+                last.isEmpty &&
+                phone.isEmpty
         }
     }
     
@@ -53,7 +53,7 @@ class SignUpViewModel{
             default:
                 self.isLoading.on(.next(false))
             }
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
         
         try? service.Register(firstName: firstNameText.value(), lastName: lastNameText.value(), phoneNumber: phoneNumberText.value(), password: passwordText.value()).subscribe({ event in
             switch event{
@@ -62,6 +62,6 @@ class SignUpViewModel{
             case .error:
                 self.registerStatus.on(.next(false))
             }
-            }).disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
     }
 }
