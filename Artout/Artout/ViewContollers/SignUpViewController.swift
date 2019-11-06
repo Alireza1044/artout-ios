@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController{
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     var signupViewModel = SignUpViewModel()
     var disposeBag = DisposeBag()
@@ -29,10 +30,41 @@ class SignUpViewController: UIViewController{
         _ = phoneNumberTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.phoneNumberText)
         _ = passwordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.passwordText)
         _ = repeatPasswordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.repeatPasswordText)
+        activityIndicatorView.isHidden = true
+        
+        signupViewModel.isLoading.subscribe({ loading in
+//            if(loading.element!){
+//                self.activityIndicatorView.startAnimating()
+//                self.activityIndicatorView.isHidden = false
+//            }
+//            else{
+//                self.activityIndicatorView.stopAnimating()
+//                self.activityIndicatorView.isHidden = true
+//            }
+            switch (loading){
+            case .next(true):
+                self.activityIndicatorView.startAnimating()
+                self.activityIndicatorView.isHidden = false
+            case .next(false):
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+            case .error(_):
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+            case .completed:
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+            }
+        }).disposed(by: disposeBag)
         
         Observable.combineLatest(signupViewModel.isEmpty,signupViewModel.isSame).map{ !$0 && $1}.subscribe{
             self.registerButton.isEnabled = $0.element!
             print("register: \(self.registerButton.isEnabled)")
         }.disposed(by: disposeBag)
+    }
+    
+    
+    @IBAction func registerButtonPressed(_ sender: Any) {
+        signupViewModel.Register()
     }
 }

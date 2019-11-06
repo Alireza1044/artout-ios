@@ -62,19 +62,16 @@ class RegisterService {
                 guard let json = try? decoder.decode([[String:String]].self, from: data) else {
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     self?.isLoading.onNext(false)
-                    print("oh")
                     return
                 }
                 guard response.statusCode == 201 else{
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     self?.isLoading.onNext(false)
-                    print("my")
                     return
                 }
                 if let accessToken = json[0]["Access"] {
                     self?.isLoading.onNext(false)
                     single(.success(accessToken))
-                    print("god")
                     return
                 }
                 
