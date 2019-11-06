@@ -21,6 +21,7 @@
 		FA64DD3323733906005EEDA5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3223733906005EEDA5 /* Home.storyboard */; };
 		FA64DD3523733AB9005EEDA5 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */; };
 		FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */; };
+		FA64DD3B23733E09005EEDA5 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3A23733E09005EEDA5 /* Events.storyboard */; };
 		FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */; };
 		FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* TokenService.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		FA64DD3223733906005EEDA5 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		FA64DD3A23733E09005EEDA5 /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FAFAFABC236B1DBD0057E6DA /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +140,7 @@
 				FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */,
 				FA64DD3223733906005EEDA5 /* Home.storyboard */,
 				FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */,
+				FA64DD3A23733E09005EEDA5 /* Events.storyboard */,
 			);
 			path = Artout;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				FA64DD3523733AB9005EEDA5 /* Timeline.storyboard in Resources */,
 				FA03F9B0236B081E0089E1FF /* Main.storyboard in Resources */,
 				FA64DD3323733906005EEDA5 /* Home.storyboard in Resources */,
+				FA64DD3B23733E09005EEDA5 /* Events.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
