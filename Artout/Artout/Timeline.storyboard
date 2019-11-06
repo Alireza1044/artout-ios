@@ -10,7 +10,7 @@
         <!--TimelineController-->
         <scene sceneID="pfF-gh-OE7">
             <objects>
-                <viewController title="TimelineController" id="tCB-95-dyF" sceneMemberID="viewController">
+                <viewController title="TimelineController" id="tCB-95-dyF" customClass="TimelineViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nuE-g7-lep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
