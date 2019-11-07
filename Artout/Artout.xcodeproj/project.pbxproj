@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0C994299F38BBA70880A9 /* Pods_Artout.framework */; };
+		BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* KeychainAccess */; };
 		BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */; };
 		BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */; };
 		BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC7608236E410D00AE5634 /* RegisterService.swift */; };
@@ -31,7 +32,7 @@
 		FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */; };
 		FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD4B23740DB0005EEDA5 /* Formatter.swift */; };
 		FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */; };
-		FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* LoginService.swift */; };
+		FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* TokenService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +64,7 @@
 		FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
 		FA64DD4B23740DB0005EEDA5 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		FAFAFABC236B1DBD0057E6DA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		FAFAFABC236B1DBD0057E6DA /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */,
 				6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,7 +122,7 @@
 		BBCFD906236E2D1000DABEB1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FAFAFABC236B1DBD0057E6DA /* LoginService.swift */,
+				FAFAFABC236B1DBD0057E6DA /* TokenService.swift */,
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
 			);
 			path = Services;
@@ -195,6 +197,9 @@
 			dependencies = (
 			);
 			name = Artout;
+			packageProductDependencies = (
+				BBA2C7E623744B7D0079167A /* KeychainAccess */,
+			);
 			productName = Artout;
 			productReference = FA03F9A5236B081E0089E1FF /* Artout.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +228,9 @@
 				Base,
 			);
 			mainGroup = FA03F99C236B081E0089E1FF;
+			packageReferences = (
+				BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = FA03F9A6236B081E0089E1FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,7 +314,7 @@
 				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
-				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
+				FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */,
 				FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */,
 				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
@@ -512,6 +520,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BBA2C7E623744B7D0079167A /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */ = {
