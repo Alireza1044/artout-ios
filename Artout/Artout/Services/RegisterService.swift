@@ -20,18 +20,19 @@ class RegisterService {
     let tokenService = TokenService()
     
     struct Registerar: Codable {
+        var username: String
         var first_name: String
         var last_name: String
-        var username: String
         var password: String
         var avatar: String = ""
-        var email: String = ""
+        var email: String
         
-        init(firstName:String,lastName:String,phoneNumber:String, password:String) {
+        init(username:String, firstName:String,lastName:String,email:String, password:String) {
             self.first_name = firstName
             self.last_name = lastName
-            self.username = phoneNumber
+            self.username = username
             self.password = password
+            self.email = email
         }
     }
     
@@ -40,11 +41,11 @@ class RegisterService {
         case RegisterFailed
     }
     
-    func Register(firstName:String,lastName:String,phoneNumber:String, password:String) -> Single<String> {
+    func Register(username:String, firstName:String,lastName:String,email:String, password:String) -> Single<String> {
         
         isLoading.onNext(true)
         
-        let jsonData = try! JSONEncoder().encode(Registerar(firstName: firstName, lastName: lastName, phoneNumber: phoneNumber, password: password))
+        let jsonData = try! JSONEncoder().encode(Registerar(username: username, firstName: firstName, lastName: lastName, email: email, password: password))
         
         return Single<String>.create(subscribe: { single in
             let url = self.endpoint
@@ -67,7 +68,7 @@ class RegisterService {
                 
                 guard response.statusCode == 201 else{
                     DispatchQueue.main.async {
-                        self!.error.onNext(try! decoder.decode([String:[String]].self, from: data)["username"]![0])
+                        self!.error.onNext(try! (decoder.decode([String:[String]].self, from: data).first?.value.first)!)
                     }
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     DispatchQueue.main.async {

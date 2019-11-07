@@ -10,9 +10,10 @@ import Foundation
 import RxSwift
 
 class SignUpViewModel{
+    var usernameText: BehaviorSubject<String>
     var firstNameText: BehaviorSubject<String>
     var lastNameText: BehaviorSubject<String>
-    var phoneNumberText: BehaviorSubject<String>
+    var emailText: BehaviorSubject<String>
     var passwordText: BehaviorSubject<String>
     var repeatPasswordText: BehaviorSubject<String>
     var registerStatus = PublishSubject<Bool>()
@@ -26,17 +27,18 @@ class SignUpViewModel{
     var disposeBag = DisposeBag()
     
     init() {
+        usernameText = BehaviorSubject<String>(value: "")
         firstNameText = BehaviorSubject<String>(value: "")
         lastNameText = BehaviorSubject<String>(value: "")
-        phoneNumberText = BehaviorSubject<String>(value: "")
+        emailText = BehaviorSubject<String>(value: "")
         passwordText = BehaviorSubject<String>(value: "")
         repeatPasswordText = BehaviorSubject<String>(value: "")
         
         self.isSame = Observable.combineLatest(passwordText.asObservable(),repeatPasswordText.asObservable()) { password, repeatPassword in
-            !password.isEmpty && password == repeatPassword
+            password.count >= 8 && password == repeatPassword
         }
         
-        self.isEmpty = Observable.combineLatest(firstNameText.asObservable(),lastNameText.asObservable(),phoneNumberText.asObservable()) { first,last,phone in
+        self.isEmpty = Observable.combineLatest(firstNameText.asObservable(),lastNameText.asObservable(),emailText.asObservable()) { first,last,phone in
             first.isEmpty &&
                 last.isEmpty &&
                 phone.isEmpty
@@ -60,7 +62,7 @@ class SignUpViewModel{
             self.error.on(.next($0.element!))
             }).disposed(by: disposeBag)
         
-        try? service.Register(firstName: firstNameText.value(), lastName: lastNameText.value(), phoneNumber: phoneNumberText.value(), password: passwordText.value()).subscribe({ event in
+        try? service.Register(username: usernameText.value(),firstName: firstNameText.value(), lastName: lastNameText.value(), email: emailText.value(), password: passwordText.value()).subscribe({ event in
             switch event{
             case .success:
                 self.registerStatus.on(.next(true))

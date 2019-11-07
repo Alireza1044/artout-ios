@@ -12,9 +12,10 @@ import UIKit
 class SignUpViewController: UIViewController{
     
     
+    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
@@ -25,9 +26,10 @@ class SignUpViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = usernameTextField.rx.text.map({ $0 ?? ""}).bind(to: signupViewModel.usernameText)
         _ = firstNameTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.firstNameText)
         _ = lastNameTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.lastNameText)
-        _ = phoneNumberTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.phoneNumberText)
+        _ = emailTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.emailText)
         _ = passwordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.passwordText)
         _ = repeatPasswordTextField.rx.text.map {$0 ?? ""}.bind(to: signupViewModel.repeatPasswordText)
         activityIndicatorView.isHidden = true
