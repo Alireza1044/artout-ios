@@ -25,6 +25,11 @@
 		FA64DD3D23733EDE005EEDA5 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD3C23733EDE005EEDA5 /* EventsViewController.swift */; };
 		FA64DD3F2373425C005EEDA5 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD3E2373425C005EEDA5 /* HomeTabBarController.swift */; };
 		FA64DD41237343E6005EEDA5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD40237343E6005EEDA5 /* Profile.storyboard */; };
+		FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD4323734560005EEDA5 /* ProfileViewController.swift */; };
+		FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD452374044D005EEDA5 /* LoginDTO.swift */; };
+		FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD472374045E005EEDA5 /* SignupDTO.swift */; };
+		FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */; };
+		FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD4B23740DB0005EEDA5 /* Formatter.swift */; };
 		FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */; };
 		FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* TokenService.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +57,11 @@
 		FA64DD3C23733EDE005EEDA5 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		FA64DD3E2373425C005EEDA5 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeTabBarController.swift; path = HomeViewControllers/HomeTabBarController.swift; sourceTree = "<group>"; };
 		FA64DD40237343E6005EEDA5 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		FA64DD4323734560005EEDA5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FA64DD452374044D005EEDA5 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
+		FA64DD472374045E005EEDA5 /* SignupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDTO.swift; sourceTree = "<group>"; };
+		FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
+		FA64DD4B23740DB0005EEDA5 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FAFAFABC236B1DBD0057E6DA /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +103,7 @@
 				FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */,
 				FA64DD3C23733EDE005EEDA5 /* EventsViewController.swift */,
 				FA64DD3E2373425C005EEDA5 /* HomeTabBarController.swift */,
+				FA64DD4323734560005EEDA5 /* ProfileViewController.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -141,17 +152,29 @@
 				BBCFD904236E2CFC00DABEB1 /* ViewContollers */,
 				BBCFD905236E2D0600DABEB1 /* ViewModels */,
 				BBCFD906236E2D1000DABEB1 /* Services */,
-				FA03F9AE236B081E0089E1FF /* Main.storyboard */,
+				FA64DD42237344B2005EEDA5 /* Storyboards */,
 				FA03F9B4236B081F0089E1FF /* Assets.xcassets */,
-				FA03F9B6236B081F0089E1FF /* LaunchScreen.storyboard */,
 				FA03F9B9236B081F0089E1FF /* Info.plist */,
 				FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */,
+				FA64DD452374044D005EEDA5 /* LoginDTO.swift */,
+				FA64DD472374045E005EEDA5 /* SignupDTO.swift */,
+				FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */,
+				FA64DD4B23740DB0005EEDA5 /* Formatter.swift */,
+			);
+			path = Artout;
+			sourceTree = "<group>";
+		};
+		FA64DD42237344B2005EEDA5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA03F9AE236B081E0089E1FF /* Main.storyboard */,
+				FA03F9B6236B081F0089E1FF /* LaunchScreen.storyboard */,
 				FA64DD3223733906005EEDA5 /* Home.storyboard */,
 				FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */,
 				FA64DD3A23733E09005EEDA5 /* Events.storyboard */,
 				FA64DD40237343E6005EEDA5 /* Profile.storyboard */,
 			);
-			path = Artout;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,16 +296,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */,
 				FA64DD3D23733EDE005EEDA5 /* EventsViewController.swift in Sources */,
 				FA03F9AD236B081E0089E1FF /* LoginViewController.swift in Sources */,
 				FA64DD3F2373425C005EEDA5 /* HomeTabBarController.swift in Sources */,
 				BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */,
+				FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */,
 				BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */,
+				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */,
+				FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */,
 				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
+				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
 			);

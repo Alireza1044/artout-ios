@@ -9,7 +9,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TFt-jD-9L0">
             <objects>
-                <tabBarController modalPresentationStyle="overFullScreen" id="xow-fL-zJa" sceneMemberID="viewController">
+                <tabBarController modalTransitionStyle="flipHorizontal" modalPresentationStyle="overFullScreen" id="xow-fL-zJa" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VKl-K9-lfD" customClass="HomeTabBarController" customModule="Artout" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,7 +24,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvp-Wo-3Gx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-370" y="365"/>
+            <point key="canvasLocation" x="-400" y="365"/>
         </scene>
         <!--Profile-->
         <scene sceneID="o31-5u-OV0">
