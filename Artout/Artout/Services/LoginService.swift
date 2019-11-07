@@ -11,6 +11,7 @@ import RxSwift
 
 class LoginService {
 
+    let TokenHandler = TokenService()
     let Formatter = DTOFormatter<LoginDTO, LoginResponseDTO>()
     let disposeBag = DisposeBag()
     
@@ -42,6 +43,7 @@ class LoginService {
                     }
                     return
                 }
+                self?.TokenHandler.saveToken(access: responseDTO.access, refresh: responseDTO.refresh)
                 single(.success(responseDTO.access))
                 return
                 }, onError: { error in

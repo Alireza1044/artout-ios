@@ -10,7 +10,7 @@ import Foundation
 import KeychainAccess
 import RxSwift
 
-class TokenService{
+class TokenService {
     
     let keychain = Keychain(service: "com.pooyakab.Artout")
     
@@ -19,7 +19,7 @@ class TokenService{
         keychain["refresh"] = refresh
     }
     
-    func refreshToken(refresh:String){
+    func refreshToken(refresh:String) {
         
     }
 }
