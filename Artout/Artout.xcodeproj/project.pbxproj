@@ -31,7 +31,7 @@
 		FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */; };
 		FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD4B23740DB0005EEDA5 /* Formatter.swift */; };
 		FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */; };
-		FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* TokenService.swift */; };
+		FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* LoginService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,7 @@
 		FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
 		FA64DD4B23740DB0005EEDA5 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		FAFAFABC236B1DBD0057E6DA /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
+		FAFAFABC236B1DBD0057E6DA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 		BBCFD906236E2D1000DABEB1 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				FAFAFABC236B1DBD0057E6DA /* TokenService.swift */,
+				FAFAFABC236B1DBD0057E6DA /* LoginService.swift */,
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
 			);
 			path = Services;
@@ -306,7 +306,7 @@
 				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
-				FAFAFABD236B1DBD0057E6DA /* TokenService.swift in Sources */,
+				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */,
 				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,

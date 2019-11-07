@@ -17,7 +17,7 @@ class RegisterService {
     let disposeBag = DisposeBag()
     let isLoading = PublishSubject<Bool>()
     let error = PublishSubject<String>()
-    let tokenService = TokenService()
+    let tokenService = LoginService()
     
     struct Registerar: Codable {
         var username: String
