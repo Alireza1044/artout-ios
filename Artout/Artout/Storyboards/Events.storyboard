@@ -45,11 +45,33 @@
                         <viewLayoutGuide key="safeArea" id="You-wV-aAn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="rectangle.stack" catalog="system" selectedImage="rectangle.stack.fill" id="ivP-BT-JBP"/>
-                    <navigationItem key="navigationItem" id="1zD-4H-xBb"/>
+                    <navigationItem key="navigationItem" title="Events" id="BAd-NJ-b6Q">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="CCn-eC-Iuo">
+                            <connections>
+                                <segue destination="kw7-fT-bN2" kind="show" id="dls-1P-SsZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ens-0d-xpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="116.51785714285714"/>
+        </scene>
+        <!--New Event-->
+        <scene sceneID="Bxy-2N-4Hm">
+            <objects>
+                <viewController id="kw7-fT-bN2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aXH-9d-hVX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PNP-58-AsI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Event" id="4WT-Id-NZo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X8R-mP-5Pa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2821" y="117"/>
         </scene>
     </scenes>
     <resources>
