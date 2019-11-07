@@ -13,6 +13,8 @@ import RxSwift
 
 class RegisterService {
     
+    let Formatter = DTOFormatter<RegisterDTO, RegisterResponseDTO>()
+    
     let endpoint = "http://35.202.66.168:8000/api/register/"
     let disposeBag = DisposeBag()
     let isLoading = PublishSubject<Bool>()
@@ -41,21 +43,21 @@ class RegisterService {
         case RegisterFailed
     }
     
+    
     func Register(username:String, firstName:String,lastName:String,email:String, password:String) -> Single<String> {
         
         isLoading.onNext(true)
         
-        let jsonData = try! JSONEncoder().encode(Registerar(username: username, firstName: firstName, lastName: lastName, email: email, password: password))
+        let rawData = RegisterDTO(username: username, firstName: firstName, lastName: lastName, email: email, password: password)
+//        let jsonData = try! JSONEncoder().encode()
         
         return Single<String>.create(subscribe: { single in
-            let url = self.endpoint
-            
-            Observable.from([url])
-                .map {
-                    let url = URL(string: $0)!
+            Observable.from([String].self)
+                .map {_ in
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Register.rawValue)!
                     var request = URLRequest(url: url)
-                    request.httpMethod = "POST"
-                    request.httpBody = jsonData
+                    request.httpMethod = HTTPMethod.POST.rawValue
+                    request.httpBody = self.Formatter.Encode(objDTO: rawData)
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                     return request
             }
