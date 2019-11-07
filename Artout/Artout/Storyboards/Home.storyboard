@@ -29,7 +29,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfq-fN-d8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Timeline" id="I8t-6w-JIV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ewR-6L-x0s"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="ewR-6L-x0s"/>
                 </viewControllerPlaceholder>
             </objects>
             <point key="canvasLocation" x="-641" y="823"/>
@@ -38,7 +38,7 @@
         <scene sceneID="mS4-lU-q98">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="cEx-Ek-dnk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uQT-6g-I46"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="uQT-6g-I46"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTW-EZ-mWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,7 +48,7 @@
         <scene sceneID="JFv-Kz-CM7">
             <objects>
                 <viewControllerPlaceholder storyboardName="Events" id="55T-Oe-7w5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3hg-Ln-of0"/>
+                    <tabBarItem key="tabBarItem" title="Events" id="3hg-Ln-of0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgG-u2-f8p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

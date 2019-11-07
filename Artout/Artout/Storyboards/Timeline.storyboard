@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xVV-Zd-R1V"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" selectedImage="house.fill" id="Qjo-v6-Bpd"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="Qjo-v6-Bpd"/>
                     <navigationItem key="navigationItem" id="Iln-vq-VUF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Tc-dB-dZx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

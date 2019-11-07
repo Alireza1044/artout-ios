@@ -44,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="You-wV-aAn"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="rectangle.stack" catalog="system" selectedImage="rectangle.stack.fill" id="ivP-BT-JBP"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="rectangle.stack" catalog="system" selectedImage="rectangle.stack.fill" id="ivP-BT-JBP"/>
                     <navigationItem key="navigationItem" id="1zD-4H-xBb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ens-0d-xpd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
