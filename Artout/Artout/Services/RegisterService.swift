@@ -16,6 +16,8 @@ class RegisterService {
     let endpoint = "http://35.202.66.168:8000/api/register/"
     let disposeBag = DisposeBag()
     let isLoading = PublishSubject<Bool>()
+    let error = PublishSubject<String>()
+    let tokenService = TokenService()
     
     struct Registerar: Codable {
         var first_name: String
@@ -35,6 +37,7 @@ class RegisterService {
     
     enum RegisterError: Error {
         case CouldNotConnectToHostError
+        case RegisterFailed
     }
     
     func Register(firstName:String,lastName:String,phoneNumber:String, password:String) -> Single<String> {
@@ -60,7 +63,12 @@ class RegisterService {
                 URLSession.shared.rx.response(request: request).debug("test")//.rx.response(request: request)
             }
             .subscribe(onNext: { [weak self] response, data in
+                let decoder = JSONDecoder()
+                
                 guard response.statusCode == 201 else{
+                    DispatchQueue.main.async {
+                        self!.error.onNext(try! decoder.decode([String:[String]].self, from: data)["username"]![0])
+                    }
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
@@ -69,8 +77,7 @@ class RegisterService {
                     return
                 }
                 
-                let decoder = JSONDecoder()
-                guard let json = try? decoder.decode([[String:String]].self, from: data) else {
+                guard let json = try? decoder.decode([String:String].self, from: data) else {
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
@@ -79,7 +86,7 @@ class RegisterService {
                     return
                 }
                 
-                if let accessToken = json[0]["Access"] {
+                if let accessToken = json["access"] {
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
                     }
@@ -88,6 +95,8 @@ class RegisterService {
                     return
                 }
                 
+                },onError: { error in
+                    print(error.localizedDescription)
             }).disposed(by: self.disposeBag)
             return Disposables.create()
         })

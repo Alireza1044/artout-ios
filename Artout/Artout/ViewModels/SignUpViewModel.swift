@@ -17,6 +17,7 @@ class SignUpViewModel{
     var repeatPasswordText: BehaviorSubject<String>
     var registerStatus = PublishSubject<Bool>()
     var isLoading = PublishSubject<Bool>()
+    var error = PublishSubject<String>()
     
     var isSame: Observable<Bool>
     var isEmpty: Observable<Bool>
@@ -54,6 +55,10 @@ class SignUpViewModel{
                 self.isLoading.on(.next(false))
             }
         }).disposed(by: disposeBag)
+        
+        service.error.subscribe({
+            self.error.on(.next($0.element!))
+            }).disposed(by: disposeBag)
         
         try? service.Register(firstName: firstNameText.value(), lastName: lastNameText.value(), phoneNumber: phoneNumberText.value(), password: passwordText.value()).subscribe({ event in
             switch event{

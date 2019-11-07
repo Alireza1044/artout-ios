@@ -61,6 +61,14 @@ class SignUpViewController: UIViewController{
             self.registerButton.isEnabled = $0.element!
             print("register: \(self.registerButton.isEnabled)")
         }.disposed(by: disposeBag)
+        
+        _ = signupViewModel.error.subscribe(onNext: { status in
+                let alertController = UIAlertController(title: "Register Failed", message:
+                    status.description, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        )
     }
     
     
