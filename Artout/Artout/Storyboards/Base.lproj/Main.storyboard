@@ -187,7 +187,7 @@
                         <constraints>
                             <constraint firstItem="UY6-BO-Wxh" firstAttribute="trailing" secondItem="gGb-AZ-HDh" secondAttribute="trailing" constant="50" id="0al-Nz-7qv"/>
                             <constraint firstItem="gGb-AZ-HDh" firstAttribute="leading" secondItem="UY6-BO-Wxh" secondAttribute="leading" constant="50" id="Eqr-52-Q8r"/>
-                            <constraint firstItem="gGb-AZ-HDh" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" constant="16" id="GAM-yu-iH4"/>
+                            <constraint firstItem="gGb-AZ-HDh" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" id="NCk-gr-fxp"/>
                             <constraint firstItem="yhB-75-hGK" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" id="TAj-lN-bFe"/>
                             <constraint firstItem="K9X-ga-8Gl" firstAttribute="centerX" secondItem="UO0-Cs-3d9" secondAttribute="centerX" id="UpG-67-KrU"/>
                             <constraint firstItem="K9X-ga-8Gl" firstAttribute="top" secondItem="gGb-AZ-HDh" secondAttribute="bottom" constant="40" id="bSl-Fq-LOU"/>
