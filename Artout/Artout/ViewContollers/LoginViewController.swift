@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var validLabel: UILabel!
     @IBAction func loginButtonPressed(_ sender: Any) {
         viewModel.Login()
         
@@ -27,13 +26,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         _ = emailTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.emailText)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.passwordText)
         _ = viewModel.isValid.bind(to: loginButton.rx.isEnabled)
         
         viewModel.isValid.subscribe(onNext: { [unowned self] isValid in
-            self.validLabel.text = isValid ? "Password is valid" : "Password is not valid"
-            self.validLabel.textColor = isValid ? .green : .red
+            self.loginButton.isEnabled = isValid
         })
         .disposed(by: disposeBag)
         
