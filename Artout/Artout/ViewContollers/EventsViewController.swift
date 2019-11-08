@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class EventsViewController: UIViewController {
+class EventsViewController: UIViewController, UITableViewDelegate {
 
+    @IBOutlet weak var EventsTableView: UITableView!
+    
+    var viewModel = EventsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
