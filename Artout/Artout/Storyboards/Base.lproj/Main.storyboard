@@ -170,7 +170,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerWidth" value="10"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="2"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
