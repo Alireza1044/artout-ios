@@ -11,23 +11,40 @@ import RxSwift
 
 class NewEventViewController:UIViewController, UITextViewDelegate{
     
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
     @IBOutlet weak var endDateTextField: UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     private var datePicker: UIDatePicker? = UIDatePicker()
     private var timePicker: UIDatePicker? = UIDatePicker()
     
+    var newEventViewModel = NewEventViewModel()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         prepareDatePickers()
         prepareTextView()
+        prepareBindings()
+    }
+    
+    func prepareBindings(){
+        _ = titleTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.titleText)
+        _ = startDateTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.startDateText)
+        _ = endDateTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.endDateText)
+        _ = startTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.startTimeText)
+        _ = endTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.endTimeText)
+        _ = descriptionTextView.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.descriptionText)
         
+        Observable.combineLatest(newEventViewModel.isEmpty,newEventViewModel.descriptionIsEmpty).map{ !$0 && $1}.subscribe{
+            self.doneButton.isEnabled = $0.element!
+        }.disposed(by: disposeBag)
     }
     
     func prepareTextView(){
@@ -35,7 +52,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.cornerRadius = 6
         descriptionTextView.delegate = self
-        descriptionTextView.text = "Description..."
+        descriptionTextView.text = "Write a description..."
         descriptionTextView.textColor = UIColor.systemGray3
         
         descriptionTextView.selectedTextRange = descriptionTextView.textRange(from: descriptionTextView.beginningOfDocument, to: descriptionTextView.beginningOfDocument)
@@ -52,7 +69,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
             
-            textView.text = "Description..."
+            textView.text = "Write a description..."
             textView.textColor = UIColor.systemGray3
             
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)

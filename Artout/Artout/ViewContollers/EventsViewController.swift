@@ -14,7 +14,7 @@ class EventsViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var EventsTableView: UITableView!
     
-    var viewModel = EventsViewModel()
+    //var viewModel = EventsViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 

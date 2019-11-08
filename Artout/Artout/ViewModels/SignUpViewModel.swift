@@ -16,9 +16,9 @@ class SignUpViewModel{
     var emailText: BehaviorSubject<String>
     var passwordText: BehaviorSubject<String>
     var repeatPasswordText: BehaviorSubject<String>
-    var registerStatus = PublishSubject<Bool>()
-    var isLoading = PublishSubject<Bool>()
-    var error = PublishSubject<String>()
+    var registerStatus: PublishSubject<Bool>
+    var isLoading: PublishSubject<Bool>
+    var error: PublishSubject<String>
     
     var isSame: Observable<Bool>
     var isEmpty: Observable<Bool>
@@ -33,6 +33,10 @@ class SignUpViewModel{
         emailText = BehaviorSubject<String>(value: "")
         passwordText = BehaviorSubject<String>(value: "")
         repeatPasswordText = BehaviorSubject<String>(value: "")
+        
+        registerStatus = PublishSubject<Bool>()
+        isLoading = PublishSubject<Bool>()
+        error = PublishSubject<String>()
         
         self.isSame = Observable.combineLatest(passwordText.asObservable(),repeatPasswordText.asObservable()) { password, repeatPassword in
             password.count >= 8 && password == repeatPassword
