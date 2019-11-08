@@ -24,6 +24,7 @@ class NewEventViewModel{
     var isLoading: PublishSubject<Bool>
     var error: PublishSubject<String>
     
+    var service = EventsService()
     var disposeBag = DisposeBag()
     
     init() {
@@ -48,5 +49,7 @@ class NewEventViewModel{
         print("Fucking: \(self.isEmpty)")
     }
     
-    
+    func AddEvent(){
+        service.AddEvents()
+    }
 }

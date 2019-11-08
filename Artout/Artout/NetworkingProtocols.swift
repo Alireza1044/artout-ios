@@ -26,6 +26,7 @@ public enum HTTPMethod: String {
 public enum APIPaths: String {
     case Login = "login/"
     case Register = "register/"
+    case Events = "event/events/"
 }
 public enum ContentType: String {
     case JSON = "application/json"
