@@ -25,6 +25,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     private var timePicker: UIDatePicker? = UIDatePicker()
     
     var newEventViewModel = NewEventViewModel()
+    var eventsViewModel = EventsViewModel()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -85,6 +86,9 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
             case .next(true):
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
+                    
+                    self.eventsViewModel.Events.append(EventModel(title: self.titleTextField.text!, category: self.categoryTextField.text!, description: self.descriptionTextView.text, start_date: self.startDateTextField.text!, end_date: self.endDateTextField.text!, picture_url: "", event_owner: 1, location: ["longtitude":0.0,"latitude":0.0]))
+                    self.eventsViewModel.Refresh.on(.next(true))
                 }
             case .next(false):
                 print("fuck")
