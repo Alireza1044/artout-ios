@@ -118,7 +118,7 @@
                     <navigationItem key="navigationItem" title="Events" id="xP4-PA-GgS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jIf-9t-gKr">
                             <connections>
-                                <segue destination="kw7-fT-bN2" kind="presentation" id="Lkx-ub-UKf"/>
+                                <segue destination="kw7-fT-bN2" kind="show" id="Lkx-ub-UKf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -133,11 +133,11 @@
             <objects>
                 <viewController id="kw7-fT-bN2" customClass="NewEventViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aXH-9d-hVX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-e6-bHS">
-                                <rect key="frame" x="50" y="271" width="314" height="300"/>
+                                <rect key="frame" x="50" y="298" width="314" height="300"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YtA-8s-EeM">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
@@ -177,7 +177,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="A4N-Ra-DcP">
-                                <rect key="frame" x="197" y="611" width="20" height="20"/>
+                                <rect key="frame" x="197" y="638" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
