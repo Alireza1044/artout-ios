@@ -9,6 +9,7 @@
 import Foundation
 struct EventModel: Codable {
     var title: String
+    var category: String
     var description: String
     var start_date: String
     var end_date: String
@@ -16,13 +17,14 @@ struct EventModel: Codable {
     var event_owner: Int
     var location: [String:String]
     
-    init(title:String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:String]) {
+    init(title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:String]) {
         self.title = title
+        self.category = category
         self.description = description
-        self.start_date = start_date
-        self.end_date = end_date
         self.picture_url = picture_url
         self.event_owner = event_owner
         self.location = location
+        self.start_date = start_date
+        self.end_date = end_date
     }
 }

@@ -137,47 +137,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="center" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HcM-e6-bHS">
-                                <rect key="frame" x="50" y="298" width="314" height="300"/>
+                                <rect key="frame" x="50" y="273" width="314" height="350"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YtA-8s-EeM">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apV-ce-03s">
+                                        <rect key="frame" x="0.0" y="42" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmt-hA-f4Y">
-                                        <rect key="frame" x="0.0" y="42" width="314" height="90"/>
+                                        <rect key="frame" x="0.0" y="84" width="314" height="98"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DEq-SI-BL9">
-                                        <rect key="frame" x="0.0" y="140" width="314" height="34"/>
+                                        <rect key="frame" x="0.0" y="190" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9m6-zy-JM0">
-                                        <rect key="frame" x="0.0" y="182" width="314" height="34"/>
+                                        <rect key="frame" x="0.0" y="232" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="glO-27-68A">
-                                        <rect key="frame" x="0.0" y="224" width="314" height="34"/>
+                                        <rect key="frame" x="0.0" y="274" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLK-x5-nQy">
-                                        <rect key="frame" x="0.0" y="266" width="314" height="34"/>
+                                        <rect key="frame" x="0.0" y="316" width="314" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="vHY-Gg-bzP"/>
+                                    <constraint firstAttribute="height" constant="350" id="vHY-Gg-bzP"/>
                                 </constraints>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="A4N-Ra-DcP">
-                                <rect key="frame" x="197" y="638" width="20" height="20"/>
+                                <rect key="frame" x="197" y="663" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -191,10 +196,15 @@
                         <viewLayoutGuide key="safeArea" id="PNP-58-AsI"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Event" id="4WT-Id-NZo">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="A1M-8Q-izb"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="A1M-8Q-izb">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="kw7-fT-bN2" id="lxn-AE-G8k"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="A4N-Ra-DcP" id="fkt-O1-FUZ"/>
+                        <outlet property="categoryTextField" destination="apV-ce-03s" id="qqi-7y-21Z"/>
                         <outlet property="descriptionTextView" destination="bmt-hA-f4Y" id="DBV-Ii-xQi"/>
                         <outlet property="doneButton" destination="A1M-8Q-izb" id="H5y-JZ-KyD"/>
                         <outlet property="endDateTextField" destination="9m6-zy-JM0" id="SYA-aN-4sg"/>

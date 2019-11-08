@@ -56,8 +56,8 @@ class EventsTableViewController: UITableViewController {
         if let title = cell.viewWithTag(1) as? UILabel,
            let date = cell.viewWithTag(2) as? UILabel,
            let pic = cell.viewWithTag(3) as? UIImageView {
-            title.text = item.name
-            date.text = item.date
+            title.text = item.title
+            date.text = item.start_date
             pic.image = UIImage(named: "Logo")
             
         }

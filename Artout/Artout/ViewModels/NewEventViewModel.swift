@@ -18,11 +18,14 @@ class NewEventViewModel{
     var endDateText: BehaviorSubject<String>
     var startTimeText: BehaviorSubject<String>
     var endTimeText: BehaviorSubject<String>
+    var categoryText: BehaviorSubject<String>
     
     var isEmpty: Observable<Bool>
     var descriptionIsEmpty: Observable<Bool>
     var isLoading: PublishSubject<Bool>
-    var error: PublishSubject<String>
+    
+    var addEventStatus: PublishSubject<Bool>
+    var adddEventErrorMessage: PublishSubject<String>
     
     var service = EventsService()
     var disposeBag = DisposeBag()
@@ -34,11 +37,14 @@ class NewEventViewModel{
         endDateText = BehaviorSubject<String>(value: "")
         startTimeText = BehaviorSubject<String>(value: "")
         endTimeText = BehaviorSubject<String>(value: "")
+        categoryText = BehaviorSubject<String>(value: "")
         isLoading = PublishSubject<Bool>()
-        error = PublishSubject<String>()
+        addEventStatus = PublishSubject<Bool>()
+        adddEventErrorMessage = PublishSubject<String>()
         
-        self.isEmpty = Observable.combineLatest(titleText.asObservable(),startDateText.asObservable(),endDateText.asObservable(),startTimeText.asObservable(),endTimeText.asObservable()) { a,c,d,e,f in
+        self.isEmpty = Observable.combineLatest(titleText.asObservable(),categoryText.asObservable(),startDateText.asObservable(),endDateText.asObservable(),startTimeText.asObservable(),endTimeText.asObservable()) { a,b,c,d,e,f in
             a.isEmpty ||
+                b.isEmpty ||
                 c.isEmpty ||
                 d.isEmpty ||
                 e.isEmpty ||
@@ -50,6 +56,15 @@ class NewEventViewModel{
     }
     
     func AddEvent(){
-        service.AddEvents()
+        try? service.AddEvents(title: titleText.value(),category: categoryText.value(), description: descriptionText.value(), start_date: startDateText.value(), end_date: endDateText.value(), picture_url: "", event_owner: 1).subscribe{
+            event in
+            switch(event){
+            case .success:
+                self.addEventStatus.on(.next(true))
+            case .error:
+                self.addEventStatus.on(.next(false))
+                self.adddEventErrorMessage.on(.next("Failed to add event \(try! self.titleText.value())"))
+            }
+        }
     }
 }

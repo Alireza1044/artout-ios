@@ -13,6 +13,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var endDateTextField: UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
@@ -28,10 +29,13 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         prepareDatePickers()
         prepareTextView()
         prepareBindings()
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        newEventViewModel.AddEvent()
     }
     
     func prepareBindings(){
@@ -41,6 +45,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         _ = startTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.startTimeText)
         _ = endTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.endTimeText)
         _ = descriptionTextView.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.descriptionText)
+        _ = categoryTextField.rx.text.map{$0 ?? ""}.bind(to: newEventViewModel.categoryText)
         
         Observable.combineLatest(newEventViewModel.isEmpty,newEventViewModel.descriptionIsEmpty).map{ !$0 && $1}.subscribe{
             self.doneButton.isEnabled = $0.element!
