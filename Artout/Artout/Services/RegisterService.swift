@@ -68,6 +68,15 @@ class RegisterService {
             .subscribe(onNext: { [weak self] response, data in
                 let decoder = JSONDecoder()
                 
+                guard let json = try? decoder.decode([String:String].self, from: data) else {
+                    single(.error(RegisterError.CouldNotConnectToHostError))
+                    DispatchQueue.main.async {
+                        self!.isLoading.onNext(false)
+                    }
+                    print("oh")
+                    return
+                }
+                
                 guard response.statusCode == 201 else{
                     DispatchQueue.main.async {
                         self!.error.onNext(try! (decoder.decode([String:[String]].self, from: data).first?.value.first)!)
@@ -80,14 +89,7 @@ class RegisterService {
                     return
                 }
                 
-                guard let json = try? decoder.decode([String:String].self, from: data) else {
-                    single(.error(RegisterError.CouldNotConnectToHostError))
-                    DispatchQueue.main.async {
-                        self!.isLoading.onNext(false)
-                    }
-                    print("oh")
-                    return
-                }
+                
                 
                 if let accessToken = json["access"] {
                     DispatchQueue.main.async {
