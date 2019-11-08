@@ -11,7 +11,7 @@ import RxSwift
 
 class EventsViewModel {
     let Refresh: PublishSubject<Bool>
-    let Events: [EventModel]
+    var Events: [EventModel]
     
     init() {
         self.Refresh = PublishSubject<Bool>()
