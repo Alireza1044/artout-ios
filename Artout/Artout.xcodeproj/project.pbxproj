@@ -20,6 +20,10 @@
 		FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */; };
 		FA03F9B5236B081F0089E1FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA03F9B4236B081F0089E1FF /* Assets.xcassets */; };
 		FA03F9B8236B081F0089E1FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA03F9B6236B081F0089E1FF /* LaunchScreen.storyboard */; };
+		FA3D9C1A2375840F0019F1FC /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C192375840F0019F1FC /* EventTableViewCell.swift */; };
+		FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C1B237586870019F1FC /* EventsViewModel.swift */; };
+		FA3D9C1E237587390019F1FC /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C1D237587390019F1FC /* EventModel.swift */; };
+		FA3D9C222375920A0019F1FC /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C212375920A0019F1FC /* EventsService.swift */; };
 		FA64DD3323733906005EEDA5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3223733906005EEDA5 /* Home.storyboard */; };
 		FA64DD3523733AB9005EEDA5 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */; };
 		FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */; };
@@ -53,6 +57,10 @@
 		FA03F9B4236B081F0089E1FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA03F9B7236B081F0089E1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA03F9B9236B081F0089E1FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3D9C192375840F0019F1FC /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		FA3D9C1B237586870019F1FC /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
+		FA3D9C1D237587390019F1FC /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		FA3D9C212375920A0019F1FC /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
 		FA64DD3223733906005EEDA5 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +116,7 @@
 				FA64DD3C23733EDE005EEDA5 /* EventsViewController.swift */,
 				FA64DD3E2373425C005EEDA5 /* HomeTabBarController.swift */,
 				FA64DD4323734560005EEDA5 /* ProfileViewController.swift */,
+				FA3D9C192375840F0019F1FC /* EventTableViewCell.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -117,6 +126,7 @@
 			children = (
 				FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */,
 				BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */,
+				FA3D9C1B237586870019F1FC /* EventsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -127,6 +137,7 @@
 				FAFAFABC236B1DBD0057E6DA /* LoginService.swift */,
 				BBA2C7E8237473BF0079167A /* TokenService.swift */,
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
+				FA3D9C212375920A0019F1FC /* EventsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +176,7 @@
 				FA64DD472374045E005EEDA5 /* SignupDTO.swift */,
 				FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */,
 				FA64DD4B23740DB0005EEDA5 /* Formatter.swift */,
+				FA3D9C1D237587390019F1FC /* EventModel.swift */,
 			);
 			path = Artout;
 			sourceTree = "<group>";
@@ -313,8 +325,10 @@
 				FA64DD3F2373425C005EEDA5 /* HomeTabBarController.swift in Sources */,
 				BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */,
 				FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */,
+				FA3D9C222375920A0019F1FC /* EventsService.swift in Sources */,
 				BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */,
 				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
+				FA3D9C1A2375840F0019F1FC /* EventTableViewCell.swift in Sources */,
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
@@ -324,6 +338,8 @@
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
 				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
+				FA3D9C1E237587390019F1FC /* EventModel.swift in Sources */,
+				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
