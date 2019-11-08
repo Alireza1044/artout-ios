@@ -25,7 +25,7 @@ class NewEventViewModel{
     var isLoading: PublishSubject<Bool>
     
     var addEventStatus: PublishSubject<Bool>
-    var adddEventErrorMessage: PublishSubject<String>
+    var addEventErrorMessage: PublishSubject<String>
     
     var service = EventsService()
     var disposeBag = DisposeBag()
@@ -40,7 +40,7 @@ class NewEventViewModel{
         categoryText = BehaviorSubject<String>(value: "")
         isLoading = PublishSubject<Bool>()
         addEventStatus = PublishSubject<Bool>()
-        adddEventErrorMessage = PublishSubject<String>()
+        addEventErrorMessage = PublishSubject<String>()
         
         self.isEmpty = Observable.combineLatest(titleText.asObservable(),categoryText.asObservable(),startDateText.asObservable(),endDateText.asObservable(),startTimeText.asObservable(),endTimeText.asObservable()) { a,b,c,d,e,f in
             a.isEmpty ||
@@ -75,7 +75,8 @@ class NewEventViewModel{
                 self.addEventStatus.on(.next(true))
             case .error:
                 self.addEventStatus.on(.next(false))
-                self.adddEventErrorMessage.on(.next("Failed to add event \(try! self.titleText.value())"))
+                self.addEventErrorMessage.on(.next("Failed to add event \(try! self.titleText.value())"))
+                print("Failed to add event \(try! self.titleText.value())")
             }
         }.disposed(by: disposeBag)
     }

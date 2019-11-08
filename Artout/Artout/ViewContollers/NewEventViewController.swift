@@ -64,21 +64,34 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         descriptionTextView.selectedTextRange = descriptionTextView.textRange(from: descriptionTextView.beginningOfDocument, to: descriptionTextView.beginningOfDocument)
         
         newEventViewModel.isLoading.subscribe({ loading in
-                    switch (loading){
-                    case .next(true):
-                        self.activityIndicatorView.startAnimating()
-                        self.activityIndicatorView.isHidden = false
-                    case .next(false):
-                        self.activityIndicatorView.stopAnimating()
-                        self.activityIndicatorView.isHidden = true
-                    case .error(_):
-                        self.activityIndicatorView.stopAnimating()
-                        self.activityIndicatorView.isHidden = true
-                    case .completed:
-                        self.activityIndicatorView.stopAnimating()
-                        self.activityIndicatorView.isHidden = true
-                    }
-                }).disposed(by: disposeBag)
+            switch (loading){
+            case .next(true):
+                self.activityIndicatorView.startAnimating()
+                self.activityIndicatorView.isHidden = false
+            case .next(false):
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+            case .error(_):
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+            case .completed:
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+            }
+        }).disposed(by: disposeBag)
+        
+        _ = newEventViewModel.addEventStatus.subscribe({ status in
+            switch(status){
+            case .next(true):
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            case .next(false):
+                print("fuck")
+            default:
+                print("shit")
+            }
+        })
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

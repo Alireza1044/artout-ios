@@ -11,7 +11,7 @@ import RxSwift
 
 class EventsService {
     
-    let Formatter = DTOFormatter<EventModel, EventModel>()
+    let Formatter = DTOFormatter<EventModel, EventResponse>()
     let isLoading = PublishSubject<Bool>()
     let disposeBag = DisposeBag()
     
@@ -19,7 +19,7 @@ class EventsService {
         //        let rawData
     }
     
-    func AddEvents (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:String] = ["longitude":"0.0","latitude":"0.0"]) -> Single<String> {
+    func AddEvents (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:Float] = ["longitude":0.0,"latitude":0.0]) -> Single<String> {
         
         isLoading.onNext(true)
         
@@ -46,7 +46,7 @@ class EventsService {
                     }
                     return
                 }
-                guard let responseDTO = try? self!.Formatter.Decode(data: data) else {
+                guard let responseDTO = self!.Formatter.Decode(data: data) else {
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
                         single(.error(NetworkingError.InternalServerError))
