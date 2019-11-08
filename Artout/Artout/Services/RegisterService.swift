@@ -62,8 +62,7 @@ class RegisterService {
                     return request
             }
             .flatMap { request in
-                //                print("fuck")
-                URLSession.shared.rx.response(request: request).debug("test")//.rx.response(request: request)
+                URLSession.shared.rx.response(request: request).debug("test")
             }
             .subscribe(onNext: { [weak self] response, data in
                 let decoder = JSONDecoder()
@@ -72,6 +71,7 @@ class RegisterService {
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
+                        self?.error.on(.next("Data Decode Error"))
                     }
                     print("oh")
                     return
