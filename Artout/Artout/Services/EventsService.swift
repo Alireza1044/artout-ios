@@ -12,6 +12,7 @@ import RxSwift
 class EventsService {
     
     let Formatter = DTOFormatter<EventModel, EventModel>()
+    let isLoading = PublishSubject<Bool>()
     let disposeBag = DisposeBag()
     
     func RequestEventsIDs () {
@@ -19,6 +20,8 @@ class EventsService {
     }
     
     func AddEvents (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:String] = ["longitude":"0.0","latitude":"0.0"]) -> Single<String> {
+        
+        isLoading.onNext(true)
         
         let rawData = EventModel(title: title, category: category, description: description, start_date: convertDate(date: start_date), end_date: convertDate(date: end_date), picture_url: picture_url, event_owner: event_owner, location: location)
         
@@ -28,8 +31,7 @@ class EventsService {
                     let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Events.rawValue)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.POST.rawValue
-                    var encodedData = try JSONEncoder().encode(rawData) //self.Formatter.Encode(objDTO: rawData)
-                    request.httpBody = encodedData
+                    request.httpBody = self.Formatter.Encode(objDTO: rawData)
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                     return request
             }
@@ -39,17 +41,22 @@ class EventsService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 201 else{
                     DispatchQueue.main.async {
+                        self!.isLoading.onNext(false)
                         single(.error(NetworkingError.CredenttialsNotValid))
                     }
                     return
                 }
                 guard let responseDTO = try? self!.Formatter.Decode(data: data) else {
                     DispatchQueue.main.async {
+                        self!.isLoading.onNext(false)
                         single(.error(NetworkingError.InternalServerError))
                     }
                     return
                 }
                 single(.success(responseDTO.title))
+                DispatchQueue.main.async {
+                    self!.isLoading.onNext(false)
+                }
                 return
                 }, onError: { error in
                     print(error.localizedDescription)
@@ -61,7 +68,7 @@ class EventsService {
     func convertDate(date: String) -> String{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        var newDate = dateFormatter.date(from: date)
+        let newDate = dateFormatter.date(from: date)
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return  dateFormatter.string(from: newDate!)
     }

@@ -56,7 +56,19 @@ class NewEventViewModel{
     }
     
     func AddEvent(){
-        try? service.AddEvents(title: titleText.value(),category: categoryText.value(), description: descriptionText.value(), start_date: startDateText.value(), end_date: endDateText.value(), picture_url: "", event_owner: 1).subscribe{
+        
+        service.isLoading.subscribe({
+            switch $0{
+            case .next(true):
+                self.isLoading.on(.next(true))
+            case .next(false):
+                self.isLoading.on(.next(false))
+            default:
+                self.isLoading.on(.next(false))
+            }
+        }).disposed(by: disposeBag)
+        
+        _ = try? service.AddEvents(title: titleText.value(),category: categoryText.value(), description: descriptionText.value(), start_date: startDateText.value(), end_date: endDateText.value(), picture_url: "", event_owner: 1).subscribe{
             event in
             switch(event){
             case .success:
@@ -65,6 +77,6 @@ class NewEventViewModel{
                 self.addEventStatus.on(.next(false))
                 self.adddEventErrorMessage.on(.next("Failed to add event \(try! self.titleText.value())"))
             }
-        }
+        }.disposed(by: disposeBag)
     }
 }

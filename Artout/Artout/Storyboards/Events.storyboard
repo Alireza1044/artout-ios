@@ -203,7 +203,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="A4N-Ra-DcP" id="fkt-O1-FUZ"/>
+                        <outlet property="activityIndicatorView" destination="A4N-Ra-DcP" id="fkt-O1-FUZ"/>
                         <outlet property="categoryTextField" destination="apV-ce-03s" id="qqi-7y-21Z"/>
                         <outlet property="descriptionTextView" destination="bmt-hA-f4Y" id="DBV-Ii-xQi"/>
                         <outlet property="doneButton" destination="A1M-8Q-izb" id="H5y-JZ-KyD"/>

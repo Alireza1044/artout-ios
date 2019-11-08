@@ -18,7 +18,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     private var datePicker: UIDatePicker? = UIDatePicker()
@@ -32,6 +32,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         prepareDatePickers()
         prepareTextView()
         prepareBindings()
+        self.activityIndicatorView.isHidden = true
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
@@ -61,6 +62,23 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         descriptionTextView.textColor = UIColor.systemGray3
         
         descriptionTextView.selectedTextRange = descriptionTextView.textRange(from: descriptionTextView.beginningOfDocument, to: descriptionTextView.beginningOfDocument)
+        
+        newEventViewModel.isLoading.subscribe({ loading in
+                    switch (loading){
+                    case .next(true):
+                        self.activityIndicatorView.startAnimating()
+                        self.activityIndicatorView.isHidden = false
+                    case .next(false):
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                    case .error(_):
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                    case .completed:
+                        self.activityIndicatorView.stopAnimating()
+                        self.activityIndicatorView.isHidden = true
+                    }
+                }).disposed(by: disposeBag)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
