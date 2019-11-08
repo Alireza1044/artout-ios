@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import RxSwift
+
+class EventsViewModel {
+    let Refresh: PublishSubject<Bool>
+    let Events: [EventModel]?
+    
+    init() {
+        self.Refresh = PublishSubject<Bool>()
+        Events = []
+    }
+    
+    func FetchEvents() {
+        
+    }
+}

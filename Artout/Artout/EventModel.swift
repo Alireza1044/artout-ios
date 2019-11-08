@@ -8,8 +8,8 @@
 
 import Foundation
 class EventModel {
-//    var name: String
-//    var date: String
-//    var pic: String
+    var name: String = "Sample Name"
+    var date: String = "Sample Date"
+    var pic: String = "Sample Pic"
     
 }

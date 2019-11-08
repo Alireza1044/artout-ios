@@ -1,5 +1,5 @@
 //
-//  EventsTableTableViewController.swift
+//  EventsTableViewController.swift
 //  Artout
 //
 //  Created by Pooya Kabiri on 11/8/19.
@@ -10,8 +10,12 @@ import UIKit
 
 class EventsTableViewController: UITableViewController {
 
+    
+    var viewModel = EventsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -22,25 +26,37 @@ class EventsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 3
+        
+        return viewModel.Events.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        if viewModel.Events.count > 0 {
+            let item = viewModel.Events[indexPath.row]
+            ConfigureCell(for: cell, with: item)
+        }
         return cell
+        
     }
-    */
+    
+    func ConfigureCell(for cell: UITableViewCell, with item: EventModel) {
+        if let title = cell.viewWithTag(1) as? UILabel,
+           let date = cell.viewWithTag(2) as? UILabel,
+           let pic = cell.viewWithTag(3) as? UIImageView {
+            title.text = item.name
+            date.text = item.date
+            pic.image = UIImage(named: "Logo")
+            
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
