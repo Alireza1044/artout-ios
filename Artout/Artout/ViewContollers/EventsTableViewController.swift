@@ -7,16 +7,21 @@
 //
 
 import UIKit
+import RxSwift
 
 class EventsTableViewController: UITableViewController {
 
     
     var viewModel = EventsViewModel()
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
+        viewModel.Refresh.subscribe(onNext: { (status) in
+            self.tableView.reloadData()
+            }).disposed(by: disposeBag)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
