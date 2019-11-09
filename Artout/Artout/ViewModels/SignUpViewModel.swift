@@ -70,5 +70,13 @@ class SignUpViewModel{
                 self.registerStatus.on(.next(false))
             }
         }).disposed(by: disposeBag)
+        
+        self.service.registerStatus.subscribe { (status) in
+            switch (status){
+            case .next(true):
+                self.registerStatus.onNext(true)
+            default: break
+            }
+        }.disposed(by: disposeBag)
     }
 }

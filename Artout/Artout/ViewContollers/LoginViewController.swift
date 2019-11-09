@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
-        viewModel.loginMessage.subscribe({ event in
+        _ = viewModel.loginMessage.subscribe({ event in
             let alertController = UIAlertController(title: "Login Failed", message: event.element!
                 , preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))

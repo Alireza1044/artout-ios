@@ -37,7 +37,7 @@ class LoginService {
                     }
                     return
                 }
-                guard let responseDTO = try? self!.Formatter.Decode(data: data) else {
+                guard let responseDTO = self!.Formatter.Decode(data: data) else {
                     DispatchQueue.main.async {
                         single(.error(NetworkingError.InternalServerError))
                     }

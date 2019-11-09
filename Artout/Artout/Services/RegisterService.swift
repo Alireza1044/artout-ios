@@ -18,6 +18,7 @@ class RegisterService {
     let endpoint = "http://35.202.66.168:8000/api/register/"
     let disposeBag = DisposeBag()
     let isLoading = PublishSubject<Bool>()
+    let registerStatus = PublishSubject<Bool>()
     let error = PublishSubject<String>()
     let tokenService = LoginService()
     
@@ -52,7 +53,7 @@ class RegisterService {
 //        let jsonData = try! JSONEncoder().encode()
         
         return Single<String>.create(subscribe: { single in
-            Observable.from([String].self)
+            Observable.from(optional: [String].self)
                 .map {_ in
                     let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Register.rawValue)!
                     var request = URLRequest(url: url)
@@ -67,7 +68,17 @@ class RegisterService {
             .subscribe(onNext: { [weak self] response, data in
                 let decoder = JSONDecoder()
                 
-                guard let json = try? decoder.decode([String:String].self, from: data) else {
+                guard response.statusCode == 201 else{
+                    DispatchQueue.main.async {
+                        self!.isLoading.onNext(false)
+                        self!.error.onNext(try! (decoder.decode([String:[String]].self, from: data).first?.value.first)!)
+                    }
+                    single(.error(RegisterError.CouldNotConnectToHostError))
+                    print("my")
+                    return
+                }
+                
+                guard let json = try? decoder.decode(RegisterResponseDTO.self, from: data) else {
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
@@ -77,28 +88,19 @@ class RegisterService {
                     return
                 }
                 
-                guard response.statusCode == 201 else{
-                    DispatchQueue.main.async {
-                        self!.error.onNext(try! (decoder.decode([String:[String]].self, from: data).first?.value.first)!)
-                    }
-                    single(.error(RegisterError.CouldNotConnectToHostError))
-                    DispatchQueue.main.async {
-                        self!.isLoading.onNext(false)
-                    }
-                    print("my")
-                    return
+                DispatchQueue.main.async {
+                    self!.isLoading.onNext(false)
+                    self?.registerStatus.onNext(true)
                 }
                 
-                
-                
-                if let accessToken = json["access"] {
+                /*if let accessToken = json["access"] {
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
                     }
                     single(.success(accessToken))
                     print("god")
                     return
-                }
+                }*/
                 
                 },onError: { error in
                     print(error.localizedDescription)

@@ -206,6 +206,7 @@
                         <outlet property="registerButton" destination="F9G-GZ-jmE" id="nMm-Fv-RMw"/>
                         <outlet property="repeatPasswordTextField" destination="TjM-W6-Dr3" id="Q5S-iE-NZ4"/>
                         <outlet property="usernameTextField" destination="6Wg-Xk-av9" id="ofX-iu-HpU"/>
+                        <segue destination="piZ-c4-mtO" kind="show" identifier="RegisterSuccessful" id="1my-B0-qSl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL3-eQ-bpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -223,4 +224,7 @@
             <point key="canvasLocation" x="648" y="469"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1my-B0-qSl"/>
+    </inferredMetricsTieBreakers>
 </document>
