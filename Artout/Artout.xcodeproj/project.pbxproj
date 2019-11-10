@@ -15,6 +15,8 @@
 		BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */; };
 		BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */; };
 		BBF06342237871B70084A8A6 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF06341237871B60084A8A6 /* LocationEntity.swift */; };
+		BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */; };
+		BBF063462378ABA40084A8A6 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF063452378ABA40084A8A6 /* EventDetailViewModel.swift */; };
 		BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC7608236E410D00AE5634 /* RegisterService.swift */; };
 		FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9A8236B081E0089E1FF /* AppDelegate.swift */; };
 		FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9AA236B081E0089E1FF /* SceneDelegate.swift */; };
@@ -52,6 +54,8 @@
 		BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		BBF06341237871B60084A8A6 /* LocationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
+		BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		BBF063452378ABA40084A8A6 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		BBFC7608236E410D00AE5634 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		F0D5449698CD23048B8E9BCD /* Pods-Artout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.release.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.release.xcconfig"; sourceTree = "<group>"; };
 		FA03F9A5236B081E0089E1FF /* Artout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +126,7 @@
 				FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */,
 				FA64DD3E2373425C005EEDA5 /* HomeTabBarController.swift */,
 				FA64DD4323734560005EEDA5 /* ProfileViewController.swift */,
+				BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */,
 				FA3D9C192375840F0019F1FC /* EventTableViewCell.swift */,
 				FA3D9C23237595130019F1FC /* EventsTableViewController.swift */,
 			);
@@ -134,6 +139,7 @@
 				FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */,
 				BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */,
 				BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */,
+				BBF063452378ABA40084A8A6 /* EventDetailViewModel.swift */,
 				FA3D9C1B237586870019F1FC /* EventsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -344,6 +350,7 @@
 				BBF06342237871B70084A8A6 /* LocationEntity.swift in Sources */,
 				BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
+				BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */,
 				FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */,
 				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
@@ -353,6 +360,7 @@
 				FA3D9C1E237587390019F1FC /* EventModel.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
+				BBF063462378ABA40084A8A6 /* EventDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
