@@ -54,7 +54,7 @@ class EventsService {
         })
     }
     
-    func AddEvents (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:Float] = ["longitude":0.0,"latitude":0.0]) -> Single<String> {
+    func AddEvent (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:Float] = ["longitude":0.0,"latitude":0.0]) -> Single<String> {
         
         isLoading.onNext(true)
         
@@ -63,7 +63,7 @@ class EventsService {
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Events.rawValue)!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.POST.rawValue
                     request.httpBody = self.Formatter.Encode(objDTO: rawData)

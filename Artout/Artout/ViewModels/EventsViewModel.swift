@@ -10,15 +10,25 @@ import Foundation
 import RxSwift
 
 class EventsViewModel {
-    let Refresh: PublishSubject<Bool>
-    var Events: [EventModel]
+    let refresh: PublishSubject<Bool>
+    var events: [EventResponse]
+    var service = EventsService()
+    var disposeBag = DisposeBag()
     
     init() {
-        self.Refresh = PublishSubject<Bool>()
-        Events = []
+        self.refresh = PublishSubject<Bool>()
+        events = []
     }
     
+    func AddEvent(event: EventResponse) {
+        self.events.append(event)
+        self.refresh.onNext(true)
+    }
     func FetchEvents() {
-        
+        service.RequestEvents()
+            .subscribe(onSuccess: { data in
+                self.events = data.reversed()
+                self.refresh.onNext(true)
+            }).disposed(by: disposeBag)
     }
 }
