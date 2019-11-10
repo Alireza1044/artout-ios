@@ -14,6 +14,7 @@
 		BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2C7E8237473BF0079167A /* TokenService.swift */; };
 		BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */; };
 		BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */; };
+		BBF06342237871B70084A8A6 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF06341237871B60084A8A6 /* LocationEntity.swift */; };
 		BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC7608236E410D00AE5634 /* RegisterService.swift */; };
 		FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9A8236B081E0089E1FF /* AppDelegate.swift */; };
 		FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9AA236B081E0089E1FF /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 		BBA2C7E8237473BF0079167A /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		BBF06341237871B60084A8A6 /* LocationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
 		BBFC7608236E410D00AE5634 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		F0D5449698CD23048B8E9BCD /* Pods-Artout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.release.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.release.xcconfig"; sourceTree = "<group>"; };
 		FA03F9A5236B081E0089E1FF /* Artout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artout.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 				FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */,
 				FA64DD4B23740DB0005EEDA5 /* Formatter.swift */,
 				FA3D9C1D237587390019F1FC /* EventModel.swift */,
+				BBF06341237871B60084A8A6 /* LocationEntity.swift */,
 			);
 			path = Artout;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */,
 				FA3D9C24237595130019F1FC /* EventsTableViewController.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
+				BBF06342237871B70084A8A6 /* LocationEntity.swift in Sources */,
 				BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				FA64DD4C23740DB0005EEDA5 /* Formatter.swift in Sources */,

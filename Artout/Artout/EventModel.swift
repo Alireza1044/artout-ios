@@ -15,9 +15,9 @@ struct EventModel: Codable {
     var end_date: String
     var picture_url: String
     var event_owner: Int
-    var location: [String:Float]
+    var location: LocationEntity
     
-    init(title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:Float]) {
+    init(title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity) {
         self.title = title
         self.category = category
         self.description = description
@@ -38,9 +38,9 @@ struct EventResponse: Codable {
     var end_date: String
     var picture_url: String
     var event_owner: Int
-    var location: [String:Float]
+    var location: LocationEntity
     
-    init(id: Int,title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:Float]) {
+    init(id: Int,title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity) {
         self.id = id
         self.title = title
         self.category = category

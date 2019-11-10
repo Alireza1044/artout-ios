@@ -54,7 +54,7 @@ class EventsService {
         })
     }
     
-    func AddEvent (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:[String:Float] = ["longitude":0.0,"latitude":0.0]) -> Single<String> {
+    func AddEvent (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity = LocationEntity(latitude: 0.0, longitude: 0.0)) -> Single<String> {
         
         isLoading.onNext(true)
         
