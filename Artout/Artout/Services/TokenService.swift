@@ -12,11 +12,11 @@ import RxSwift
 
 class TokenService{
     
-    let keychain = Keychain(service: "com.pooyakab.Artout")
+    let keychainInstance = Keychain(service: "com.pooyakab.Artout")
     
     func saveToken(access:String, refresh:String){
-        keychain["access"] = access
-        keychain["refresh"] = refresh
+        keychainInstance["access"] = access
+        keychainInstance["refresh"] = refresh
     }
     
     func refreshToken(refresh:String){
