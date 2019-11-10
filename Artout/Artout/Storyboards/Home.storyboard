@@ -9,7 +9,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="TFt-jD-9L0">
             <objects>
-                <tabBarController modalTransitionStyle="flipHorizontal" modalPresentationStyle="overFullScreen" id="xow-fL-zJa" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="overFullScreen" id="xow-fL-zJa" sceneMemberID="viewController">
                     <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VKl-K9-lfD" customClass="HomeTabBarController" customModule="Artout" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -27,10 +27,10 @@
         <!--Timeline-->
         <scene sceneID="E9q-se-yau">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfq-fN-d8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Timeline" id="I8t-6w-JIV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="ewR-6L-x0s"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfq-fN-d8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-641" y="823"/>
         </scene>

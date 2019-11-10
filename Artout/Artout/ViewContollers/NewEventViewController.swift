@@ -24,8 +24,8 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     private var datePicker: UIDatePicker? = UIDatePicker()
     private var timePicker: UIDatePicker? = UIDatePicker()
     
-    var newEventViewModel = NewEventViewModel()
-    var eventsViewModel = EventsViewModel()
+    var viewModel = NewEventViewModel()
+//    var eventsViewModel = EventsViewModel()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -37,19 +37,19 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        newEventViewModel.AddEvent()
+        viewModel.AddEvent()
     }
     
     func prepareBindings(){
-        _ = titleTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.titleText)
-        _ = startDateTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.startDateText)
-        _ = endDateTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.endDateText)
-        _ = startTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.startTimeText)
-        _ = endTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.endTimeText)
-        _ = descriptionTextView.rx.text.map{ $0 ?? ""}.bind(to: newEventViewModel.descriptionText)
-        _ = categoryTextField.rx.text.map{$0 ?? ""}.bind(to: newEventViewModel.categoryText)
+        _ = titleTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.titleText)
+        _ = startDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.startDateText)
+        _ = endDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.endDateText)
+        _ = startTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.startTimeText)
+        _ = endTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.endTimeText)
+        _ = descriptionTextView.rx.text.map{ $0 ?? ""}.bind(to: viewModel.descriptionText)
+        _ = categoryTextField.rx.text.map{$0 ?? ""}.bind(to: viewModel.categoryText)
         
-        Observable.combineLatest(newEventViewModel.isEmpty,newEventViewModel.descriptionIsEmpty).map{ !$0 && $1}.subscribe{
+        Observable.combineLatest(viewModel.isEmpty,viewModel.descriptionIsEmpty).map{ !$0 && $1}.subscribe{
             self.doneButton.isEnabled = $0.element!
         }.disposed(by: disposeBag)
     }
@@ -64,7 +64,7 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
         
         descriptionTextView.selectedTextRange = descriptionTextView.textRange(from: descriptionTextView.beginningOfDocument, to: descriptionTextView.beginningOfDocument)
         
-        newEventViewModel.isLoading.subscribe({ loading in
+        viewModel.isLoading.subscribe({ loading in
             switch (loading){
             case .next(true):
                 self.activityIndicatorView.startAnimating()
@@ -81,14 +81,14 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
             }
         }).disposed(by: disposeBag)
         
-        _ = newEventViewModel.addEventStatus.subscribe({ status in
+        _ = viewModel.addEventStatus.subscribe({ status in
             switch(status){
             case .next(true):
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                     
-                    self.eventsViewModel.Events.append(EventModel(title: self.titleTextField.text!, category: self.categoryTextField.text!, description: self.descriptionTextView.text, start_date: self.startDateTextField.text!, end_date: self.endDateTextField.text!, picture_url: "", event_owner: 1, location: ["longtitude":0.0,"latitude":0.0]))
-                    self.eventsViewModel.Refresh.on(.next(true))
+//                    self.eventsViewModel.Events.append(EventModel(title: self.titleTextField.text!, category: self.categoryTextField.text!, description: self.descriptionTextView.text, start_date: self.startDateTextField.text!, end_date: self.endDateTextField.text!, picture_url: "", event_owner: 1, location: ["longtitude":0.0,"latitude":0.0]))
+//                    self.eventsViewModel.Refresh.on(.next(true))
                 }
             case .next(false):
                 print("fuck")

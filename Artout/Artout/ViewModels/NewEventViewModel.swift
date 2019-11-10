@@ -68,7 +68,7 @@ class NewEventViewModel{
             }
         }).disposed(by: disposeBag)
         
-        _ = try? service.AddEvents(title: titleText.value(),category: categoryText.value(), description: descriptionText.value(), start_date: startDateText.value(), end_date: endDateText.value(), picture_url: "", event_owner: 1).subscribe{
+        _ = try? service.AddEvent(title: titleText.value(),category: categoryText.value(), description: descriptionText.value(), start_date: startDateText.value(), end_date: endDateText.value(), picture_url: "", event_owner: 1).subscribe{
             event in
             switch(event){
             case .success:
