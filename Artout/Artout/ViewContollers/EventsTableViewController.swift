@@ -14,13 +14,19 @@ class EventsTableViewController: UITableViewController {
     
     var viewModel = EventsViewModel()
     var disposeBag = DisposeBag()
+    var refreshControlInstance = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        refreshControlInstance.addTarget(self, action: #selector(CallForRefresh), for: .valueChanged)
+        tableView.refreshControl = self.refreshControlInstance
+        viewModel.FetchEvents()
         
-        viewModel.Refresh.subscribe(onNext: { (status) in
-            self.tableView.reloadData()
+        viewModel.refresh.subscribe(onNext: { (status) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
             }).disposed(by: disposeBag)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,30 +43,30 @@ class EventsTableViewController: UITableViewController {
 //    }
 //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return viewModel.Events.count
+        return viewModel.events.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        if viewModel.Events.count > 0 {
-            let item = viewModel.Events[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
+        if viewModel.events.count > 0 {
+            let item = viewModel.events[indexPath.row]
             ConfigureCell(for: cell, with: item)
         }
         return cell
         
     }
     
-    func ConfigureCell(for cell: UITableViewCell, with item: EventModel) {
-        if let title = cell.viewWithTag(1) as? UILabel,
-           let date = cell.viewWithTag(2) as? UILabel,
-           let pic = cell.viewWithTag(3) as? UIImageView {
-            title.text = item.title
-            date.text = item.start_date
-            pic.image = UIImage(named: "Logo")
-            
-        }
+    func ConfigureCell(for cell: EventTableViewCell, with item: EventResponse) {
+        cell.TitleLabel?.text = item.title
+        cell.DateLabel?.text = item.start_date
+        cell.DescriptionLabel?.text = item.description
+    }
+    
+    @objc func CallForRefresh () {
+        self.refreshControlInstance.beginRefreshing()
+        self.viewModel.FetchEvents()
+        self.refreshControlInstance.endRefreshing()
     }
 
     /*
