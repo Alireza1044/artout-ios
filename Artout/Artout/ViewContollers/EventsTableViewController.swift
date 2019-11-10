@@ -11,7 +11,7 @@ import RxSwift
 
 class EventsTableViewController: UITableViewController {
 
-    
+    var selectedCell: Int = 0
     var viewModel = EventsViewModel()
     var disposeBag = DisposeBag()
     var refreshControlInstance = UIRefreshControl()
@@ -67,6 +67,12 @@ class EventsTableViewController: UITableViewController {
         self.refreshControlInstance.beginRefreshing()
         self.viewModel.FetchEvents()
         self.refreshControlInstance.endRefreshing()
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
+        viewController?.eventId = viewModel.events[indexPath.row].id
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
 
     /*
