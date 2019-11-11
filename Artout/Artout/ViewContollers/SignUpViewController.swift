@@ -35,14 +35,6 @@ class SignUpViewController: UIViewController{
         activityIndicatorView.isHidden = true
         
         signupViewModel.isLoading.subscribe({ loading in
-//            if(loading.element!){
-//                self.activityIndicatorView.startAnimating()
-//                self.activityIndicatorView.isHidden = false
-//            }
-//            else{
-//                self.activityIndicatorView.stopAnimating()
-//                self.activityIndicatorView.isHidden = true
-//            }
             switch (loading){
             case .next(true):
                 self.activityIndicatorView.startAnimating()
@@ -58,6 +50,16 @@ class SignUpViewController: UIViewController{
                 self.activityIndicatorView.isHidden = true
             }
         }).disposed(by: disposeBag)
+        
+        self.signupViewModel.registerStatus.subscribe { (status) in
+            switch(status){
+            case .next(true):
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "RegisterSuccessful", sender: self)
+                }
+            default: break
+            }
+        }.disposed(by: disposeBag)
         
         Observable.combineLatest(signupViewModel.isEmpty,signupViewModel.isSame).map{ !$0 && $1}.subscribe{
             self.registerButton.isEnabled = $0.element!

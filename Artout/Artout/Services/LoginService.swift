@@ -11,6 +11,7 @@ import RxSwift
 
 class LoginService {
 
+    let TokenHandler = TokenService()
     let Formatter = DTOFormatter<LoginDTO, LoginResponseDTO>()
     let disposeBag = DisposeBag()
     
@@ -36,12 +37,13 @@ class LoginService {
                     }
                     return
                 }
-                guard let responseDTO = try? self!.Formatter.Decode(data: data) else {
+                guard let responseDTO = self!.Formatter.Decode(data: data) else {
                     DispatchQueue.main.async {
                         single(.error(NetworkingError.InternalServerError))
                     }
                     return
                 }
+                self?.TokenHandler.saveToken(access: responseDTO.access, refresh: responseDTO.refresh)
                 single(.success(responseDTO.access))
                 return
                 }, onError: { error in
