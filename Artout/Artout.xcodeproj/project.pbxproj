@@ -186,12 +186,7 @@
 				FA03F9B4236B081F0089E1FF /* Assets.xcassets */,
 				FA03F9B9236B081F0089E1FF /* Info.plist */,
 				FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */,
-				FA64DD452374044D005EEDA5 /* LoginDTO.swift */,
-				FA64DD472374045E005EEDA5 /* SignupDTO.swift */,
-				FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */,
-				FA64DD4B23740DB0005EEDA5 /* Formatter.swift */,
-				FA3D9C1D237587390019F1FC /* EventModel.swift */,
-				BBF06341237871B60084A8A6 /* LocationEntity.swift */,
+				FABE50E9237497BB00A57282 /* Networking */,
 			);
 			path = Artout;
 			sourceTree = "<group>";
@@ -207,6 +202,17 @@
 				FA64DD40237343E6005EEDA5 /* Profile.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FABE50E9237497BB00A57282 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FA64DD452374044D005EEDA5 /* LoginDTO.swift */,
+				FA64DD472374045E005EEDA5 /* SignupDTO.swift */,
+				FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */,
+				FA64DD4B23740DB0005EEDA5 /* Formatter.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
