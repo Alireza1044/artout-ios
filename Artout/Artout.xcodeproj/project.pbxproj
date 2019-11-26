@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0C994299F38BBA70880A9 /* Pods_Artout.framework */; };
 		BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */; };
+		BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */; };
 		BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA176E22374CDA100A35271 /* NewEventViewController.swift */; };
 		BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* KeychainAccess */; };
 		BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2C7E8237473BF0079167A /* TokenService.swift */; };
@@ -49,6 +50,7 @@
 		08CC861E9A920D269875F62B /* Pods-Artout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.debug.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.debug.xcconfig"; sourceTree = "<group>"; };
 		40D0C994299F38BBA70880A9 /* Pods_Artout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
+		BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		BBA176E22374CDA100A35271 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		BBA2C7E8237473BF0079167A /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */,
 				FA3D9C192375840F0019F1FC /* EventTableViewCell.swift */,
 				FA3D9C23237595130019F1FC /* EventsTableViewController.swift */,
+				BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */,
 				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
+				BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */,
 				FA3D9C1E237587390019F1FC /* EventModel.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,

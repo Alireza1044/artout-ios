@@ -194,7 +194,7 @@
         <!--Edit Event-->
         <scene sceneID="QQa-3v-haf">
             <objects>
-                <viewController id="QXK-6T-Upy" sceneMemberID="viewController">
+                <viewController id="QXK-6T-Upy" customClass="EditEventViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="31h-IT-yp1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,6 +257,15 @@
                     <navigationItem key="navigationItem" title="Edit Event" id="XVD-si-ZuR">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="FiS-wi-8Mu"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryTextField" destination="tiX-aJ-eQQ" id="88o-aS-3pE"/>
+                        <outlet property="descriptionTextView" destination="60t-fo-lg7" id="s2V-Fk-Bxg"/>
+                        <outlet property="endDateTextField" destination="WbI-fA-6ZO" id="5Fz-yZ-GuN"/>
+                        <outlet property="endTimeTextField" destination="wxP-WF-xBg" id="iEz-hk-Cvi"/>
+                        <outlet property="startDateTextField" destination="zQm-ZO-lce" id="qrw-nK-NME"/>
+                        <outlet property="startTimeTextField" destination="2G8-w7-Afq" id="31e-Lr-Qhf"/>
+                        <outlet property="titleTextField" destination="zXC-Px-l9w" id="Kgg-o5-lgj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oI7-JL-vPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
