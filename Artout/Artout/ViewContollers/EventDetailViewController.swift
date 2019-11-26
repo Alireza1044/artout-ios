@@ -36,4 +36,11 @@ class EventDetailViewController: UIViewController{
             }
         }.disposed(by: disposeBag)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditEventSegue" {
+            let editEventVC = segue.destination as! EditEventViewController
+            editEventVC.eventId = self.eventId
+        }
+    }
 }

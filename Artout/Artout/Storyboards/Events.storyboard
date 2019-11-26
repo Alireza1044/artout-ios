@@ -36,7 +36,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="410.66665649414062" id="yNJ-zr-OZg" customClass="EventTableViewCell" customModule="Artout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="411"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="410.66665649414062"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yNJ-zr-OZg" id="cjj-10-Wca">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="410.66665649414062"/>
@@ -174,7 +174,7 @@
                     <navigationItem key="navigationItem" title="Details" id="1Sw-pf-il3">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Te7-0N-rhZ">
                             <connections>
-                                <segue destination="QXK-6T-Upy" kind="show" id="QVR-cz-E12"/>
+                                <segue destination="QXK-6T-Upy" kind="show" identifier="EditEventSegue" id="QVR-cz-E12"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -244,13 +244,18 @@
                                     <constraint firstAttribute="height" constant="350" id="TbP-oH-IAE"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3LB-gD-A5N">
+                                <rect key="frame" x="197" y="663" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vRo-bd-r3V" firstAttribute="centerX" secondItem="31h-IT-yp1" secondAttribute="centerX" id="FJx-Od-ayx"/>
+                            <constraint firstItem="3LB-gD-A5N" firstAttribute="top" secondItem="vRo-bd-r3V" secondAttribute="bottom" constant="40" id="M7P-te-LTR"/>
                             <constraint firstItem="3nJ-Xw-EAP" firstAttribute="trailing" secondItem="vRo-bd-r3V" secondAttribute="trailing" constant="50" id="T1x-G0-zcK"/>
                             <constraint firstItem="vRo-bd-r3V" firstAttribute="leading" secondItem="3nJ-Xw-EAP" secondAttribute="leading" constant="50" id="cPv-oB-sDd"/>
                             <constraint firstItem="vRo-bd-r3V" firstAttribute="centerY" secondItem="31h-IT-yp1" secondAttribute="centerY" id="dIh-4c-kVX"/>
+                            <constraint firstItem="3LB-gD-A5N" firstAttribute="centerX" secondItem="vRo-bd-r3V" secondAttribute="centerX" id="o9S-R3-143"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3nJ-Xw-EAP"/>
                     </view>
