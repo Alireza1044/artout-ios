@@ -36,7 +36,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="410.66665649414062" id="yNJ-zr-OZg" customClass="EventTableViewCell" customModule="Artout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="410.66665649414062"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="411"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yNJ-zr-OZg" id="cjj-10-Wca">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="410.66665649414062"/>
@@ -109,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="1878.2608695652175" y="470.75892857142856"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Details-->
         <scene sceneID="DEZ-21-ktt">
             <objects>
                 <viewController storyboardIdentifier="EventDetail" id="gfg-gU-z1r" customClass="EventDetailViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
@@ -118,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iFK-2z-CgS">
-                                <rect key="frame" x="20" y="124" width="374" height="648"/>
+                                <rect key="frame" x="20" y="168" width="374" height="560"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="CentralPerk" translatesAutoresizingMaskIntoConstraints="NO" id="WyV-Mj-Veb">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="200"/>
@@ -145,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vKr-Ie-YgB">
-                                        <rect key="frame" x="0.0" y="261" width="374" height="387"/>
+                                        <rect key="frame" x="0.0" y="261" width="374" height="299"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -171,7 +171,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oL6-g2-LV5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Sw-pf-il3"/>
+                    <navigationItem key="navigationItem" title="Details" id="1Sw-pf-il3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Te7-0N-rhZ">
+                            <connections>
+                                <segue destination="QXK-6T-Upy" kind="show" id="QVR-cz-E12"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="categoryLabel" destination="X8Y-c2-F1n" id="vk8-Af-J0F"/>
                         <outlet property="dateLabel" destination="qGg-Ed-CDR" id="mdF-yZ-u7C"/>
@@ -183,6 +190,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Kl-Wu-QQW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703" y="797"/>
+        </scene>
+        <!--Edit Event-->
+        <scene sceneID="QQa-3v-haf">
+            <objects>
+                <viewController id="QXK-6T-Upy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="31h-IT-yp1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vRo-bd-r3V">
+                                <rect key="frame" x="50" y="273" width="314" height="350"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXC-Px-l9w">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tiX-aJ-eQQ">
+                                        <rect key="frame" x="0.0" y="42" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="60t-fo-lg7">
+                                        <rect key="frame" x="0.0" y="84" width="314" height="98"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zQm-ZO-lce">
+                                        <rect key="frame" x="0.0" y="190" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WbI-fA-6ZO">
+                                        <rect key="frame" x="0.0" y="232" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2G8-w7-Afq">
+                                        <rect key="frame" x="0.0" y="274" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxP-WF-xBg">
+                                        <rect key="frame" x="0.0" y="316" width="314" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="TbP-oH-IAE"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vRo-bd-r3V" firstAttribute="centerX" secondItem="31h-IT-yp1" secondAttribute="centerX" id="FJx-Od-ayx"/>
+                            <constraint firstItem="3nJ-Xw-EAP" firstAttribute="trailing" secondItem="vRo-bd-r3V" secondAttribute="trailing" constant="50" id="T1x-G0-zcK"/>
+                            <constraint firstItem="vRo-bd-r3V" firstAttribute="leading" secondItem="3nJ-Xw-EAP" secondAttribute="leading" constant="50" id="cPv-oB-sDd"/>
+                            <constraint firstItem="vRo-bd-r3V" firstAttribute="centerY" secondItem="31h-IT-yp1" secondAttribute="centerY" id="dIh-4c-kVX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3nJ-Xw-EAP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Event" id="XVD-si-ZuR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FiS-wi-8Mu"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oI7-JL-vPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3761" y="797"/>
         </scene>
         <!--New Event-->
         <scene sceneID="Bxy-2N-4Hm">
