@@ -36,7 +36,7 @@ struct EventResponse: Codable {
     var description: String
     var start_date: String
     var end_date: String
-    var picture_url: String
+    var picture_url: String?
     var event_owner: Int
     var location: LocationEntity
     
