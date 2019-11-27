@@ -19,30 +19,30 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
     @IBOutlet weak var endDateTextField: UITextField!
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     private var datePicker: UIDatePicker? = UIDatePicker()
     private var timePicker: UIDatePicker? = UIDatePicker()
+    
+    var eventId = 0
+    
+    var disposeBag = DisposeBag()
+    var viewModel = EditEventViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareDatePickers()
         prepareTextView()
-        prepareBindings()
-    }
-    
-    func prepareBindings(){
         
-    }
-    
-    func prepareTextView(){
-        descriptionTextView.layer.borderWidth = 0.2
-        descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
-        descriptionTextView.layer.cornerRadius = 6
-        descriptionTextView.delegate = self
-        descriptionTextView.text = "Write a description..."
-        descriptionTextView.textColor = UIColor.systemGray3
         
-        descriptionTextView.selectedTextRange = descriptionTextView.textRange(from: descriptionTextView.beginningOfDocument, to: descriptionTextView.beginningOfDocument)
+        _ = titleTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.titleText)
+        _ = startDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.startDateText)
+        _ = endDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.endDateText)
+        _ = descriptionTextView.rx.text.map{ $0 ?? ""}.bind(to: viewModel.descriptionText)
+        _ = categoryTextField.rx.text.map{$0 ?? ""}.bind(to: viewModel.categoryText)
+        
+        self.activityIndicatorView.isHidden = true
         
         viewModel.isLoading.subscribe({ loading in
             switch (loading){
@@ -61,21 +61,63 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
             }
         }).disposed(by: disposeBag)
         
-        _ = viewModel.addEventStatus.subscribe({ status in
-            switch(status){
+        self.viewModel.RequestEventDetail(id: self.eventId)
+        
+        self.viewModel.event.subscribe { event in
+            DispatchQueue.main.async {
+                self.titleTextField.insertText(event.element!.title)
+                
+                self.categoryTextField.insertText(event.element!.category)
+                
+                self.startDateTextField.insertText(self.convertDate(date: event.element!.start_date))
+                
+                self.endDateTextField.insertText(self.convertDate(date: event.element!.end_date))
+                
+                _ = self.textView(self.descriptionTextView, shouldChangeTextIn: NSRange(location: 0, length: 0), replacementText: event.element!.description)
+            }
+        }.disposed(by: disposeBag)
+        
+        self.viewModel.addEventStatus.subscribe {
+            switch($0){
             case .next(true):
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
-                    
-//                    self.eventsViewModel.Events.append(EventModel(title: self.titleTextField.text!, category: self.categoryTextField.text!, description: self.descriptionTextView.text, start_date: self.startDateTextField.text!, end_date: self.endDateTextField.text!, picture_url: "", event_owner: 1, location: ["longtitude":0.0,"latitude":0.0]))
-//                    self.eventsViewModel.Refresh.on(.next(true))
                 }
             case .next(false):
-                print("fuck")
+                let alertController = UIAlertController(title: "Edit Failed", message: "Could not edit event"
+                    , preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                self.present(alertController, animated: true, completion: nil)
             default:
-                print("shit")
+                break
             }
-        })
+        }.disposed(by: disposeBag)
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        viewModel.EditEvent(id: self.eventId)
+    }
+    
+    func convertDate(date: String) -> String{
+        if !date.isEmpty {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let newDate = dateFormatter.date(from: date)
+            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+            return  dateFormatter.string(from: newDate!)
+        }
+        return ""
+    }
+    
+    func prepareTextView(){
+        descriptionTextView.layer.borderWidth = 0.2
+        descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionTextView.layer.cornerRadius = 6
+        descriptionTextView.delegate = self
+        descriptionTextView.text = "Write a description..."
+        descriptionTextView.textColor = UIColor.systemGray3
+        
+        descriptionTextView.selectedTextRange = descriptionTextView.textRange(from: descriptionTextView.beginningOfDocument, to: descriptionTextView.beginningOfDocument)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -131,7 +173,6 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
         timePicker?.datePickerMode = .time
         timePicker?.minuteInterval = 15
         datePicker?.datePickerMode = .date
-        datePicker?.minimumDate = Date()
         
         timePicker?.addTarget(self, action: #selector(NewEventViewController.dateChanged(datePicker:)), for: .valueChanged)
         
