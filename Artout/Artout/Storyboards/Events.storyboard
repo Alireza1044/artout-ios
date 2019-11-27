@@ -46,7 +46,7 @@
                                             <rect key="frame" x="28" y="19" width="358" height="372.66666666666669"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0T-Rt-jl0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="50.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="31.666666666666668"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -55,20 +55,20 @@
                                                     </variation>
                                                 </label>
                                                 <imageView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="CentralPerk" translatesAutoresizingMaskIntoConstraints="NO" id="nuG-UV-mVr">
-                                                    <rect key="frame" x="0.0" y="50.666666666666686" width="358" height="200"/>
+                                                    <rect key="frame" x="0.0" y="31.666666666666657" width="358" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="7bU-RR-zKN"/>
                                                     </constraints>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6C-u8-nQo">
-                                                    <rect key="frame" x="0.0" y="250.66666666666671" width="358" height="50.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="231.66666666666666" width="358" height="31.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-EN-xeR">
-                                                    <rect key="frame" x="0.0" y="301" width="358" height="71.666666666666686"/>
+                                                    <rect key="frame" x="0.0" y="263.33333333333331" width="358" height="109.33333333333331"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -260,11 +260,17 @@
                         <viewLayoutGuide key="safeArea" id="3nJ-Xw-EAP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Event" id="XVD-si-ZuR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FiS-wi-8Mu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FiS-wi-8Mu">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="QXK-6T-Upy" id="dC1-QH-LQw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="3LB-gD-A5N" id="m7b-C9-MXQ"/>
                         <outlet property="categoryTextField" destination="tiX-aJ-eQQ" id="88o-aS-3pE"/>
                         <outlet property="descriptionTextView" destination="60t-fo-lg7" id="s2V-Fk-Bxg"/>
+                        <outlet property="doneButton" destination="FiS-wi-8Mu" id="gUm-JH-qVy"/>
                         <outlet property="endDateTextField" destination="WbI-fA-6ZO" id="5Fz-yZ-GuN"/>
                         <outlet property="endTimeTextField" destination="wxP-WF-xBg" id="iEz-hk-Cvi"/>
                         <outlet property="startDateTextField" destination="zQm-ZO-lce" id="qrw-nK-NME"/>
@@ -274,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oI7-JL-vPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3761" y="797"/>
+            <point key="canvasLocation" x="3760.8695652173915" y="796.875"/>
         </scene>
         <!--New Event-->
         <scene sceneID="Bxy-2N-4Hm">
@@ -344,7 +350,7 @@
                         <viewLayoutGuide key="safeArea" id="PNP-58-AsI"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Event" id="4WT-Id-NZo">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="A1M-8Q-izb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="A1M-8Q-izb">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="kw7-fT-bN2" id="lxn-AE-G8k"/>
                             </connections>
