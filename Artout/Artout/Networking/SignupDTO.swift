@@ -35,19 +35,3 @@ struct RegisterResponseDTO: Codable {
         self.id = id
     }
 }
-//struct Registerar: Codable {
-//    var username: String
-//    var first_name: String
-//    var last_name: String
-//    var password: String
-//    var avatar: String = ""
-//    var email: String
-//    
-//    init(username:String, firstName:String,lastName:String,email:String, password:String) {
-//        self.first_name = firstName
-//        self.last_name = lastName
-//        self.username = username
-//        self.password = password
-//        self.email = email
-//    }
-}

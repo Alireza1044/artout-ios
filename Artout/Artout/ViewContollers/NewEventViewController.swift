@@ -25,7 +25,6 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     private var timePicker: UIDatePicker? = UIDatePicker()
     
     var viewModel = NewEventViewModel()
-//    var eventsViewModel = EventsViewModel()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -86,9 +85,6 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
             case .next(true):
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
-                    
-//                    self.eventsViewModel.Events.append(EventModel(title: self.titleTextField.text!, category: self.categoryTextField.text!, description: self.descriptionTextView.text, start_date: self.startDateTextField.text!, end_date: self.endDateTextField.text!, picture_url: "", event_owner: 1, location: ["longtitude":0.0,"latitude":0.0]))
-//                    self.eventsViewModel.Refresh.on(.next(true))
                 }
             case .next(false):
                 print("fuck")
@@ -100,13 +96,10 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        // Combine the textView text and the replacement text to
-        // create the updated text string
         let currentText:String = textView.text
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
         
-        // If updated text view will be empty, add the placeholder
-        // and set the cursor to the beginning of the text view
+
         if updatedText.isEmpty {
             
             textView.text = "Write a description..."
@@ -115,10 +108,6 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
         }
             
-            // Else if the text view's placeholder is showing and the
-            // length of the replacement string is greater than 0, set
-            // the text color to black then set its text to the
-            // replacement string
         else if textView.textColor == UIColor.systemGray3 && !text.isEmpty {
             if(traitCollection.userInterfaceStyle == .dark){
                 textView.textColor = UIColor.white
@@ -127,15 +116,12 @@ class NewEventViewController:UIViewController, UITextViewDelegate{
             }
             textView.text = text
         }
-            
-            // For every other case, the text should change with the usual
-            // behavior...
+
         else {
             return true
         }
         
-        // ...otherwise return false since the updates have already
-        // been made
+
         return false
     }
     
