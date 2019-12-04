@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 class LoginViewModel {
-    var emailText: BehaviorSubject<String>
+    var usernameText: BehaviorSubject<String>
     var passwordText: BehaviorSubject<String>
     var isValid: Observable<Bool>
     var loginStatus: PublishSubject<Bool>
@@ -20,17 +20,18 @@ class LoginViewModel {
     var service = LoginService()
     
     init() {
-        emailText = BehaviorSubject<String>(value: "")
+        usernameText = BehaviorSubject<String>(value: "")
         passwordText = BehaviorSubject<String>(value: "")
         loginStatus = PublishSubject<Bool>()
         loginMessage = PublishSubject<String>()
-        self.isValid = Observable.combineLatest(emailText.asObservable(),passwordText.asObservable()) { email, password in
+        self.isValid = Observable.combineLatest(usernameText.asObservable(),passwordText.asObservable()) { email, password in
             password.count >= 8
         }
     }
     
     func Login() {
-        try? service.Login(With: emailText.value(), And: passwordText.value())
+        var entity = try? LoginEntity(Username: usernameText.value(), Password: passwordText.value())
+        try? service.Login(With: entity)
         .subscribe({ event in
             switch event{
                 case .success:
