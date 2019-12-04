@@ -11,18 +11,17 @@ import RxSwift
 
 class LoginService {
 
-    let Formatter = DTOFormatter<LoginDTO, LoginResponseDTO>()
+    let TokenHandler = TokenService()
     let disposeBag = DisposeBag()
     
-    func Login (With username: String, And password: String) -> Single<String> {
-        let rawData = LoginDTO(username: username, password: password)
+    func Login (With entity: LoginEntity) -> Single<String> {
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
                 let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Login.rawValue)!
                 var request = URLRequest(url: url)
                 request.httpMethod = HTTPMethod.POST.rawValue
-                request.httpBody = self.Formatter.Encode(objDTO: rawData)
+                request.httpBody = try? JSONEncoder().encode(entity.ToDTO())
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 return request
             }
@@ -36,13 +35,14 @@ class LoginService {
                     }
                     return
                 }
-                guard let responseDTO = try? self!.Formatter.Decode(data: data) else {
+                guard let response = try? JSONDecoder().decode(LoginResponseDTO.self, from: data) else {
                     DispatchQueue.main.async {
                         single(.error(NetworkingError.InternalServerError))
                     }
                     return
                 }
-                single(.success(responseDTO.access))
+                self?.TokenHandler.saveToken(access: response.access, refresh: response.refresh)
+                single(.success(response.access))
                 return
                 }, onError: { error in
                     print(error.localizedDescription)

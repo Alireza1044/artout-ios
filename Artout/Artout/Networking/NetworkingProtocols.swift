@@ -28,6 +28,7 @@ public enum APIPaths: String {
     case Register = "register/"
     case AddEvent = "event/events/"
     case FetchEvents = "event/eventsd/"
+    case EventDetail = "event/eventdetail/"
 }
 public enum ContentType: String {
     case JSON = "application/json"

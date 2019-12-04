@@ -51,8 +51,6 @@ class NewEventViewModel{
                 f.isEmpty
         }
         self.descriptionIsEmpty = descriptionText.map{ $0.count >= 50}.asObservable()
-        
-        print("Fucking: \(self.isEmpty)")
     }
     
     func AddEvent(){
