@@ -31,7 +31,7 @@ class LoginService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        single(.error(HTTPStatusCodes.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.BadRequest))
                     }
                     return
                 }
