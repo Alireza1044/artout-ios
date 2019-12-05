@@ -8,12 +8,12 @@
 
 import Foundation
 
-class LocationEntity {
-    var longitude: Float
-    var latitude: Float
+class LocationEntity: Codable {
+    var Longitude: Float
+    var Latitude: Float
     
     init(latitude: Float, longitude: Float) {
-        self.latitude = latitude
-        self.longitude = longitude
+        self.Latitude = latitude
+        self.Longitude = longitude
     }
 }
