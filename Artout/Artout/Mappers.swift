@@ -57,7 +57,7 @@ extension EventDetailResponseDTO {
                            Description: self.description,
                            StartDate: self.start_date,
                            EndDate: self.end_date,
-                           Avatar: self.picture_url!,
+                           Avatar: self.picture_url ?? "",
                            EventOwner: self.event_owner,
                            Location: self.location)
     }
