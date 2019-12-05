@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = emailTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.emailText)
+        _ = emailTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.usernameText)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.passwordText)
         _ = viewModel.isValid.bind(to: loginButton.rx.isEnabled)
         
@@ -59,8 +59,5 @@ class LoginViewController: UIViewController {
         })
         .disposed(by: disposeBag)
     }
-//    override func shouldPerformSegue(withIdentifier identifier: "LoginToHomeSegue", sender: Any?) -> Bool {
-//        return isLoggedIn
-//    }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LocationEntity: Codable {
+class LocationEntity {
     var longitude: Float
     var latitude: Float
     

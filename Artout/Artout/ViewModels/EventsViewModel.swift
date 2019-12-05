@@ -11,7 +11,7 @@ import RxSwift
 
 class EventsViewModel {
     let refresh: PublishSubject<Bool>
-    var events: [EventResponse]
+    var events: [EventEntity]
     var service = EventsService()
     var disposeBag = DisposeBag()
     
