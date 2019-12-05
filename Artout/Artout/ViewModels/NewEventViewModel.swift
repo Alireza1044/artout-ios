@@ -66,7 +66,16 @@ class NewEventViewModel{
             }
         }).disposed(by: disposeBag)
         
-        _ = try? service.AddEvent(title: titleText.value(),category: categoryText.value(), description: descriptionText.value(), start_date: startDateText.value(), end_date: endDateText.value(), picture_url: "", event_owner: 1).subscribe{
+        var entity = EventEntity(Title: titleText.value(),
+                                 Category: categoryText.value(),
+                                 Description: descriptionText.value(),
+                                 StartDate: startDateText.value(),
+                                 EndDate: endDateText.value(),
+                                 Avatar: "",
+                                 EventOwner: 1,
+                                 Location: LocationEntity(latitude: 0.0, longitude: 0.0))
+        
+        _ = try? service.AddEvent(with: entity).subscribe{
             event in
             switch(event){
             case .success:

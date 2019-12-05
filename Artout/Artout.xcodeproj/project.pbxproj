@@ -41,10 +41,11 @@
 		FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD472374045E005EEDA5 /* SignupDTO.swift */; };
 		FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */; };
 		FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74842378DE5D009C1C79 /* LocationEntity.swift */; };
-		FA8E74872378DE5D009C1C79 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74852378DE5D009C1C79 /* EventModel.swift */; };
+		FA8E74872378DE5D009C1C79 /* EventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74852378DE5D009C1C79 /* EventEntity.swift */; };
 		FAC78E3323982301000F0544 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E3223982301000F0544 /* LoginEntity.swift */; };
 		FAC78E352398230F000F0544 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E342398230F000F0544 /* RegisterEntity.swift */; };
 		FAC78E3723982563000F0544 /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E3623982563000F0544 /* Mappers.swift */; };
+		FAC78E3923982FF6000F0544 /* EventDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E3823982FF6000F0544 /* EventDTO.swift */; };
 		FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */; };
 		FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFAFABC236B1DBD0057E6DA /* LoginService.swift */; };
 /* End PBXBuildFile section */
@@ -87,10 +88,11 @@
 		FA64DD472374045E005EEDA5 /* SignupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDTO.swift; sourceTree = "<group>"; };
 		FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
 		FA8E74842378DE5D009C1C79 /* LocationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
-		FA8E74852378DE5D009C1C79 /* EventModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		FA8E74852378DE5D009C1C79 /* EventEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
 		FAC78E3223982301000F0544 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		FAC78E342398230F000F0544 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		FAC78E3623982563000F0544 /* Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappers.swift; sourceTree = "<group>"; };
+		FAC78E3823982FF6000F0544 /* EventDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDTO.swift; sourceTree = "<group>"; };
 		FAFAFABA236B0F920057E6DA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FAFAFABC236B1DBD0057E6DA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,7 +221,7 @@
 		FA8E74882378DE92009C1C79 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				FA8E74852378DE5D009C1C79 /* EventModel.swift */,
+				FA8E74852378DE5D009C1C79 /* EventEntity.swift */,
 				FA8E74842378DE5D009C1C79 /* LocationEntity.swift */,
 				FAC78E3223982301000F0544 /* LoginEntity.swift */,
 				FAC78E342398230F000F0544 /* RegisterEntity.swift */,
@@ -233,6 +235,7 @@
 				FA64DD452374044D005EEDA5 /* LoginDTO.swift */,
 				FA64DD472374045E005EEDA5 /* SignupDTO.swift */,
 				FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */,
+				FAC78E3823982FF6000F0544 /* EventDTO.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -380,14 +383,14 @@
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */,
 				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
+				FAC78E3923982FF6000F0544 /* EventDTO.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
 				FAC78E3723982563000F0544 /* Mappers.swift in Sources */,
 				BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */,
 				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
-				FA8E74872378DE5D009C1C79 /* EventModel.swift in Sources */,
+				FA8E74872378DE5D009C1C79 /* EventEntity.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
 				BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */,
-				FA3D9C1E237587390019F1FC /* EventModel.swift in Sources */,
 				BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
