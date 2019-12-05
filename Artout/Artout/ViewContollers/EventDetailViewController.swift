@@ -18,6 +18,8 @@ class EventDetailViewController: UIViewController{
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    var startDate = ""
+    var endDate = ""
     var eventDetailViewModel = EventDetailViewModel()
     var disposeBag = DisposeBag()
     var eventId = 0
@@ -31,7 +33,9 @@ class EventDetailViewController: UIViewController{
             DispatchQueue.main.async {
                 self.titleLabel.text = event.element!.Title
                 self.categoryLabel.text = event.element!.Category
-                self.dateLabel.text = "From: \(event.element!.StartDate) To: \(event.element!.EndDate)"
+                self.startDate = event.element!.StartDate
+                self.endDate = event.element!.EndDate
+                self.dateLabel.text = "From: \(self.startDate) To: \(self.endDate)"
                 self.descriptionTextView.text = event.element!.Description
             }
         }.disposed(by: disposeBag)
@@ -41,6 +45,11 @@ class EventDetailViewController: UIViewController{
         if segue.identifier == "EditEventSegue" {
             let editEventVC = segue.destination as! EditEventViewController
             editEventVC.eventId = self.eventId
+            editEventVC.titleText = self.titleLabel.text!
+            editEventVC.descriptionText = self.descriptionTextView.text
+            editEventVC.startDateText = editEventVC.convertDate(date: self.startDate)
+            editEventVC.endDateText = editEventVC.convertDate(date: self.endDate)
+            editEventVC.categoryText = self.categoryLabel.text!
         }
     }
 }

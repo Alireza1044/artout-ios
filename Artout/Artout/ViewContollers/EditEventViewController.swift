@@ -25,6 +25,13 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
     private var datePicker: UIDatePicker? = UIDatePicker()
     private var timePicker: UIDatePicker? = UIDatePicker()
     
+    var titleText = ""
+    var categoryText = ""
+    var descriptionText = ""
+    var startDateText = ""
+    var endDateText = ""
+
+    
     var eventId = 0
     
     var disposeBag = DisposeBag()
@@ -35,6 +42,11 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
         prepareDatePickers()
         prepareTextView()
         
+        titleTextField.text = titleText
+        categoryTextField.text = categoryText
+        _ = self.textView(self.descriptionTextView, shouldChangeTextIn: NSRange(location: 0, length: 0), replacementText: descriptionText)
+        startDateTextField.text = startDateText
+        endDateTextField.text = endDateText
         
         _ = titleTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.titleText)
         _ = startDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.startDateText)
@@ -61,21 +73,21 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
             }
         }).disposed(by: disposeBag)
         
-        self.viewModel.RequestEventDetail(id: self.eventId)
-        
-        self.viewModel.event.subscribe { event in
-            DispatchQueue.main.async {
-                self.titleTextField.insertText(event.element!.Title)
-                
-                self.categoryTextField.insertText(event.element!.Category)
-                
-                self.startDateTextField.insertText(self.convertDate(date: event.element!.StartDate))
-                
-                self.endDateTextField.insertText(self.convertDate(date: event.element!.EndDate))
-                
-                _ = self.textView(self.descriptionTextView, shouldChangeTextIn: NSRange(location: 0, length: 0), replacementText: event.element!.Description)
-            }
-        }.disposed(by: disposeBag)
+//        self.viewModel.RequestEventDetail(id: self.eventId)
+//        
+//        self.viewModel.event.subscribe { event in
+//            DispatchQueue.main.async {
+//                self.titleTextField.insertText(event.element!.Title)
+//                
+//                self.categoryTextField.insertText(event.element!.Category)
+//                
+//                self.startDateTextField.insertText(self.convertDate(date: event.element!.StartDate))
+//                
+//                self.endDateTextField.insertText(self.convertDate(date: event.element!.EndDate))
+//                
+//                _ = self.textView(self.descriptionTextView, shouldChangeTextIn: NSRange(location: 0, length: 0), replacementText: event.element!.Description)
+//            }
+//        }.disposed(by: disposeBag)
         
         self.viewModel.addEventStatus.subscribe {
             switch($0){
