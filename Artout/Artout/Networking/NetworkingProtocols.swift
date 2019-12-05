@@ -29,6 +29,13 @@ public enum APIPaths: String {
     case AddEvent = "event/events/"
     case FetchEvents = "event/eventsd/"
     case EventDetail = "event/eventdetail/"
+    
+    case MyFollowers = "followers/"
+    case MyFollowings = "followings/"
+    
+    case PendingFollowers = "followings/pendings/"
+    case PendingRequests = "followers/requests/"
+    
 }
 public enum ContentType: String {
     case JSON = "application/json"
