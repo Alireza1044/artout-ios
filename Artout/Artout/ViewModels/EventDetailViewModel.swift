@@ -19,6 +19,7 @@ class EventDetailViewModel{
     
     var event: BehaviorSubject<EventDetailEntity>
     
+    var isLoading: PublishSubject<Bool>
     var service = EventsService()
     var disposeBag = DisposeBag()
     var id: Int = 0
@@ -29,10 +30,23 @@ class EventDetailViewModel{
         categoryText = BehaviorSubject<String>(value: "")
         dateText = BehaviorSubject<String>(value: "")
         descriptionText = BehaviorSubject<String>(value: "")
+        isLoading = PublishSubject<Bool>()
         event = BehaviorSubject<EventDetailEntity>(value: EventDetailEntity(Id: 0, Title: "", Category: "", Description: "", StartDate: "", EndDate: "", Avatar: "", EventOwner: 0, Location: LocationEntity(latitude: 0.0, longitude: 0.0)))
     }
     
     func RequestEventDetail(id:Int) {
+        
+        service.isLoading.subscribe({
+            switch $0{
+            case .next(true):
+                self.isLoading.on(.next(true))
+            case .next(false):
+                self.isLoading.on(.next(false))
+            default:
+                self.isLoading.on(.next(false))
+            }
+        }).disposed(by: disposeBag)
+        
         service.RequestEventDetail(id: id).subscribe(onSuccess: { (event) in
             self.event.onNext(event)
             }).disposed(by: disposeBag)

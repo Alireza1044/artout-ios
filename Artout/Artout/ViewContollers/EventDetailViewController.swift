@@ -17,6 +17,8 @@ class EventDetailViewController: UIViewController{
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var startDate = ""
     var endDate = ""
@@ -26,6 +28,19 @@ class EventDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eventDetailViewModel.isLoading.subscribe {
+            switch($0){
+            case .next(true):
+                self.editButton.isEnabled = false
+                self.activityIndicator.startAnimating()
+                self.activityIndicator.isHidden = false
+            default:
+                self.editButton.isEnabled = true
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+            }
+        }.disposed(by: disposeBag)
         
         eventDetailViewModel.RequestEventDetail(id: eventId)
         
