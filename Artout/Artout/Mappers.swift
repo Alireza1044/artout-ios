@@ -22,4 +22,43 @@ extension RegisterEntity {
                            password: self.Password)
     }
 }
+extension EventEntity {
+    func ToDTO() -> EventDTO {
+        return EventDTO(title: self.Title,
+                        category: self.Category,
+                        description: self.Description,
+                        start_date: self.StartDate,
+                        end_date: self.EndDate,
+                        picture_url: self.Avatar,
+                        event_owner: self.EventOwner,
+                        location: self.Location)
+    }
+}
+extension EventDetailEntity {
+    func ToDTO() -> EventDetailDTO {
+        return EventDetailDTO(
+            id: self.Id
+            title: self.Title,
+            category: self.Category,
+            description: self.Description,
+            start_date: self.StartDate,
+            end_date: self.EndDate,
+            picture_url: self.Avatar,
+            event_owner: self.EventOwner,
+            location: self.Location)
+    }
+}
+extension DetailEventResponseDTO {
+    func ToEntity() -> EventEntity {
+        return EventEntity(Title: self.title,
+                           Category: self.category,
+                           Description: self.description,
+                           StartDate: self.start_date,
+                           EndDate: self.end_date,
+                           Avatar: self.picture_url,
+                           EventOwner: self.event_owner,
+                           Location: self.location)
+    }
+    
+}
 
