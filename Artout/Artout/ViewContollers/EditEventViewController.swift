@@ -73,22 +73,6 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
             }
         }).disposed(by: disposeBag)
         
-//        self.viewModel.RequestEventDetail(id: self.eventId)
-//        
-//        self.viewModel.event.subscribe { event in
-//            DispatchQueue.main.async {
-//                self.titleTextField.insertText(event.element!.Title)
-//                
-//                self.categoryTextField.insertText(event.element!.Category)
-//                
-//                self.startDateTextField.insertText(self.convertDate(date: event.element!.StartDate))
-//                
-//                self.endDateTextField.insertText(self.convertDate(date: event.element!.EndDate))
-//                
-//                _ = self.textView(self.descriptionTextView, shouldChangeTextIn: NSRange(location: 0, length: 0), replacementText: event.element!.Description)
-//            }
-//        }.disposed(by: disposeBag)
-        
         self.viewModel.addEventStatus.subscribe {
             switch($0){
             case .next(true):
