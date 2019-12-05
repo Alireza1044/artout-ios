@@ -53,7 +53,7 @@ class EditEventViewModel{
                 self.isLoading.on(.next(false))
             }
         }).disposed(by: disposeBag)
-        let event = try? EventDetailEntity(Id: id, Title: self.titleText.value(), Category: self.categoryText.value(), Description: self.descriptionText.value(), StartDate: self.startDateText.value(), EndDate: self.endDateText.value(), Avatar: self.eventImageURL.value(), EventOwner: 1, Location: LocationEntity(latitude: 1, longitude: 1))
+        let event = try? EventDetailEntity(Id: id, Title: self.titleText.value(), Category: self.categoryText.value(), Description: self.descriptionText.value(), StartDate: service.convertDate(date: self.startDateText.value()), EndDate:service.convertDate(date:  self.endDateText.value()), Avatar: self.eventImageURL.value(), EventOwner: 1, Location: LocationEntity(latitude: 1, longitude: 1))
         
         
         try? service.EditEvent(for: event!).subscribe(onSuccess: { response in
