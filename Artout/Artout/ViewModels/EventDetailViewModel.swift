@@ -17,7 +17,7 @@ class EventDetailViewModel{
     var dateText: BehaviorSubject<String>
     var descriptionText: BehaviorSubject<String>
     
-    var event: BehaviorSubject<EventResponse>
+    var event: BehaviorSubject<EventDetailEntity>
     
     var service = EventsService()
     var disposeBag = DisposeBag()
@@ -29,12 +29,12 @@ class EventDetailViewModel{
         categoryText = BehaviorSubject<String>(value: "")
         dateText = BehaviorSubject<String>(value: "")
         descriptionText = BehaviorSubject<String>(value: "")
-        event = BehaviorSubject<EventResponse>(value: EventResponse(id: 0, title: "", category: "", description: "", start_date: "", end_date: "", picture_url: "", event_owner: 0, location: LocationEntity(latitude: 0.0, longitude: 0.0)))
+        event = BehaviorSubject<EventDetailEntity>(value: EventDetailEntity(Id: 0, Title: "", Category: "", Description: "", StartDate: "", EndDate: "", Avatar: "", EventOwner: 0, Location: LocationEntity(latitude: 0.0, longitude: 0.0)))
     }
     
     func RequestEventDetail(id:Int) {
-        service.RequestEventDetail(id: id).subscribe(onSuccess: { event in
+        service.RequestEventDetail(id: id).subscribe(onSuccess: { (event) in
             self.event.onNext(event)
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
     }
 }

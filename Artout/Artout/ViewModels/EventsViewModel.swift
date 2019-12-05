@@ -11,7 +11,7 @@ import RxSwift
 
 class EventsViewModel {
     let refresh: PublishSubject<Bool>
-    var events: [EventEntity]
+    var events: [EventDetailEntity]
     var service = EventsService()
     var disposeBag = DisposeBag()
     
@@ -20,7 +20,7 @@ class EventsViewModel {
         events = []
     }
     
-    func AddEvent(event: EventResponse) {
+    func AddEvent(event: EventDetailEntity) {
         self.events.append(event)
         self.refresh.onNext(true)
     }
