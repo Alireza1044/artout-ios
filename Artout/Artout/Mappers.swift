@@ -37,7 +37,7 @@ extension EventEntity {
 extension EventDetailEntity {
     func ToDTO() -> EventDetailDTO {
         return EventDetailDTO(
-            id: self.Id
+            id: self.Id,
             title: self.Title,
             category: self.Category,
             description: self.Description,
@@ -48,14 +48,16 @@ extension EventDetailEntity {
             location: self.Location)
     }
 }
-extension DetailEventResponseDTO {
-    func ToEntity() -> EventEntity {
-        return EventEntity(Title: self.title,
+extension EventDetailResponseDTO {
+    func ToEntity() -> EventDetailEntity {
+        return EventDetailEntity(
+            Id: self.id,
+                            Title: self.title,
                            Category: self.category,
                            Description: self.description,
                            StartDate: self.start_date,
                            EndDate: self.end_date,
-                           Avatar: self.picture_url,
+                           Avatar: self.picture_url!,
                            EventOwner: self.event_owner,
                            Location: self.location)
     }

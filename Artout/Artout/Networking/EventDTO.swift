@@ -18,6 +18,7 @@ class EventDTO: Codable {
     var event_owner: Int
     var location: LocationEntity
     
+    
     init(title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity) {
         self.title = title
         self.category = category
@@ -78,7 +79,7 @@ class AddEventResponseDTO: Codable {
     }
 }
 
-class DetailEventResponseDTO: Codable {
+class EventDetailResponseDTO: Codable {
     var id: Int
     var title: String
     var category: String

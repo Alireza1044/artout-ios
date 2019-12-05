@@ -15,7 +15,7 @@ class EventEntity {
     var EndDate: String
     var Avatar: String
     var EventOwner: Int
-    var Location: LocationEntity = ""
+    var Location: LocationEntity
     
     init(Title: String,
          Category: String,
@@ -32,6 +32,7 @@ class EventEntity {
         self.EventOwner = EventOwner
         self.Location = Location
         self.Description = Description
+        self.Title = Title
     }
     
 }
@@ -44,7 +45,7 @@ class EventDetailEntity {
     var EndDate: String
     var Avatar: String
     var EventOwner: Int
-    var Location: LocationEntity = ""
+    var Location: LocationEntity
     
     init(Id: Int,
          Title: String,
@@ -63,6 +64,7 @@ class EventDetailEntity {
         self.EventOwner = EventOwner
         self.Location = Location
         self.Description = Description
+        self.Title = Title
     }
     
 }
