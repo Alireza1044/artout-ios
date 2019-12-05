@@ -56,6 +56,19 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
         
         self.activityIndicatorView.isHidden = true
         
+        Observable.combineLatest(titleTextField.rx.text.asObservable(),
+                                 descriptionTextView.rx.text.asObservable(),
+                                 categoryTextField.rx.text.asObservable(),
+                                 startDateTextField.rx.text.asObservable(),
+                                 endDateTextField.rx.text.asObservable()).map{ $0 != self.titleText ||
+                                    $1 != self.descriptionText ||
+                                    $2 != self.categoryText ||
+                                    $3 != self.startDateText ||
+                                    $4 != self.endDateText
+        }.subscribe{
+            self.doneButton.isEnabled = $0.element!
+            }.disposed(by: disposeBag)
+        
         viewModel.isLoading.subscribe({ loading in
             switch (loading){
             case .next(true):
