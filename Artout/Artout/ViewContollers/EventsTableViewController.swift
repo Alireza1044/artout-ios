@@ -48,10 +48,10 @@ class EventsTableViewController: UITableViewController {
         
     }
     
-    func ConfigureCell(for cell: EventTableViewCell, with item: EventResponse) {
-        cell.TitleLabel?.text = item.title
-        cell.DateLabel?.text = item.start_date
-        cell.DescriptionLabel?.text = item.description
+    func ConfigureCell(for cell: EventTableViewCell, with item: EventDetailEntity) {
+        cell.TitleLabel?.text = item.Title
+        cell.DateLabel?.text = item.StartDate
+        cell.DescriptionLabel?.text = item.Description
     }
     
     @objc func CallForRefresh () {
@@ -62,7 +62,7 @@ class EventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
-        viewController?.eventId = viewModel.events[indexPath.row].id
+        viewController?.eventId = viewModel.events[indexPath.row].Id
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
 }

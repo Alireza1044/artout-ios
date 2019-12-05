@@ -29,10 +29,10 @@ class EventDetailViewController: UIViewController{
         
         self.eventDetailViewModel.event.subscribe { event in
             DispatchQueue.main.async {
-                self.titleLabel.text = event.element!.title
-                self.categoryLabel.text = event.element!.category
-                self.dateLabel.text = "From: \(event.element!.start_date) To: \(event.element!.end_date)"
-                self.descriptionTextView.text = event.element!.description
+                self.titleLabel.text = event.element!.Title
+                self.categoryLabel.text = event.element!.Category
+                self.dateLabel.text = "From: \(event.element!.StartDate) To: \(event.element!.EndDate)"
+                self.descriptionTextView.text = event.element!.Description
             }
         }.disposed(by: disposeBag)
     }
