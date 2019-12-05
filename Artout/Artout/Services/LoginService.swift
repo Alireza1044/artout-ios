@@ -31,13 +31,13 @@ class LoginService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.CredenttialsNotValid))
                     }
                     return
                 }
                 guard let response = try? JSONDecoder().decode(LoginResponseDTO.self, from: data) else {
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }

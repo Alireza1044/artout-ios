@@ -30,13 +30,13 @@ class EventsService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.CredenttialsNotValid))
                     }
                     return
                 }
                 guard let responseDTO = try? JSONDecoder().decode([DetailEventResponseDTO].self, from: data) else {
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }
@@ -72,14 +72,14 @@ class EventsService {
                 guard response.statusCode == 201 else{
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.CredenttialsNotValid))
                     }
                     return
                 }
                 guard let responseDTO = JSONDecoder().decode(AddEventResponseDTO.self, from: data) else {
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }
@@ -114,14 +114,14 @@ class EventsService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                         self?.isLoading.onNext(false)
                     }
                     return
                 }
                 guard let event = try? JSONDecoder().decode(DetailEventResponseDTO, from: data) else {
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                         self?.isLoading.onNext(false)
                     }
                     return
@@ -161,14 +161,14 @@ class EventsService {
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.CredenttialsNotValid))
                     }
                     return
                 }
                 guard let responseDTO = JSONDecoder().decode(EventDetailDTO, from: data) else {
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }
