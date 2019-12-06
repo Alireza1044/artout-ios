@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLZ-qC-cch">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLZ-qC-cch">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,15 +32,6 @@
                     <view key="view" contentMode="scaleToFill" id="cXK-YC-E4b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This Is Your Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsj-8M-ahr">
-                                <rect key="frame" x="136" y="438" width="142" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KWF-mM-wxQ"/>
                     </view>
@@ -48,7 +39,111 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GA0-9H-ggZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957.9710144927537" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1958" y="93"/>
+        </scene>
+        <!--My Followings Table View Controller-->
+        <scene sceneID="quZ-eN-oNx">
+            <objects>
+                <tableViewController id="nU6-CW-GJP" customClass="MyFollowingsTableViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yUW-1L-0xj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowingsCell" rowHeight="110" id="6zH-nG-39d" customClass="FollowersAndFollowingTableViewCell" customModule="Artout" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6zH-nG-39d" id="LOw-i4-luY" customClass="FollowersAndFollowingTableViewCell" customModule="Artout" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OH8-cb-df9">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="110"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-Fn-BDv">
+                                            <rect key="frame" x="132" y="44.5" width="150" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="OH8-cb-df9" secondAttribute="bottom" id="ATF-Nh-hLf"/>
+                                        <constraint firstItem="9Xm-Fn-BDv" firstAttribute="centerX" secondItem="LOw-i4-luY" secondAttribute="centerX" id="Qtc-4Y-6LX"/>
+                                        <constraint firstItem="OH8-cb-df9" firstAttribute="leading" secondItem="LOw-i4-luY" secondAttribute="leading" id="UIJ-tl-FJE"/>
+                                        <constraint firstItem="OH8-cb-df9" firstAttribute="top" secondItem="LOw-i4-luY" secondAttribute="top" id="WCi-zK-3mR"/>
+                                        <constraint firstItem="OH8-cb-df9" firstAttribute="width" secondItem="LOw-i4-luY" secondAttribute="width" multiplier="0.3" id="dp7-6u-Kqa"/>
+                                        <constraint firstItem="9Xm-Fn-BDv" firstAttribute="leading" secondItem="OH8-cb-df9" secondAttribute="trailing" constant="8" id="dvE-pT-hpn"/>
+                                        <constraint firstItem="9Xm-Fn-BDv" firstAttribute="centerY" secondItem="LOw-i4-luY" secondAttribute="centerY" id="kfP-51-2Yj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="FFFullName" destination="9Xm-Fn-BDv" id="8QJ-6G-aT0"/>
+                                    <outlet property="FFPhoto" destination="OH8-cb-df9" id="q3W-xj-RNp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nU6-CW-GJP" id="ilH-Vf-icL"/>
+                            <outlet property="delegate" destination="nU6-CW-GJP" id="jbA-Nq-neN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Brm-ar-ay5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2487" y="919"/>
+        </scene>
+        <!--My Followers Table View Controller-->
+        <scene sceneID="RqW-PS-ADO">
+            <objects>
+                <tableViewController id="rpc-Ap-2Rg" customClass="MyFollowersTableViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pgw-Tl-wuD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowersCell" rowHeight="110" id="XtE-Qs-3bd" customClass="FollowersAndFollowingTableViewCell" customModule="Artout" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="110"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XtE-Qs-3bd" id="UPZ-FK-uVN" customClass="FollowersAndFollowingTableViewCell" customModule="Artout" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rSQ-Fl-hxh">
+                                            <rect key="frame" x="0.0" y="0.0" width="124" height="110"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iST-DJ-PSq">
+                                            <rect key="frame" x="132" y="44.5" width="150" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iST-DJ-PSq" firstAttribute="centerX" secondItem="UPZ-FK-uVN" secondAttribute="centerX" id="558-mf-Pu8"/>
+                                        <constraint firstItem="rSQ-Fl-hxh" firstAttribute="width" secondItem="UPZ-FK-uVN" secondAttribute="width" multiplier="0.3" id="5Mm-LV-nh5"/>
+                                        <constraint firstItem="rSQ-Fl-hxh" firstAttribute="leading" secondItem="UPZ-FK-uVN" secondAttribute="leading" id="jhg-XE-9GW"/>
+                                        <constraint firstItem="rSQ-Fl-hxh" firstAttribute="top" secondItem="UPZ-FK-uVN" secondAttribute="top" id="qfL-SI-4R8"/>
+                                        <constraint firstItem="iST-DJ-PSq" firstAttribute="centerY" secondItem="UPZ-FK-uVN" secondAttribute="centerY" id="uOh-3y-B5N"/>
+                                        <constraint firstAttribute="bottom" secondItem="rSQ-Fl-hxh" secondAttribute="bottom" id="yNl-V0-huq"/>
+                                        <constraint firstItem="iST-DJ-PSq" firstAttribute="leading" secondItem="rSQ-Fl-hxh" secondAttribute="trailing" constant="8" id="zxI-pn-ihC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="FFFullName" destination="iST-DJ-PSq" id="YPJ-8m-PMS"/>
+                                    <outlet property="FFPhoto" destination="rSQ-Fl-hxh" id="PT9-Vz-b86"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rpc-Ap-2Rg" id="dFZ-u5-Avn"/>
+                            <outlet property="delegate" destination="rpc-Ap-2Rg" id="YQU-eR-Ss1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LnR-Yd-bA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3018.840579710145" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
