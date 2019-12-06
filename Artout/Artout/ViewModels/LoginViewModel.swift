@@ -30,8 +30,8 @@ class LoginViewModel {
     }
     
     func Login() {
-        var entity = try? LoginEntity(Username: usernameText.value(), Password: passwordText.value())
-        try? service.Login(With: entity!)
+        let entity = try? LoginEntity(Username: usernameText.value(), Password: passwordText.value())
+        service.Login(With: entity!)
         .subscribe({ event in
             switch event{
                 case .success:

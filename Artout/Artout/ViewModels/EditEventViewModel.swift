@@ -56,7 +56,7 @@ class EditEventViewModel{
         let event = try? EventDetailEntity(Id: id, Title: self.titleText.value(), Category: self.categoryText.value(), Description: self.descriptionText.value(), StartDate: service.convertDate(date: self.startDateText.value()), EndDate:service.convertDate(date:  self.endDateText.value()), Avatar: self.eventImageURL.value(), EventOwner: 1, Location: LocationEntity(latitude: 1, longitude: 1))
         
         
-        try? service.EditEvent(for: event!).subscribe(onSuccess: { response in
+        service.EditEvent(for: event!).subscribe(onSuccess: { response in
             self.addEventStatus.on(.next(true))
         }) { error in
             self.addEventStatus.on(.next(false))

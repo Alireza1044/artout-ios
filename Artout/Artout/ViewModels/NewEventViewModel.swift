@@ -75,7 +75,7 @@ class NewEventViewModel{
                                  EventOwner: 1,
                                  Location: LocationEntity(latitude: 0.0, longitude: 0.0))
         
-        _ = try? service.AddEvent(With: entity).subscribe{
+        _ = service.AddEvent(With: entity).subscribe{
             event in
             switch(event){
             case .success:
