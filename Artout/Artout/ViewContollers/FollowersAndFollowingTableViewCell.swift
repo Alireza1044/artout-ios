@@ -12,6 +12,7 @@ class FollowersAndFollowingTableViewCell: UITableViewCell {
 
     @IBOutlet weak var FFPhoto: UIImageView!
     @IBOutlet weak var FFFullName: UILabel!
+    @IBOutlet weak var StateButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
