@@ -46,6 +46,8 @@
 		FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD452374044D005EEDA5 /* LoginDTO.swift */; };
 		FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD472374045E005EEDA5 /* SignupDTO.swift */; };
 		FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */; };
+		FA8A6CCC239BB35E006BD166 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A6CCB239BB35E006BD166 /* AddFriendViewController.swift */; };
+		FA8A6CCE239BB4C7006BD166 /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */; };
 		FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74842378DE5D009C1C79 /* LocationEntity.swift */; };
 		FA8E74872378DE5D009C1C79 /* EventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74852378DE5D009C1C79 /* EventEntity.swift */; };
 		FAC78E3323982301000F0544 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E3223982301000F0544 /* LoginEntity.swift */; };
@@ -99,6 +101,8 @@
 		FA64DD452374044D005EEDA5 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
 		FA64DD472374045E005EEDA5 /* SignupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDTO.swift; sourceTree = "<group>"; };
 		FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
+		FA8A6CCB239BB35E006BD166 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
+		FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
 		FA8E74842378DE5D009C1C79 /* LocationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
 		FA8E74852378DE5D009C1C79 /* EventEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
 		FAC78E3223982301000F0544 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 				FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */,
 				FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */,
 				FA28BD12239AAC2D005EE105 /* FollowersAndFollowingTableViewCell.swift */,
+				FA8A6CCB239BB35E006BD166 /* AddFriendViewController.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				FA3D9C1B237586870019F1FC /* EventsViewModel.swift */,
 				FA28BD08239AA75A005EE105 /* MyFollowersViewModel.swift */,
 				FA28BD0A239AA768005EE105 /* MyFollowingsViewModel.swift */,
+				FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -395,9 +401,11 @@
 				FA3D9C1A2375840F0019F1FC /* EventTableViewCell.swift in Sources */,
 				FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */,
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
+				FA8A6CCC239BB35E006BD166 /* AddFriendViewController.swift in Sources */,
 				BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */,
 				FA3D9C24237595130019F1FC /* EventsTableViewController.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
+				FA8A6CCE239BB4C7006BD166 /* AddFriendViewModel.swift in Sources */,
 				FA28BD09239AA75A005EE105 /* MyFollowersViewModel.swift in Sources */,
 				BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
