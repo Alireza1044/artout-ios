@@ -35,7 +35,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KWF-mM-wxQ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bcJ-lT-4KZ"/>
+                    <navigationItem key="navigationItem" id="bcJ-lT-4KZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2gS-b7-cFZ">
+                            <connections>
+                                <segue destination="gN3-1x-knn" kind="presentation" id="WEv-5R-kLL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GA0-9H-ggZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,7 +97,62 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brm-ar-ay5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2487" y="919"/>
+            <point key="canvasLocation" x="4442" y="67"/>
+        </scene>
+        <!--Add Friend View Controller-->
+        <scene sceneID="BDh-nK-1sa">
+            <objects>
+                <viewController id="gN3-1x-knn" customClass="AddFriendViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d9g-de-YHW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-73-BKb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C3W-W5-5Ua">
+                                <rect key="frame" x="0.0" y="56" width="414" height="647"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQX-BR-M1i">
+                                <rect key="frame" x="0.0" y="703" width="414" height="56"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Add Friend">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddFriendButtonPressed:" destination="gN3-1x-knn" eventType="touchUpInside" id="eDC-ja-oZ0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iQX-BR-M1i" firstAttribute="height" secondItem="jKN-73-BKb" secondAttribute="height" id="0zc-mB-2xR"/>
+                            <constraint firstItem="C3W-W5-5Ua" firstAttribute="top" secondItem="jKN-73-BKb" secondAttribute="bottom" id="5NW-MZ-m3x"/>
+                            <constraint firstItem="8Gr-wg-jdO" firstAttribute="trailing" secondItem="iQX-BR-M1i" secondAttribute="trailing" id="CHE-TD-XXr"/>
+                            <constraint firstItem="C3W-W5-5Ua" firstAttribute="leading" secondItem="8Gr-wg-jdO" secondAttribute="leading" id="CMD-Fs-3KI"/>
+                            <constraint firstItem="iQX-BR-M1i" firstAttribute="leading" secondItem="8Gr-wg-jdO" secondAttribute="leading" id="K0m-9E-Opj"/>
+                            <constraint firstItem="jKN-73-BKb" firstAttribute="leading" secondItem="8Gr-wg-jdO" secondAttribute="leading" id="S0d-ar-Wba"/>
+                            <constraint firstItem="jKN-73-BKb" firstAttribute="top" secondItem="8Gr-wg-jdO" secondAttribute="top" id="TxZ-P0-vw6"/>
+                            <constraint firstItem="jKN-73-BKb" firstAttribute="trailing" secondItem="8Gr-wg-jdO" secondAttribute="trailing" id="ceK-32-fmN"/>
+                            <constraint firstItem="iQX-BR-M1i" firstAttribute="top" secondItem="C3W-W5-5Ua" secondAttribute="bottom" id="qqE-hW-6xY"/>
+                            <constraint firstItem="8Gr-wg-jdO" firstAttribute="bottom" secondItem="iQX-BR-M1i" secondAttribute="bottom" id="u51-bM-deW"/>
+                            <constraint firstItem="8Gr-wg-jdO" firstAttribute="trailing" secondItem="C3W-W5-5Ua" secondAttribute="trailing" id="vCl-A8-yta"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Gr-wg-jdO"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="AddFriendButton" destination="iQX-BR-M1i" id="hID-Y2-y9d"/>
+                        <outlet property="AddFriendSearchBar" destination="jKN-73-BKb" id="3Zf-11-cof"/>
+                        <outlet property="AddFriendSearchResultTableView" destination="C3W-W5-5Ua" id="Yg7-8S-AQv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bqf-LS-uUe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3556.521739130435" y="812.94642857142856"/>
         </scene>
         <!--My Followers Table View Controller-->
         <scene sceneID="RqW-PS-ADO">
@@ -143,7 +204,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnR-Yd-bA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3018.840579710145" y="87.723214285714278"/>
+            <point key="canvasLocation" x="3142" y="-377"/>
         </scene>
     </scenes>
     <resources>
