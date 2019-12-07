@@ -36,6 +36,7 @@
 		FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C1B237586870019F1FC /* EventsViewModel.swift */; };
 		FA3D9C222375920A0019F1FC /* EventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C212375920A0019F1FC /* EventsService.swift */; };
 		FA3D9C24237595130019F1FC /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3D9C23237595130019F1FC /* EventsTableViewController.swift */; };
+		FA41F1A6239BC2BC00F36551 /* FriendEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41F1A5239BC2BC00F36551 /* FriendEntity.swift */; };
 		FA64DD3323733906005EEDA5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3223733906005EEDA5 /* Home.storyboard */; };
 		FA64DD3523733AB9005EEDA5 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */; };
 		FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */; };
@@ -91,6 +92,7 @@
 		FA3D9C1B237586870019F1FC /* EventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewModel.swift; sourceTree = "<group>"; };
 		FA3D9C212375920A0019F1FC /* EventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsService.swift; sourceTree = "<group>"; };
 		FA3D9C23237595130019F1FC /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		FA41F1A5239BC2BC00F36551 /* FriendEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendEntity.swift; sourceTree = "<group>"; };
 		FA64DD3223733906005EEDA5 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		FA64DD3423733AB9005EEDA5 /* Timeline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timeline.storyboard; sourceTree = "<group>"; };
 		FA64DD3823733D54005EEDA5 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				FAC78E3223982301000F0544 /* LoginEntity.swift */,
 				FAC78E342398230F000F0544 /* RegisterEntity.swift */,
 				FA28BD0C239AA8D5005EE105 /* UserEntity.swift */,
+				FA41F1A5239BC2BC00F36551 /* FriendEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */,
 				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
 				FA3D9C1A2375840F0019F1FC /* EventTableViewCell.swift in Sources */,
+				FA41F1A6239BC2BC00F36551 /* FriendEntity.swift in Sources */,
 				FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */,
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				FA8A6CCC239BB35E006BD166 /* AddFriendViewController.swift in Sources */,

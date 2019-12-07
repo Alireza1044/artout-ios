@@ -97,7 +97,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brm-ar-ay5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4442" y="67"/>
+            <point key="canvasLocation" x="3775" y="759"/>
         </scene>
         <!--Add Friend View Controller-->
         <scene sceneID="BDh-nK-1sa">
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bqf-LS-uUe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3556.521739130435" y="812.94642857142856"/>
+            <point key="canvasLocation" x="1958" y="850"/>
         </scene>
         <!--My Followers Table View Controller-->
         <scene sceneID="RqW-PS-ADO">
@@ -174,16 +174,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="110"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iST-DJ-PSq">
-                                            <rect key="frame" x="132" y="44.5" width="150" height="21"/>
+                                            <rect key="frame" x="132" y="40" width="150" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-4V-kVo">
+                                            <rect key="frame" x="302" y="40" width="100" height="30"/>
+                                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="eUW-BQ-fPx"/>
+                                            </constraints>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="iST-DJ-PSq" firstAttribute="centerX" secondItem="UPZ-FK-uVN" secondAttribute="centerX" id="558-mf-Pu8"/>
                                         <constraint firstItem="rSQ-Fl-hxh" firstAttribute="width" secondItem="UPZ-FK-uVN" secondAttribute="width" multiplier="0.3" id="5Mm-LV-nh5"/>
+                                        <constraint firstItem="2IE-4V-kVo" firstAttribute="height" secondItem="iST-DJ-PSq" secondAttribute="height" id="6J8-Ck-LtK"/>
+                                        <constraint firstItem="2IE-4V-kVo" firstAttribute="trailing" secondItem="UPZ-FK-uVN" secondAttribute="trailingMargin" constant="8" id="h0d-0m-pDw"/>
                                         <constraint firstItem="rSQ-Fl-hxh" firstAttribute="leading" secondItem="UPZ-FK-uVN" secondAttribute="leading" id="jhg-XE-9GW"/>
+                                        <constraint firstItem="2IE-4V-kVo" firstAttribute="centerY" secondItem="UPZ-FK-uVN" secondAttribute="centerY" id="oKy-Xx-QxP"/>
                                         <constraint firstItem="rSQ-Fl-hxh" firstAttribute="top" secondItem="UPZ-FK-uVN" secondAttribute="top" id="qfL-SI-4R8"/>
                                         <constraint firstItem="iST-DJ-PSq" firstAttribute="centerY" secondItem="UPZ-FK-uVN" secondAttribute="centerY" id="uOh-3y-B5N"/>
                                         <constraint firstAttribute="bottom" secondItem="rSQ-Fl-hxh" secondAttribute="bottom" id="yNl-V0-huq"/>
@@ -193,6 +206,7 @@
                                 <connections>
                                     <outlet property="FFFullName" destination="iST-DJ-PSq" id="YPJ-8m-PMS"/>
                                     <outlet property="FFPhoto" destination="rSQ-Fl-hxh" id="PT9-Vz-b86"/>
+                                    <outlet property="StateButton" destination="2IE-4V-kVo" id="91C-WC-RTc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -204,7 +218,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnR-Yd-bA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="-377"/>
+            <point key="canvasLocation" x="3067" y="138"/>
         </scene>
     </scenes>
     <resources>
