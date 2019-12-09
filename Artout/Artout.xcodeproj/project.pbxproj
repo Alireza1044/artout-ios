@@ -18,6 +18,7 @@
 		BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2C7E8237473BF0079167A /* TokenService.swift */; };
 		BBAA4B9B239E670B00DC44C9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9A239E670B00DC44C9 /* UserDTO.swift */; };
 		BBAA4B9D239E7BE100DC44C9 /* FollowingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9C239E7BE100DC44C9 /* FollowingService.swift */; };
+		BBAA4B9F239E807200DC44C9 /* PendingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9E239E807200DC44C9 /* PendingService.swift */; };
 		BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */; };
 		BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */; };
 		BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */; };
@@ -75,6 +76,7 @@
 		BBA2C7E8237473BF0079167A /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		BBAA4B9A239E670B00DC44C9 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		BBAA4B9C239E7BE100DC44C9 /* FollowingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingService.swift; sourceTree = "<group>"; };
+		BBAA4B9E239E807200DC44C9 /* PendingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingService.swift; sourceTree = "<group>"; };
 		BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				BB7B9C7F239D3F7500052D7F /* FollowerService.swift */,
 				BBAA4B9C239E7BE100DC44C9 /* FollowingService.swift */,
 				BBA2C7E8237473BF0079167A /* TokenService.swift */,
+				BBAA4B9E239E807200DC44C9 /* PendingService.swift */,
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
 				FA3D9C212375920A0019F1FC /* EventsService.swift */,
 			);
@@ -421,6 +424,7 @@
 				FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */,
 				BBAA4B9B239E670B00DC44C9 /* UserDTO.swift in Sources */,
 				FA8A6CCC239BB35E006BD166 /* AddFriendViewController.swift in Sources */,
+				BBAA4B9F239E807200DC44C9 /* PendingService.swift in Sources */,
 				BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */,
 				FA3D9C24237595130019F1FC /* EventsTableViewController.swift in Sources */,
 				FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */,
