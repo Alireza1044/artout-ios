@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         alpha = saulehImage.alpha
         height = saulehImage.frame.size.height / 2
         self.saulehImage.layer.cornerRadius = height;

@@ -19,6 +19,7 @@ class EventsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         refreshControlInstance.addTarget(self, action: #selector(CallForRefresh), for: .valueChanged)
         tableView.refreshControl = self.refreshControlInstance
         viewModel.FetchEvents()
