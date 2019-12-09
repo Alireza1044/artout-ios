@@ -7,7 +7,7 @@
 //
 import Foundation
 
-enum FollowingState: String {
+enum FollowingState: String, Codable {
     case Following = "Following"
     case Requested = "Requested"
     case NotFollowing = "Follow"
