@@ -9,9 +9,9 @@
 import Foundation
 import RxSwift
 
-var disposeBag = DisposeBag()
-
 class FollowerService {
+    
+    var disposeBag = DisposeBag()
     
     func fetchFollowerList(entity: FriendEntity) -> Single<[FriendEntity]>{
         
@@ -47,7 +47,7 @@ class FollowerService {
                 return
                 }, onError: { error in
                     print(error.localizedDescription)
-            }).disposed(by: disposeBag)
+            }).disposed(by: self.disposeBag)
             return Disposables.create()
         })
         
