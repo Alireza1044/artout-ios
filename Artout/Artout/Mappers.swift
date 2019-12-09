@@ -34,6 +34,41 @@ extension EventEntity {
                         location: self.Location)
     }
 }
+
+extension UserEntity {
+    func ToDTO() -> UserDTO {
+        return UserDTO(FirstName: self.FirstName,
+                       LastName: self.LastName,
+                       UserName: self.UserName,
+                       Avatar: self.Avatar,
+                       Id: self.Id)
+    }
+}
+
+extension FriendEntity {
+    func ToDTO() -> FriendDTO {
+        return FriendDTO(User: self.User.ToDTO(),
+                         State: self.State)
+    }
+}
+
+extension FriendDTO {
+    func ToEntity() -> FriendEntity {
+        return FriendEntity(User: self.User.ToEntity(),
+                            State: self.State)
+    }
+}
+
+extension UserDTO {
+    func ToEntity() -> UserEntity {
+        return UserEntity(FirstName: self.FirstName,
+                          LastName: self.LastName,
+                          UserName: self.UserName,
+                          Avatar: self.Avatar,
+                          Id: self.Id)
+    }
+}
+
 extension EventDetailEntity {
     func ToDTO() -> EventDetailDTO {
         return EventDetailDTO(
