@@ -8,4 +8,5 @@ target 'Artout' do
   # Pods for Artout
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Hero'
 end

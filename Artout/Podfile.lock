@@ -1,4 +1,5 @@
 PODS:
+  - Hero (1.5.0)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -7,20 +8,23 @@ PODS:
   - RxSwift (5.0.1)
 
 DEPENDENCIES:
+  - Hero
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   trunk:
+    - Hero
     - RxCocoa
     - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 38a346e5af2a92dec429466d59d9c3ef9b5288d0
+PODFILE CHECKSUM: 1d2fc262c3a83a98691bba558297ecc780346d45
 
 COCOAPODS: 1.8.4
