@@ -19,6 +19,8 @@ class MyFollowersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
