@@ -13,9 +13,9 @@ import RxCocoa
 class EventDetailViewController: UIViewController{
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: CustomLabel!
+    @IBOutlet weak var categoryLabel: CustomLabel!
+    @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -28,6 +28,29 @@ class EventDetailViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleLabel.layer.borderColor = UIColor.darkGray.cgColor
+        titleLabel.layer.borderWidth = 1
+        titleLabel.layer.cornerRadius = 4
+        //        titleLabel.layer.masksToBounds = true
+        
+        
+        dateLabel.layer.borderColor = UIColor.darkGray.cgColor
+        dateLabel.layer.borderWidth = 1
+        dateLabel.layer.cornerRadius = 4
+        //        dateLabel.layer.masksToBounds = true
+        
+        categoryLabel.layer.borderColor = UIColor.darkGray.cgColor
+        categoryLabel.layer.borderWidth = 1
+        categoryLabel.layer.cornerRadius = 4
+        //        categoryLabel.layer.masksToBounds = true
+        
+        self.descriptionTextView.textContainerInset = .init(top: 2, left: 4, bottom: 0, right: 4)
+        
+        descriptionTextView.layer.borderColor = UIColor.darkGray.cgColor
+        descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.cornerRadius = 4
+        descriptionTextView.textContainer.lineFragmentPadding = 0
         
         eventDetailViewModel.isLoading.subscribe {
             switch($0){
@@ -66,5 +89,11 @@ class EventDetailViewController: UIViewController{
             editEventVC.endDateText = editEventVC.convertDate(date: self.endDate)
             editEventVC.categoryText = self.categoryLabel.text!
         }
+    }
+}
+
+class CustomLabel: UILabel{
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: UIEdgeInsets.init(top: 2, left: 4, bottom: 2, right: 4)))
     }
 }
