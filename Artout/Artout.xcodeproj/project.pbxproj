@@ -59,6 +59,8 @@
 		FA8A6CCE239BB4C7006BD166 /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */; };
 		FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74842378DE5D009C1C79 /* LocationEntity.swift */; };
 		FA8E74872378DE5D009C1C79 /* EventEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74852378DE5D009C1C79 /* EventEntity.swift */; };
+		FAAF674723A7BE3800214B82 /* EventsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF674623A7BE3800214B82 /* EventsCollectionViewController.swift */; };
+		FAAF674923A7BF1200214B82 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF674823A7BF1200214B82 /* EventCollectionViewCell.swift */; };
 		FAC78E3323982301000F0544 /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E3223982301000F0544 /* LoginEntity.swift */; };
 		FAC78E352398230F000F0544 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E342398230F000F0544 /* RegisterEntity.swift */; };
 		FAC78E3723982563000F0544 /* Mappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC78E3623982563000F0544 /* Mappers.swift */; };
@@ -124,6 +126,8 @@
 		FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
 		FA8E74842378DE5D009C1C79 /* LocationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
 		FA8E74852378DE5D009C1C79 /* EventEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
+		FAAF674623A7BE3800214B82 /* EventsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsCollectionViewController.swift; path = Artout/ViewContollers/EventsCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
+		FAAF674823A7BF1200214B82 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCollectionViewCell.swift; path = Artout/ViewContollers/EventCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FAC78E3223982301000F0544 /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		FAC78E342398230F000F0544 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		FAC78E3623982563000F0544 /* Mappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappers.swift; sourceTree = "<group>"; };
@@ -179,7 +183,9 @@
 				FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */,
 				FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */,
 				FA28BD12239AAC2D005EE105 /* FollowersAndFollowingTableViewCell.swift */,
+				FAAF674823A7BF1200214B82 /* EventCollectionViewCell.swift */,
 				FA8A6CCB239BB35E006BD166 /* AddFriendViewController.swift */,
+				FAAF674623A7BE3800214B82 /* EventsCollectionViewController.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -460,7 +466,9 @@
 				FA28BD05239AA672005EE105 /* MyFollowingsTableViewController.swift in Sources */,
 				FAC78E3923982FF6000F0544 /* EventDTO.swift in Sources */,
 				FAFAFABB236B0F920057E6DA /* LoginViewModel.swift in Sources */,
+				FAAF674923A7BF1200214B82 /* EventCollectionViewCell.swift in Sources */,
 				FAC78E3723982563000F0544 /* Mappers.swift in Sources */,
+				FAAF674723A7BE3800214B82 /* EventsCollectionViewController.swift in Sources */,
 				FA28BD0B239AA768005EE105 /* MyFollowingsViewModel.swift in Sources */,
 				BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */,
 				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
