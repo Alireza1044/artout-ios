@@ -31,7 +31,7 @@ class EventDetailViewModel{
         dateText = BehaviorSubject<String>(value: "")
         descriptionText = BehaviorSubject<String>(value: "")
         isLoading = PublishSubject<Bool>()
-        event = BehaviorSubject<EventDetailEntity>(value: EventDetailEntity(Id: 0, Title: "", Category: "", Description: "", StartDate: "", EndDate: "", Avatar: "", EventOwner: 0, Location: LocationEntity(latitude: 0.0, longitude: 0.0)))
+        event = BehaviorSubject<EventDetailEntity>(value: EventDetailEntity(Id: 0, Title: "", Category: "", Description: "", StartDate: "", EndDate: "", Avatar: "", EndTime: "", StartTime: "", EventOwner: 0, Location: LocationEntity(latitude: 0.0, longitude: 0.0)))
     }
     
     func RequestEventDetail(id:Int) {
