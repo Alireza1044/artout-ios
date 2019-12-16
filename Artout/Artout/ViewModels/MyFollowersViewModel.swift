@@ -13,12 +13,15 @@ class MyFollowersViewModel {
     
     var disposeBag = DisposeBag()
     var Followers: [UserEntity]
+    var service = FriendService()
     
     init() {
         self.Followers = []
     }
     
     func FetchFollowers() {
-        
+        _ = service.fetchFollowersList().subscribe(onSuccess: { data in
+            self.Followers = data
+        })
     }
 }
