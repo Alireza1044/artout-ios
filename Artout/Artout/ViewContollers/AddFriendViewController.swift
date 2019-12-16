@@ -18,10 +18,29 @@ class AddFriendViewController: UIViewController {
     
     @IBAction func AddFriendButtonPressed(_ sender: Any) {
         viewModel.AddFriend()
+//        self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.addedSuccessfully.subscribe(onNext: { (result) in
+            
+            if result {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Friend request sent", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Failed to sent friend request", message: nil, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+            
+            
+        })
         AddFriendSearchBar.placeholder = "Search for Friends"
         _ = AddFriendSearchBar.searchTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.searchText)
     }
