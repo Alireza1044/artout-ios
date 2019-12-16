@@ -13,14 +13,19 @@ class AddFriendViewModel {
     var disposeBag = DisposeBag()
     var searchText = BehaviorSubject<String>(value: "")
     var addedSuccessfully: PublishSubject<Bool>
+    let service = FriendService()
     
+    
+    var k: String = ""
     init() {
         addedSuccessfully = PublishSubject<Bool>()
     }
     
     func AddFriend() {
-//        Call Add Friend Service Function
-        try? print(searchText.value())
+        _ = try? service.AddFriend(with: searchText.value()).subscribe(onSuccess: { (data) in
+            self.k = data
+        })
+        
     }
     
     
