@@ -18,16 +18,18 @@ class EventsService {
         return Single<[EventDetailEntity]>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.FetchEvents.rawValue)!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.GET.rawValue
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
-            .flatMap { request in
+        .flatMap { request in
                 URLSession.shared.rx.response(request: request)
             }
-            .subscribe(onNext: { [weak self] response, data in
+            .subscribe(onNext: {
+                response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
                         single(.error(HTTPStatusCodes.Unauthorized))
@@ -63,6 +65,7 @@ class EventsService {
                     request.httpMethod = HTTPMethod.POST.rawValue
                     request.httpBody = try? JSONEncoder().encode(Event.ToDTO())
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
             .flatMap { request in
@@ -102,10 +105,11 @@ class EventsService {
         return Single<EventDetailEntity>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.EventDetail.rawValue + "\(id)/")!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue + "\(id)/")!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.GET.rawValue
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
             .flatMap { request in
@@ -150,6 +154,7 @@ class EventsService {
                     request.httpMethod = HTTPMethod.PUT.rawValue
                     request.httpBody = try? JSONEncoder().encode(event.ToDTO())
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
             .flatMap { request in
@@ -182,11 +187,5 @@ class EventsService {
         })
     }
     
-    func convertDate(date: String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        let newDate = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return  dateFormatter.string(from: newDate!)
-    }
+    
 }
