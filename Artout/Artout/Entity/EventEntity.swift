@@ -7,15 +7,21 @@
 //
 
 import Foundation
+
 class EventEntity {
     var Title: String
     var Category: String
     var Description: String
     var StartDate: String
     var EndDate: String
+    var StartTime: String
+    var EndTime: String
     var Avatar: String
-    var EventOwner: Int
+    var EventOwner: Int {
+        return UserDefaults.standard.integer(forKey: "UserId")
+    }
     var Location: LocationEntity
+    
     
     init(Title: String,
          Category: String,
@@ -23,16 +29,18 @@ class EventEntity {
          StartDate: String,
          EndDate: String,
          Avatar: String,
-         EventOwner: Int,
+         EndTime: String,
+         StartTime: String,
          Location: LocationEntity) {
         self.Avatar = Avatar
         self.EndDate = EndDate
         self.StartDate = StartDate
         self.Category = Category
-        self.EventOwner = EventOwner
         self.Location = Location
         self.Description = Description
         self.Title = Title
+        self.EndTime = EndTime
+        self.StartTime = StartTime
     }
     
 }
@@ -43,6 +51,8 @@ class EventDetailEntity {
     var Description: String
     var StartDate: String
     var EndDate: String
+    var StartTime: String
+    var EndTime: String
     var Avatar: String
     var EventOwner: Int
     var Location: LocationEntity
@@ -54,6 +64,8 @@ class EventDetailEntity {
          StartDate: String,
          EndDate: String,
          Avatar: String,
+         EndTime: String,
+         StartTime: String,
          EventOwner: Int,
          Location: LocationEntity) {
         self.Id = Id
@@ -65,6 +77,8 @@ class EventDetailEntity {
         self.Location = Location
         self.Description = Description
         self.Title = Title
+        self.EndTime = EndTime
+        self.StartTime = StartTime
     }
     
 }
