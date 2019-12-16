@@ -191,7 +191,38 @@ class FriendService {
         })
         
     }
-    
+    func AddFriend(id: String) -> Single<String>{
+        let friendDTO = AddFriendDTO(Username: id)
+        return Single<String>.create(subscribe: { single in
+            Observable.from(optional: [String].self)
+                .map {_ in
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddFriend.rawValue)!
+                    var request = URLRequest(url: url)
+                    request.httpMethod = HTTPMethod.POST.rawValue
+                    request.httpBody = try? JSONEncoder().encode(friendDTO)
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
+                    return request
+            }
+            .flatMap { request in
+                URLSession.shared.rx.response(request: request)
+            }
+            .subscribe(onNext: { [weak self] response, data in
+                guard response.statusCode == 201 else{
+                    DispatchQueue.main.async {
+                        single(.error(HTTPStatusCodes.BadRequest))
+                    }
+                    return
+                }
+                single(.success("Fuck"))
+                return
+                }, onError: { error in
+                    print(error.localizedDescription)
+            }).disposed(by: self.disposeBag)
+            return Disposables.create()
+        })
+        
+    }
     func AddFriend(with username: String) -> Single<String>{
         let friendDTO = AddFriendDTO(Username: username)
         return Single<String>.create(subscribe: { single in
