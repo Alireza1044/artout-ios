@@ -64,11 +64,11 @@ extension FriendDTO {
 
 extension UserDTO {
     func ToEntity() -> UserEntity {
-        return UserEntity(FirstName: self.FirstName,
-                          LastName: self.LastName,
-                          UserName: self.UserName,
-                          Avatar: self.Avatar,
-                          Id: self.Id)
+        return UserEntity(FirstName: self.first_name,
+                          LastName: self.last_name,
+                          UserName: self.username,
+                          Avatar: self.avatar,
+                          Id: self.id)
     }
 }
 
