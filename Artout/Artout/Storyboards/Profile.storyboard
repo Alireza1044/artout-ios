@@ -244,7 +244,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddFriendButtonPressed:" destination="gN3-1x-knn" eventType="touchUpInside" id="eDC-ja-oZ0"/>
+                                    <action selector="AddFriendButtonPressed:" destination="gN3-1x-knn" eventType="touchUpInside" id="6D7-In-lty"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,7 +267,6 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="AddFriendButton" destination="iQX-BR-M1i" id="hID-Y2-y9d"/>
                         <outlet property="AddFriendSearchBar" destination="jKN-73-BKb" id="3Zf-11-cof"/>
                         <outlet property="AddFriendSearchResultTableView" destination="C3W-W5-5Ua" id="Yg7-8S-AQv"/>
                     </connections>
