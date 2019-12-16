@@ -31,8 +31,10 @@ public enum APIPaths: String {
     case FetchEvents = "event/eventsd/"
     case EventDetail = "event/eventdetail/"
     
-    case MyFollowers = "followers/"
-    case MyFollowings = "followings/"
+    case MyFollowers = "follow/followers/"
+    case MyFollowings = "follow/followings/"
+    
+    case AddFriend = "follow/followings/pendings/"
     
     case PendingFollowers = "followings/pendings/"
     case PendingRequests = "followers/requests/"
