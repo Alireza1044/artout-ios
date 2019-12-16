@@ -53,6 +53,7 @@ class MyFollowingsTableViewController: UITableViewController {
     
     func ConfigureCell(for cell: FollowersAndFollowingTableViewCell, with item: UserEntity) {
         cell.FFFullName?.text = item.FullName
+        cell.UserId = String(item.Id)
     }
 
     /*
