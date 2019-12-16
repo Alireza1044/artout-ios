@@ -25,8 +25,8 @@ extension RegisterEntity {
 extension EventEntity {
     func ToDTO() -> EventDTO {
         
-        let startDateTime = convertDate(date: self.StartDate, time: self.StartTime)
-        let endDateTime = convertDate(date: self.EndDate, time: self.EndTime)
+        let startDateTime = convertDateToDTO(date: self.StartDate, time: self.StartTime)
+        let endDateTime = convertDateToDTO(date: self.EndDate, time: self.EndTime)
         return EventDTO(title: self.Title,
                         category: self.Category,
                         description: self.Description,
@@ -88,27 +88,54 @@ extension EventDetailEntity {
 }
 extension EventDetailResponseDTO {
     func ToEntity() -> EventDetailEntity {
+        let startDate = convertDateToEntity(date: self.start_date)
+        let endDate = convertDateToEntity(date: self.end_date)
+        let startTime =  convertTimeToEntity(date: self.start_date)
+        let endTime =  convertTimeToEntity(date: self.end_date)
         return EventDetailEntity(
             Id: self.id,
                             Title: self.title,
                            Category: self.category,
                            Description: self.description,
-                           StartDate: self.start_date,
-                           EndDate: self.end_date,
+                           StartDate: startDate,
+                           EndDate: endDate,
                            Avatar: self.picture_url ?? "",
-                           EndTime: "",
-                           StartTime: "",
+                           EndTime: endTime,
+                           StartTime: startTime,
                            EventOwner: self.owner,
                            Location: self.location)
     }
-    
 }
 
-func convertDate(date: String, time: String) -> String{
+func convertDateToDTO(date: String, time: String) -> String{
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-    let newDate = dateFormatter.date(from: date)
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    let date = dateFormatter.string(from: newDate!)
-    return date + " " + time
+    if let newDate = dateFormatter.date(from: date){
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.string(from: newDate)
+        return date + " " + time
+    }
+    return ""
+}
+
+func convertDateToEntity(date: String) -> String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    if let newDate = dateFormatter.date(from: date) {
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let date = dateFormatter.string(from: newDate)
+        return date
+    }
+    return ""
+}
+
+func convertTimeToEntity(date: String) -> String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    if let newDate = dateFormatter.date(from: date) {
+        dateFormatter.dateFormat = "HH:mm"
+        let date = dateFormatter.string(from: newDate)
+        return date
+    }
+    return ""
 }

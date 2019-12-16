@@ -30,6 +30,8 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
     var descriptionText = ""
     var startDateText = ""
     var endDateText = ""
+    var startTimeText = ""
+    var endTimeText = ""
 
     
     var eventId = 0
@@ -47,16 +49,20 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
         _ = self.textView(self.descriptionTextView, shouldChangeTextIn: NSRange(location: 0, length: 0), replacementText: descriptionText)
         startDateTextField.text = startDateText
         endDateTextField.text = endDateText
+        startTimeTextField.text = startTimeText
+        endTimeTextField.text = endTimeText
         
         _ = titleTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.titleText)
         _ = startDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.startDateText)
         _ = endDateTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.endDateText)
         _ = descriptionTextView.rx.text.map{ $0 ?? ""}.bind(to: viewModel.descriptionText)
         _ = categoryTextField.rx.text.map{$0 ?? ""}.bind(to: viewModel.categoryText)
+        _ = startTimeTextField.rx.text.map{$0 ?? ""}.bind(to: viewModel.startTimeText)
+        _ = endTimeTextField.rx.text.map{ $0 ?? ""}.bind(to: viewModel.endTimeText)
         
         self.activityIndicatorView.isHidden = true
         
-        Observable.combineLatest(titleTextField.rx.text.asObservable(),
+        var a = Observable.combineLatest(titleTextField.rx.text.asObservable(),
                                  descriptionTextView.rx.text.asObservable(),
                                  categoryTextField.rx.text.asObservable(),
                                  startDateTextField.rx.text.asObservable(),
@@ -65,7 +71,15 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
                                     $2 != self.categoryText ||
                                     $3 != self.startDateText ||
                                     $4 != self.endDateText
-        }.subscribe{
+        }
+        
+        var b = Observable.combineLatest(startTimeTextField.rx.text.asObservable(),
+                                 endTimeTextField.rx.text.asObservable()).map{ $0 != self.startTimeText ||
+                                    $1 != self.endTimeText
+        }
+        
+        Observable.combineLatest(a.asObservable(),
+                                 b.asObservable()).map{ $0 || $1}.subscribe{
             self.doneButton.isEnabled = $0.element!
             }.disposed(by: disposeBag)
         
@@ -110,10 +124,25 @@ class EditEventViewController:UIViewController, UITextViewDelegate{
     func convertDate(date: String) -> String{
         if !date.isEmpty {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let newDate = dateFormatter.date(from: date)
-            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-            return  dateFormatter.string(from: newDate!)
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            if let adate = dateFormatter.date(from: date) {
+                dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+                return dateFormatter.string(from: adate)
+            }
+        }
+        return ""
+    }
+    
+    func convertTime(time: String) -> String{
+        if !time.isEmpty {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            if let adate = dateFormatter.date(from: time) {
+                dateFormatter.dateFormat = "HH:mm"
+                return dateFormatter.string(from: adate)
+            }
         }
         return ""
     }
