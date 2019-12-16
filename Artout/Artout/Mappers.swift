@@ -24,11 +24,14 @@ extension RegisterEntity {
 }
 extension EventEntity {
     func ToDTO() -> EventDTO {
+        
+        let startDateTime = convertDate(date: self.StartDate, time: self.StartTime)
+        let endDateTime = convertDate(date: self.EndDate, time: self.EndTime)
         return EventDTO(title: self.Title,
                         category: self.Category,
                         description: self.Description,
-                        start_date: self.StartDate,
-                        end_date: self.EndDate,
+                        start_date: startDateTime,
+                        end_date: endDateTime,
                         picture_url: self.Avatar,
                         event_owner: self.EventOwner,
                         location: self.Location)
@@ -93,9 +96,19 @@ extension EventDetailResponseDTO {
                            StartDate: self.start_date,
                            EndDate: self.end_date,
                            Avatar: self.picture_url ?? "",
-                           EventOwner: self.event_owner,
+                           EndTime: "",
+                           StartTime: "",
+                           EventOwner: self.owner,
                            Location: self.location)
     }
     
 }
 
+func convertDate(date: String, time: String) -> String{
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+    let newDate = dateFormatter.date(from: date)
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let date = dateFormatter.string(from: newDate!)
+    return date + " " + time
+}
