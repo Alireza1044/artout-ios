@@ -21,8 +21,14 @@ class MyFollowersTableViewController: UITableViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        self.tableView.rowHeight = 100
+
         viewModel.FetchFollowers()
+        viewModel.refresh.subscribe(onNext: { (status) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }).disposed(by: disposeBag)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
