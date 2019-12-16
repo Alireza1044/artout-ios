@@ -24,6 +24,11 @@ class MyFollowingsTableViewController: UITableViewController {
         self.tableView.rowHeight = 100
 
         viewModel.FetchFollowings()
+        viewModel.refresh.subscribe(onNext: { (status) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }).disposed(by: disposeBag)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
