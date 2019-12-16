@@ -64,6 +64,8 @@ class EventDetailViewController: UIViewController{
             editEventVC.descriptionText = self.descriptionTextView.text
             editEventVC.startDateText = editEventVC.convertDate(date: self.startDate)
             editEventVC.endDateText = editEventVC.convertDate(date: self.endDate)
+            editEventVC.startTimeText = editEventVC.convertTime(time: self.startDate)
+            editEventVC.endTimeText = editEventVC.convertTime(time: self.endDate)
             editEventVC.categoryText = self.categoryLabel.text!
         }
     }
