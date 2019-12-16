@@ -38,7 +38,7 @@ class EditEventViewModel{
         descriptionText = BehaviorSubject<String>(value: "")
         isLoading = PublishSubject<Bool>()
         addEventStatus = PublishSubject<Bool>()
-        event = BehaviorSubject<EventDetailEntity>(value: EventDetailEntity(Id: 0, Title: "", Category: "", Description: "", StartDate: "", EndDate: "", Avatar: "", EventOwner: 0, Location: LocationEntity(latitude: 0.0, longitude: 0.0)))
+        event = BehaviorSubject<EventDetailEntity>(value: EventDetailEntity(Id: 0, Title: "", Category: "", Description: "", StartDate: "", EndDate: "", Avatar: "", EndTime: "", StartTime: "", EventOwner: 0, Location: LocationEntity(latitude: 0.0, longitude: 0.0)))
     }
     
     func EditEvent(id: Int) {
@@ -53,8 +53,8 @@ class EditEventViewModel{
                 self.isLoading.on(.next(false))
             }
         }).disposed(by: disposeBag)
-        let event = try? EventDetailEntity(Id: id, Title: self.titleText.value(), Category: self.categoryText.value(), Description: self.descriptionText.value(), StartDate: service.convertDate(date: self.startDateText.value()), EndDate:service.convertDate(date:  self.endDateText.value()), Avatar: self.eventImageURL.value(), EventOwner: 1, Location: LocationEntity(latitude: 1, longitude: 1))
         
+        let event = try? EventDetailEntity(Id: id, Title: self.titleText.value(), Category: self.categoryText.value(), Description: self.descriptionText.value(), StartDate: self.startDateText.value(), EndDate: self.endDateText.value(), Avatar: self.eventImageURL.value(), EndTime: endTimeText.value(), StartTime: startTimeText.value(), EventOwner: 1, Location: LocationEntity(latitude: 1, longitude: 1))
         
         service.EditEvent(for: event!).subscribe(onSuccess: { response in
             self.addEventStatus.on(.next(true))
