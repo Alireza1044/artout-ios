@@ -41,7 +41,7 @@ class LoginService {
                     }
                     return
                 }
-                self?.TokenHandler.saveToken(access: response.access, refresh: response.refresh)
+                self?.TokenHandler.saveToken(access: response.access, refresh: response.refresh, userId: response.id)
                 single(.success(response.access))
                 return
                 }, onError: { error in

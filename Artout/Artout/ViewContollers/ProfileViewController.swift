@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         alpha = saulehImage.alpha
         height = saulehImage.frame.size.height / 2
         self.saulehImage.layer.cornerRadius = height;
@@ -30,6 +30,13 @@ class ProfileViewController: UIViewController {
         self.saulehImage.layer.borderWidth = 3.0;
         self.saulehImage.layer.borderColor = UIColor .white.cgColor;
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
 }
 
 extension ProfileViewController: UIScrollViewDelegate {

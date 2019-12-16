@@ -52,6 +52,9 @@
 		FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD452374044D005EEDA5 /* LoginDTO.swift */; };
 		FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD472374045E005EEDA5 /* SignupDTO.swift */; };
 		FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */; };
+		FA890531239E782900927172 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890530239E782900927172 /* UserRepository.swift */; };
+		FA890533239E784400927172 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890532239E784400927172 /* EventRepository.swift */; };
+		FA890537239E78C700927172 /* SocialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA890536239E78C700927172 /* SocialRepository.swift */; };
 		FA8A6CCC239BB35E006BD166 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A6CCB239BB35E006BD166 /* AddFriendViewController.swift */; };
 		FA8A6CCE239BB4C7006BD166 /* AddFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */; };
 		FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8E74842378DE5D009C1C79 /* LocationEntity.swift */; };
@@ -113,6 +116,10 @@
 		FA64DD452374044D005EEDA5 /* LoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDTO.swift; sourceTree = "<group>"; };
 		FA64DD472374045E005EEDA5 /* SignupDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupDTO.swift; sourceTree = "<group>"; };
 		FA64DD492374077C005EEDA5 /* NetworkingProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProtocols.swift; sourceTree = "<group>"; };
+		FA890530239E782900927172 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		FA890532239E784400927172 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
+		FA890536239E78C700927172 /* SocialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialRepository.swift; sourceTree = "<group>"; };
+		FA89054B239E7C5300927172 /* libkir.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libkir.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8A6CCB239BB35E006BD166 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewModel.swift; sourceTree = "<group>"; };
 		FA8E74842378DE5D009C1C79 /* LocationEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationEntity.swift; sourceTree = "<group>"; };
@@ -141,6 +148,7 @@
 		64F247E7F70A3F851F1DC688 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA89054B239E7C5300927172 /* libkir.a */,
 				40D0C994299F38BBA70880A9 /* Pods_Artout.framework */,
 			);
 			name = Frameworks;
@@ -234,10 +242,11 @@
 				BBCFD905236E2D0600DABEB1 /* ViewModels */,
 				BBCFD906236E2D1000DABEB1 /* Services */,
 				FA64DD42237344B2005EEDA5 /* Storyboards */,
+				FABE50E9237497BB00A57282 /* Networking */,
+				FA890535239E785900927172 /* Repositories */,
 				FA03F9B4236B081F0089E1FF /* Assets.xcassets */,
 				FA03F9B9236B081F0089E1FF /* Info.plist */,
 				FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */,
-				FABE50E9237497BB00A57282 /* Networking */,
 				FAC78E3623982563000F0544 /* Mappers.swift */,
 			);
 			path = Artout;
@@ -254,6 +263,16 @@
 				FA64DD40237343E6005EEDA5 /* Profile.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA890535239E785900927172 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				FA890530239E782900927172 /* UserRepository.swift */,
+				FA890532239E784400927172 /* EventRepository.swift */,
+				FA890536239E78C700927172 /* SocialRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		FA8E74882378DE92009C1C79 /* Entity */ = {
@@ -407,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA890533239E784400927172 /* EventRepository.swift in Sources */,
 				FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */,
 				FA28BD0D239AA8D5005EE105 /* UserEntity.swift in Sources */,
 				FA03F9AD236B081E0089E1FF /* LoginViewController.swift in Sources */,
@@ -416,6 +436,7 @@
 				FA64DD482374045E005EEDA5 /* SignupDTO.swift in Sources */,
 				BB7B9C82239D438800052D7F /* FriendDTO.swift in Sources */,
 				FA3D9C222375920A0019F1FC /* EventsService.swift in Sources */,
+				FA890537239E78C700927172 /* SocialRepository.swift in Sources */,
 				BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */,
 				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
 				FA3D9C1A2375840F0019F1FC /* EventTableViewCell.swift in Sources */,
@@ -449,6 +470,7 @@
 				BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
+				FA890531239E782900927172 /* UserRepository.swift in Sources */,
 				FAC78E352398230F000F0544 /* RegisterEntity.swift in Sources */,
 				FAC78E3323982301000F0544 /* LoginEntity.swift in Sources */,
 				BBF063462378ABA40084A8A6 /* EventDetailViewModel.swift in Sources */,

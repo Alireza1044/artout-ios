@@ -20,12 +20,23 @@ class LoginViewController: UIViewController {
         viewModel.Login()
         
     }
+
     var isLoggedIn: Bool = false
     var viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "IsUserLoggedIn"){
+            self.performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let path = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
+        print("\n\n***********************\n\(path)\n*************************\n\n")
+        
         
         _ = emailTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.usernameText)
         _ = passwordTextField.rx.text.map { $0 ?? "" }.bind(to: self.viewModel.passwordText)
@@ -58,6 +69,12 @@ class LoginViewController: UIViewController {
             }
         })
         .disposed(by: disposeBag)
+    }
+    @IBAction func LogOut(_ unwindSegue: UIStoryboardSegue) {
+        UserDefaults.standard.removeObject(forKey: "AccessToken")
+        UserDefaults.standard.removeObject(forKey: "RefreshToken")
+        UserDefaults.standard.set(false, forKey: "IsUserLoggedIn")
+        UserDefaults.standard.removeObject(forKey: "UserId")
     }
 }
 

@@ -18,15 +18,16 @@ protocol EndPointType {
     var httpMethod: HTTPMethod {get}
 }
 public enum Endpoint : String {
-    case GCPServer = "http://35.202.66.168:8000/api/"
+    case GCPServer = "http://35.202.66.168:8080/api/v1.0/"
 }
 public enum HTTPMethod: String {
     case GET, POST, PUT, PATCH, DELETE
 }
 public enum APIPaths: String {
-    case Login = "login/"
-    case Register = "register/"
-    case AddEvent = "event/events/"
+    case Login = "auth/login/"
+    case Register = "auth/register/"
+    
+    case AddEvent = "events/"
     case FetchEvents = "event/eventsd/"
     case EventDetail = "event/eventdetail/"
     
