@@ -21,6 +21,8 @@ class MyFollowingsTableViewController: UITableViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        viewModel.FetchFollowings()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
