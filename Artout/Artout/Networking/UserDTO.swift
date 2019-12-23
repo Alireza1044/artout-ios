@@ -9,21 +9,17 @@
 import Foundation
 
 class UserDTO: Codable {
-    var FirstName: String
-    var LastName: String
-    var UserName: String
-    var Avatar: String
-    var Id: Int
-    
-    var FullName: String {
-        return FirstName + " " + LastName
-    }
-    
+    var first_name: String
+    var last_name: String
+    var username: String
+    var avatar: String
+    var id: Int
+        
     init(FirstName: String, LastName: String, UserName: String, Avatar: String, Id: Int) {
-        self.UserName = UserName
-        self.Id = Id
-        self.Avatar = Avatar
-        self.FirstName = FirstName
-        self.LastName = LastName
+        self.username = UserName
+        self.id = Id
+        self.avatar = Avatar
+        self.first_name = FirstName
+        self.last_name = LastName
     }
 }

@@ -21,8 +21,14 @@ class MyFollowingsTableViewController: UITableViewController {
 
         navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        self.tableView.rowHeight = 100
+
         viewModel.FetchFollowings()
+        viewModel.refresh.subscribe(onNext: { (status) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }).disposed(by: disposeBag)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -47,6 +53,7 @@ class MyFollowingsTableViewController: UITableViewController {
     
     func ConfigureCell(for cell: FollowersAndFollowingTableViewCell, with item: UserEntity) {
         cell.FFFullName?.text = item.FullName
+        cell.UserId = String(item.Id)
     }
 
     /*

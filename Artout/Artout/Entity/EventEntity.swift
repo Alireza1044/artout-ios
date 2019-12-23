@@ -17,7 +17,7 @@ class EventEntity {
     var StartTime: String
     var EndTime: String
     var Avatar: String
-    var EventOwner: Int {
+    var Owner: Int {
         return UserDefaults.standard.integer(forKey: "UserId")
     }
     var Location: LocationEntity
@@ -54,7 +54,9 @@ class EventDetailEntity {
     var StartTime: String
     var EndTime: String
     var Avatar: String
-    var EventOwner: Int
+    var Owner: Int {
+        return UserDefaults.standard.integer(forKey: "UserId")
+    }
     var Location: LocationEntity
     
     init(Id: Int,
@@ -66,14 +68,12 @@ class EventDetailEntity {
          Avatar: String,
          EndTime: String,
          StartTime: String,
-         EventOwner: Int,
          Location: LocationEntity) {
         self.Id = Id
         self.Avatar = Avatar
         self.EndDate = EndDate
         self.StartDate = StartDate
         self.Category = Category
-        self.EventOwner = EventOwner
         self.Location = Location
         self.Description = Description
         self.Title = Title

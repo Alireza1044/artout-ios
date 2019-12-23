@@ -1,34 +1,29 @@
 //
-//  MyFollowersTableViewController.swift
+//  PendingsTableViewController.swift
 //  Artout
 //
-//  Created by Pooya Kabiri on 12/6/19.
+//  Created by Pooya Kabiri on 12/16/19.
 //  Copyright © 2019 Pooya Kabiri. All rights reserved.
 //
 
 import UIKit
-import RxCocoa
 import RxSwift
 
-class MyFollowersTableViewController: UITableViewController {
+class PendingsTableViewController: UITableViewController {
 
-    var viewModel = MyFollowersViewModel()
-    var disposeBag = DisposeBag()
-    var refreshControlInstance = UIRefreshControl()
+    let viewModel = PendingsViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.tableView.rowHeight = 100
-
-        viewModel.FetchFollowers()
+        viewModel.FetchPendings()
         viewModel.refresh.subscribe(onNext: { (status) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }).disposed(by: disposeBag)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -39,21 +34,20 @@ class MyFollowersTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.Followers.count
+        return viewModel.Pendings.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FollowersCell", for: indexPath) as! FollowersAndFollowingTableViewCell
-        if viewModel.Followers.count > 0 {
-            let item = viewModel.Followers[indexPath.row]
-            ConfigureCell(for: cell, with: item)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PendingCell", for: indexPath) as! PendingsTableViewCell
+        if viewModel.Pendings.count > 0 {
+            ConfigureCell(for: cell, with: viewModel.Pendings[indexPath.row])
         }
         return cell
     }
 
-    func ConfigureCell(for cell: FollowersAndFollowingTableViewCell, with item: UserEntity) {
-        cell.FFFullName?.text = item.FullName
-        cell.UserId = String(item.Id)
+    func ConfigureCell(for cell: PendingsTableViewCell, with item: UserEntity) {
+        cell.userId = String(item.Id)
+        cell.nameLabel?.text = item.FullName
     }
     /*
     // Override to support conditional editing of the table view.
