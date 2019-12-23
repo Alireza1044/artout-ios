@@ -20,15 +20,14 @@ class AddFriendViewModel {
     }
     
     func AddFriend() {
-//        var userId: String = ""
-//        _ = try? service.GetUserbyUsername(username: searchText.value()).subscribe(onSuccess: { (id) in
-//            userId = id
-//        })
-        _ = try? service.AddFriend(with: searchText.value()).subscribe(onSuccess: { (bool) in
-            self.addedSuccessfully.onNext(true)
-        }, onError: { (Error) in
-            self.addedSuccessfully.onNext(false)
+        _ = try? service.GetUserbyUsername(username: searchText.value()).subscribe(onSuccess: { (id) in
+            _ = self.service.AddFriend(with: id).subscribe(onSuccess: { (bool) in
+                self.addedSuccessfully.onNext(true)
+            }, onError: { (Error) in
+                self.addedSuccessfully.onNext(false)
+            })
         })
+        
         
     }
     

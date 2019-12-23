@@ -293,7 +293,7 @@ class FriendService {
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + "users/username/" + username + "/")!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + "users/username/" + username)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.GET.rawValue
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -304,7 +304,7 @@ class FriendService {
                 URLSession.shared.rx.response(request: request)
             }
             .subscribe(onNext: { [weak self] response, data in
-                guard response.statusCode == 201 else{
+                guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
                         single(.error(HTTPStatusCodes.BadRequest))
                     }

@@ -149,10 +149,11 @@ class EventsService {
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.EventDetail.rawValue + "\(event.Id)/")!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue + "\(event.Id)/")!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.PUT.rawValue
-                    request.httpBody = try? JSONEncoder().encode(event.ToDTO())
+                    let dto = event.ToDTO()
+                    request.httpBody = try? JSONEncoder().encode(dto)
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                     request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request

@@ -33,7 +33,7 @@ extension EventEntity {
                         start_date: startDateTime,
                         end_date: endDateTime,
                         picture_url: self.Avatar,
-                        event_owner: self.EventOwner,
+                        event_owner: self.Owner,
                         location: self.Location)
     }
 }
@@ -74,15 +74,16 @@ extension UserDTO {
 
 extension EventDetailEntity {
     func ToDTO() -> EventDetailDTO {
+        let startDateTime = convertDateToDTO(date: self.StartDate, time: self.StartTime)
+        let endDateTime = convertDateToDTO(date: self.EndDate, time: self.EndTime)
         return EventDetailDTO(
-            id: self.Id,
             title: self.Title,
             category: self.Category,
             description: self.Description,
-            start_date: self.StartDate,
-            end_date: self.EndDate,
+            start_date: startDateTime,
+            end_date: endDateTime,
             picture_url: self.Avatar,
-            event_owner: self.EventOwner,
+            owner: self.Owner,
             location: self.Location)
     }
 }
@@ -102,7 +103,6 @@ extension EventDetailResponseDTO {
                            Avatar: self.picture_url ?? "",
                            EndTime: endTime,
                            StartTime: startTime,
-                           EventOwner: self.owner,
                            Location: self.location)
     }
 }
