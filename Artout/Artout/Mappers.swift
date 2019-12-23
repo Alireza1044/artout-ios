@@ -107,6 +107,18 @@ extension EventDetailResponseDTO {
     }
 }
 
+extension FriendProfileDTO {
+    func ToEntity() -> FriendProfileEntity {
+        return FriendProfileEntity(FirstName: self.first_name,
+                                   LastName: self.last_name,
+                                   UserName: self.username,
+                                   Avatar: self.avatar,
+                                   FollowerCount: self.followers,
+                                   FollowingCount: self.followings,
+                                   Id: self.id)
+    }
+}
+
 func convertDateToDTO(date: String, time: String) -> String{
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
