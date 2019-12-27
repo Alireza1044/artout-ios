@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0C994299F38BBA70880A9 /* Pods_Artout.framework */; };
 		BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */; };
+		BB7984C723B67704004296FD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7984C623B67704004296FD /* SearchService.swift */; };
 		BB7B9C82239D438800052D7F /* FriendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9C81239D438800052D7F /* FriendDTO.swift */; };
 		BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */; };
 		BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC149238D823100824E61 /* EditEventViewModel.swift */; };
@@ -75,6 +76,7 @@
 		08CC861E9A920D269875F62B /* Pods-Artout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.debug.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.debug.xcconfig"; sourceTree = "<group>"; };
 		40D0C994299F38BBA70880A9 /* Pods_Artout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
+		BB7984C623B67704004296FD /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		BB7B9C81239D438800052D7F /* FriendDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDTO.swift; sourceTree = "<group>"; };
 		BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		BB9AC149238D823100824E61 /* EditEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewModel.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
 				FA3D9C212375920A0019F1FC /* EventsService.swift */,
 				FAAF674A23A7CE0600214B82 /* FriendService.swift */,
+				BB7984C623B67704004296FD /* SearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				FAAF675123A7DEFE00214B82 /* PendingsTableViewCell.swift in Sources */,
+				BB7984C723B67704004296FD /* SearchService.swift in Sources */,
 				BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */,
 				FA28BD07239AA684005EE105 /* MyFollowersTableViewController.swift in Sources */,
 				BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */,
