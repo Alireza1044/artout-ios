@@ -37,6 +37,7 @@ public enum APIPaths: String {
     case AddFriend = "follow/followings/pendings/"
     
     case PendingRequests = "follow/followers/requests/"
+    case Users = "users/"
     
 }
 public enum ContentType: String {
