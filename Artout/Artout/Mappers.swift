@@ -68,7 +68,10 @@ extension UserDTO {
                           LastName: self.last_name,
                           UserName: self.username,
                           Avatar: self.avatar,
-                          Id: self.id)
+                          Id: self.id,
+                          DateJoined: self.date_joined,
+                          IsPrivate: self.is_private,
+                          Email: self.email)
     }
 }
 
