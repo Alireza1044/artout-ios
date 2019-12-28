@@ -50,7 +50,7 @@ class EventsTableViewController: UITableViewController {
         refreshControlInstance.addTarget(self, action: #selector(CallForRefresh), for: .valueChanged)
         tableView.refreshControl = self.refreshControlInstance
         viewModel.FetchEvents()
-        
+        viewModel.FetchUsers()
         viewModel.refresh.subscribe(onNext: { (status) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -123,6 +123,9 @@ class EventsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isUserSearch {
+            
+        }
         let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
         viewController?.eventId = viewModel.events[indexPath.row].Id
         self.navigationController?.pushViewController(viewController!, animated: true)
