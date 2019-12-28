@@ -20,6 +20,8 @@ class EventsTableViewController: UITableViewController {
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
+    var isUserSearch: Bool = false
+    
     var isFiltering: Bool {
         let searchBarScopeIsFiltering =
             searchController.searchBar.selectedScopeButtonIndex != 0
@@ -61,34 +63,57 @@ class EventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
-            return viewModel.filteredEvents.count
+            if isUserSearch {
+                return viewModel.filteredUsers.count
+            } else {
+                return viewModel.filteredEvents.count
+            }
         }
         return viewModel.events.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
         if isFiltering {
-            if viewModel.filteredEvents.count > 0 {
-                let item = viewModel.filteredEvents[indexPath.row]
-                ConfigureCell(for: cell, with: item)
+            if isUserSearch {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserSearchTableViewCell
+
+                if viewModel.filteredUsers.count > 0 {
+                    let item = viewModel.filteredUsers[indexPath.row]
+                    ConfigureUserCell(for: cell, with: item)
+                    return cell
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
+
+                if viewModel.filteredEvents.count > 0 {
+                    let item = viewModel.filteredEvents[indexPath.row]
+                    ConfigureCell(for: cell, with: item)
+                    return cell
+                }
+                return cell
             }
+            
         } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
             if viewModel.events.count > 0 {
                 let item = viewModel.events[indexPath.row]
                 ConfigureCell(for: cell, with: item)
+                return cell
             }
+            return cell
         }
-        
-        return cell
-        
     }
     
     func ConfigureCell(for cell: EventTableViewCell, with item: EventDetailEntity) {
         cell.TitleLabel?.text = item.Title
         cell.DateLabel?.text = item.StartDate
         cell.DescriptionLabel?.text = item.Description
+    }
+    
+    func ConfigureUserCell(for cell: UserSearchTableViewCell, with item: UserEntity) {
+        cell.UserSearchLabel!.text = item.FullName
     }
     
     @objc func CallForRefresh () {
@@ -118,7 +143,13 @@ extension EventsTableViewController: UISearchControllerDelegate {
 }
 extension EventsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let context = SearchContext(rawValue: searchBar.scopeButtonTitles![selectedScope])
+        let searchType = searchBar.scopeButtonTitles![selectedScope]
+        if searchType == "Users" {
+            isUserSearch = true
+        } else {
+            isUserSearch = false
+        }
+        self.tableView.reloadData()
     }
 }
 
