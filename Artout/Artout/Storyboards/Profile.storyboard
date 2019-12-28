@@ -437,6 +437,7 @@
         <!--Details-->
         <scene sceneID="peO-Tx-kKj">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7N3-Tf-jgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="EventDetail" id="2Xf-c5-FMb" customClass="EventDetailViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44x-3x-XGA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -519,13 +520,13 @@
                         <outlet property="titleLabel" destination="5vc-dZ-qJi" id="e3v-9l-Mbp"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7N3-Tf-jgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4913.04347826087" y="849.77678571428567"/>
         </scene>
         <!--Edit Event-->
         <scene sceneID="B2O-l1-pzi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDm-Mc-keu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Dp5-UQ-iQD" customClass="EditEventViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jp8-y9-Exb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -610,7 +611,6 @@
                         <outlet property="titleTextField" destination="E7A-9y-fDV" id="2QQ-gM-Vfl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zDm-Mc-keu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5971.0144927536239" y="849.77678571428567"/>
         </scene>
@@ -706,7 +706,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="410.66665649414062" id="8bK-77-bCR" customClass="EventTableViewCell" customModule="Artout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="410.66665649414062"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="411"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8bK-77-bCR" id="j6D-qo-Vw4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="410.66665649414062"/>
