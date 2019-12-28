@@ -706,7 +706,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="410.66665649414062" id="8bK-77-bCR" customClass="EventTableViewCell" customModule="Artout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="411"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="410.66665649414062"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8bK-77-bCR" id="j6D-qo-Vw4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="410.66665649414062"/>
