@@ -20,7 +20,13 @@ class EventsTableViewController: UITableViewController {
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
-    var isUserSearch: Bool = false
+    var isUserSearch: Bool = false {
+        willSet {
+            if newValue {
+                viewModel.FetchUsers()
+            }
+        }
+    }
     
     var isFiltering: Bool {
         let searchBarScopeIsFiltering =
@@ -36,7 +42,7 @@ class EventsTableViewController: UITableViewController {
         definesPresentationContext = true
         
         navigationItem.searchController = searchController
-        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.tintColor = UIColor.black
         self.searchController.delegate = self
 //        searchController.searchBar.barTintColor = UIColor.red
 //        searchController.searchBar.scopeButtonTitles = ["Users", "Events"]
