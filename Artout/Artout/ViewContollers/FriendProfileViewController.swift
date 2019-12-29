@@ -18,16 +18,19 @@ class FriendProfileViewController: UIViewController{
     @IBOutlet weak var followersButton: UIButton!
     @IBOutlet weak var followButton: UIButton!
     
+    var userId: Int = 0
+
     var viewModel = FriendProfileViewModel()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareAvatar()
-        
+        viewModel.requestProfileDetail(id: self.userId)
         viewModel.profile.subscribe { (profile) in
             DispatchQueue.main.async {
-                self.nameLabel.text = profile.element!.FullName
+//                if profil
+                self.nameLabel.text = profile.element?.FullName
                 self.followersButton.titleLabel?.text = profile.element!.FollowerCount
                 self.followingButton.titleLabel?.text = profile.element!.FollowingCount
                 // set avatar
