@@ -130,11 +130,16 @@ class EventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isUserSearch {
+            let viewController = storyboard?.instantiateViewController(identifier: "FriendProfileViewController") as? FriendProfileViewController
+            viewController?.userId = viewModel.filteredUsers[indexPath.row].Id
+            self.navigationController?.pushViewController(viewController!, animated: true)
             
+        } else {
+            let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
+            viewController?.eventId = viewModel.events[indexPath.row].Id
+            self.navigationController?.pushViewController(viewController!, animated: true)
         }
-        let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
-        viewController?.eventId = viewModel.events[indexPath.row].Id
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        
     }
 }
 extension EventsTableViewController: UISearchResultsUpdating {
