@@ -52,7 +52,7 @@ class FriendProfileViewModel{
             }
         }).disposed(by: disposeBag)
         
-        service.RequestEventDetail(id: id).subscribe(onSuccess: { (friendProfile) in
+        service.RequestProfile(id: id).subscribe(onSuccess: { (friendProfile) in
             self.profile.onNext(friendProfile)
         }, onError: self.profile.onError(_:)).disposed(by: disposeBag)
     }

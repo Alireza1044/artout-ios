@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var saulehImage: UIImageView!
     
+    
     let headerViewMaxHeight: CGFloat = 320
     var headerViewMinHeight: CGFloat = 97 + (UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
     
@@ -21,6 +22,7 @@ class ProfileViewController: UIViewController {
     var height: CGFloat = 0.0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         alpha = saulehImage.alpha
