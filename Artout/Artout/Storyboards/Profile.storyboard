@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLZ-qC-cch">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wLZ-qC-cch">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -328,7 +328,7 @@
         <!--Friend Profile View Controller-->
         <scene sceneID="3wR-pE-ffg">
             <objects>
-                <viewController id="mOA-Uo-1Cn" customClass="FriendProfileViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendProfileViewController" id="mOA-Uo-1Cn" customClass="FriendProfileViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mEA-hT-bnu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -547,7 +547,6 @@
         <!--Details-->
         <scene sceneID="peO-Tx-kKj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7N3-Tf-jgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="EventDetail" id="2Xf-c5-FMb" customClass="EventDetailViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44x-3x-XGA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -630,13 +629,13 @@
                         <outlet property="titleLabel" destination="5vc-dZ-qJi" id="e3v-9l-Mbp"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7N3-Tf-jgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4913.04347826087" y="849.77678571428567"/>
         </scene>
         <!--Edit Event-->
         <scene sceneID="B2O-l1-pzi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zDm-Mc-keu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Dp5-UQ-iQD" customClass="EditEventViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jp8-y9-Exb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -721,6 +720,7 @@
                         <outlet property="titleTextField" destination="E7A-9y-fDV" id="2QQ-gM-Vfl"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zDm-Mc-keu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5971.0144927536239" y="849.77678571428567"/>
         </scene>
