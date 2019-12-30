@@ -14,6 +14,7 @@ class UserDTO: Codable {
     var email: String?
     var date_joined: String?
     var is_private: Bool?
+    var state:  Int?
     var username: String
     var avatar: String
     var id: Int
@@ -26,7 +27,7 @@ class UserDTO: Codable {
         self.last_name = LastName
     }
     
-    init(FirstName: String, LastName: String, UserName: String, Avatar: String, Id: Int, Email: String?, DateJoined: String?, IsPrivate: Bool?) {
+    init(FirstName: String, LastName: String, UserName: String, Avatar: String, Id: Int, Email: String?, DateJoined: String?, IsPrivate: Bool?, State: Int?) {
         self.username = UserName
         self.id = Id
         self.avatar = Avatar
@@ -35,5 +36,6 @@ class UserDTO: Codable {
         self.email = Email
         self.date_joined = DateJoined
         self.is_private = IsPrivate
+        
     }
 }
