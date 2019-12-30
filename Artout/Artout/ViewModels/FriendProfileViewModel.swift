@@ -34,9 +34,9 @@ class FriendProfileViewModel{
                                                                                   LastName: "",
                                                                                   UserName: "",
                                                                                   Avatar: "",
-                                                                                  FollowerCount: "",
-                                                                                  FollowingCount: "",
-                                                                                  Id: -1))
+                                                                                  FollowerCount: 0,
+                                                                                  FollowingCount: 0,
+                                                                                  Id: -1, State: -1))
     }
     
     func requestProfileDetail(id: Int){

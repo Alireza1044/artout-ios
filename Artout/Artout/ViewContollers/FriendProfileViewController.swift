@@ -14,9 +14,9 @@ class FriendProfileViewController: UIViewController{
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatar: UIImageView!
+    @IBOutlet weak var followButton: UIButton!
     @IBOutlet weak var followingButton: UIButton!
     @IBOutlet weak var followersButton: UIButton!
-    @IBOutlet weak var followButton: UIButton!
     
     var userId: Int = 0
 
@@ -29,10 +29,10 @@ class FriendProfileViewController: UIViewController{
         viewModel.requestProfileDetail(id: self.userId)
         viewModel.profile.subscribe { (profile) in
             DispatchQueue.main.async {
-//                if profil
+//                if profile
                 self.nameLabel.text = profile.element?.FullName
-                self.followersButton.titleLabel?.text = profile.element!.FollowerCount
-                self.followingButton.titleLabel?.text = profile.element!.FollowingCount
+                self.followingButton.setTitle(String(profile.element!.FollowingCount), for: .normal)
+                self.followersButton.setTitle(String(profile.element!.FollowerCount), for: .normal)
                 // set avatar
                 // set follow button state
             }
