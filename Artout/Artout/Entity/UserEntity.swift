@@ -16,6 +16,7 @@ class UserEntity {
     var IsPrivate: Bool?
     var Email: String?
     var Avatar: String
+    var State: Int?
     var Id: Int
     
     var FullName: String {
@@ -29,7 +30,7 @@ class UserEntity {
         self.FirstName = FirstName
         self.LastName = LastName
     }
-    init(FirstName: String, LastName: String, UserName: String, Avatar: String, Id: Int, DateJoined: String?, IsPrivate: Bool?, Email: String?) {
+    init(FirstName: String, LastName: String, UserName: String, Avatar: String, Id: Int, DateJoined: String?, IsPrivate: Bool?, Email: String?, State: Int?) {
         self.UserName = UserName
         self.Id = Id
         self.Avatar = Avatar
@@ -37,6 +38,7 @@ class UserEntity {
         self.LastName = LastName
         self.IsPrivate = IsPrivate
         self.Email = Email
+        self.State = State
         self.DateJoined = DateJoined
     }
 }
