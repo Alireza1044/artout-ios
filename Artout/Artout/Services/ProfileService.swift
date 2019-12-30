@@ -21,7 +21,7 @@ class ProfileService{
         return Single<FriendProfileEntity>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + "users/profile/?user=" + "\(id)/")!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + "users/profile/?user=" + "\(id)")!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.GET.rawValue // edit http method
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
