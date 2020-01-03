@@ -21,6 +21,7 @@ class FriendProfileViewController: UIViewController{
     var userId: Int = 0
 
     var viewModel = FriendProfileViewModel()
+    var service = FriendService()
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,10 +34,46 @@ class FriendProfileViewController: UIViewController{
                 self.nameLabel.text = profile.element?.FullName
                 self.followingButton.setTitle(String(profile.element!.FollowingCount), for: .normal)
                 self.followersButton.setTitle(String(profile.element!.FollowerCount), for: .normal)
+                
+                switch (profile.element!.State){
+                case 1:
+                    self.followButton.isHidden = false
+                    self.followButton.setTitle("Following", for: .normal)
+                case 2:
+                    self.followButton.isHidden = false
+                    self.followButton.setTitle("Requested", for: .normal)
+                case 3:
+                    self.followButton.isHidden = false
+                    self.followButton.setTitle("Follow", for: .normal)
+                default:
+                    self.followButton.isHidden = true
+                }
                 // set avatar
                 // set follow button state
             }
         }.disposed(by: disposeBag)
+    }
+    @IBAction func followButtonPressed(_ sender: Any) {
+        switch self.followButton.titleLabel?.text {
+        case "Following":
+            service.Unfollow(with: String(self.userId)).subscribe { (res) in
+                print("shit")
+            }
+            self.followButton.setTitle("Follow", for: .normal)
+        case "Requested":
+            service.CaancelFriendRequest(id: String(self.userId)).subscribe { (res) in
+                print("shit")
+            }
+            self.followButton.setTitle("Follow", for: .normal)
+            break
+        case "Follow":
+            service.AddFriend(id: String(self.userId)).subscribe { (res) in
+                print("shit")
+            }
+            self.followButton.setTitle("Requested", for: .normal)
+        default:
+            break
+        }
     }
     
     func prepareAvatar(){

@@ -153,6 +153,7 @@ extension EventsTableViewController: UISearchResultsUpdating {
 extension EventsTableViewController: UISearchControllerDelegate {
     func didDismissSearchController(_ searchController: UISearchController) {
         self.tableView.reloadData()
+        self.isUserSearch = false
     }
 }
 extension EventsTableViewController: UISearchBarDelegate {
