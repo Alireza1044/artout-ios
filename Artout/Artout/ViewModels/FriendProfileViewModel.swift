@@ -34,9 +34,9 @@ class FriendProfileViewModel{
                                                                                   LastName: "",
                                                                                   UserName: "",
                                                                                   Avatar: "",
-                                                                                  FollowerCount: "",
-                                                                                  FollowingCount: "",
-                                                                                  Id: -1))
+                                                                                  FollowerCount: 0,
+                                                                                  FollowingCount: 0,
+                                                                                  Id: -1, State: -1))
     }
     
     func requestProfileDetail(id: Int){
@@ -52,7 +52,7 @@ class FriendProfileViewModel{
             }
         }).disposed(by: disposeBag)
         
-        service.RequestEventDetail(id: id).subscribe(onSuccess: { (friendProfile) in
+        service.RequestProfile(id: id).subscribe(onSuccess: { (friendProfile) in
             self.profile.onNext(friendProfile)
         }, onError: self.profile.onError(_:)).disposed(by: disposeBag)
     }

@@ -223,6 +223,38 @@ class FriendService {
         })
         
     }
+    func CaancelFriendRequest(id: String) -> Single<String>{
+        let friendDTO = AddFriendDTO(Username: id)
+        return Single<String>.create(subscribe: { single in
+            Observable.from(optional: [String].self)
+                .map {_ in
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddFriend.rawValue + "\(id)/")!
+                    var request = URLRequest(url: url)
+                    request.httpMethod = HTTPMethod.DELETE.rawValue
+                    request.httpBody = try? JSONEncoder().encode(friendDTO)
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
+                    return request
+            }
+            .flatMap { request in
+                URLSession.shared.rx.response(request: request)
+            }
+            .subscribe(onNext: { [weak self] response, data in
+                guard response.statusCode == 201 else{
+                    DispatchQueue.main.async {
+                        single(.error(HTTPStatusCodes.BadRequest))
+                    }
+                    return
+                }
+                single(.success("Fuck"))
+                return
+                }, onError: { error in
+                    print(error.localizedDescription)
+            }).disposed(by: self.disposeBag)
+            return Disposables.create()
+        })
+        
+    }
     func Unfollow(with id: String) -> Single<Bool>{
         return Single<Bool>.create(subscribe: { single in
             Observable.from(optional: [String].self)

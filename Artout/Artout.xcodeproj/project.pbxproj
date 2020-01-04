@@ -13,6 +13,7 @@
 		BB38381523B00FE50042D5AE /* FriendProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38381423B00FE50042D5AE /* FriendProfileEntity.swift */; };
 		BB38381723B014BE0042D5AE /* FriendProfileDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38381623B014BE0042D5AE /* FriendProfileDTO.swift */; };
 		BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */; };
+		BB7984C723B67704004296FD /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7984C623B67704004296FD /* SearchService.swift */; };
 		BB7B9C82239D438800052D7F /* FriendDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9C81239D438800052D7F /* FriendDTO.swift */; };
 		BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */; };
 		BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC149238D823100824E61 /* EditEventViewModel.swift */; };
@@ -35,6 +36,7 @@
 		FA03F9B3236B081E0089E1FF /* Artout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9B1236B081E0089E1FF /* Artout.xcdatamodeld */; };
 		FA03F9B5236B081F0089E1FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA03F9B4236B081F0089E1FF /* Assets.xcassets */; };
 		FA03F9B8236B081F0089E1FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA03F9B6236B081F0089E1FF /* LaunchScreen.storyboard */; };
+		FA11ACD823B771D000873BA1 /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11ACD723B771D000873BA1 /* UserSearchTableViewCell.swift */; };
 		FA28BD05239AA672005EE105 /* MyFollowingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */; };
 		FA28BD07239AA684005EE105 /* MyFollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */; };
 		FA28BD09239AA75A005EE105 /* MyFollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28BD08239AA75A005EE105 /* MyFollowersViewModel.swift */; };
@@ -86,6 +88,7 @@
 		BB38381423B00FE50042D5AE /* FriendProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileEntity.swift; sourceTree = "<group>"; };
 		BB38381623B014BE0042D5AE /* FriendProfileDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileDTO.swift; sourceTree = "<group>"; };
 		BB3A092A2375B98100D6CF9A /* NewEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
+		BB7984C623B67704004296FD /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		BB7B9C81239D438800052D7F /* FriendDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDTO.swift; sourceTree = "<group>"; };
 		BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		BB9AC149238D823100824E61 /* EditEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		FA03F9B4236B081F0089E1FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA03F9B7236B081F0089E1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA03F9B9236B081F0089E1FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA11ACD723B771D000873BA1 /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
 		FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFollowingsTableViewController.swift; sourceTree = "<group>"; };
 		FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFollowersTableViewController.swift; sourceTree = "<group>"; };
 		FA28BD08239AA75A005EE105 /* MyFollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFollowersViewModel.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				FAAF674623A7BE3800214B82 /* EventsCollectionViewController.swift */,
 				FAAF674E23A7DEE200214B82 /* PendingsTableViewController.swift */,
 				FAAF675023A7DEFE00214B82 /* PendingsTableViewCell.swift */,
+				FA11ACD723B771D000873BA1 /* UserSearchTableViewCell.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
 				FA3D9C212375920A0019F1FC /* EventsService.swift */,
 				FAAF674A23A7CE0600214B82 /* FriendService.swift */,
+				BB7984C623B67704004296FD /* SearchService.swift */,
 				BB38381223B009520042D5AE /* ProfileService.swift */,
 			);
 			path = Services;
@@ -488,6 +494,7 @@
 				BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				FAAF675123A7DEFE00214B82 /* PendingsTableViewCell.swift in Sources */,
+				BB7984C723B67704004296FD /* SearchService.swift in Sources */,
 				BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */,
 				BB38381323B009520042D5AE /* ProfileService.swift in Sources */,
 				FA28BD07239AA684005EE105 /* MyFollowersTableViewController.swift in Sources */,
@@ -508,6 +515,7 @@
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
 				BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */,
 				BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */,
+				FA11ACD823B771D000873BA1 /* UserSearchTableViewCell.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FAAF674D23A7D14A00214B82 /* AddFriendDTO.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,

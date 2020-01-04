@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import RxSwift
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var saulehImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var followingButton: UIButton!
+    @IBOutlet weak var followersButton: UIButton!
     
     let headerViewMaxHeight: CGFloat = 320
     var headerViewMinHeight: CGFloat = 97 + (UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
@@ -20,8 +24,21 @@ class ProfileViewController: UIViewController {
     var alpha: CGFloat = 0.0
     var height: CGFloat = 0.0
     
+    var disposeBag = DisposeBag()
+    var viewModel = FriendProfileViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.requestProfileDetail(id: UserDefaults.standard.integer(forKey: "UserId"))
+        viewModel.profile.subscribe{ profile in
+            DispatchQueue.main.async { self.followersButton.setTitle(String(profile.element!.FollowerCount), for: .normal)
+                self.followingButton.setTitle(String(profile.element!.FollowingCount), for: .normal)
+                
+                self.nameLabel.text = profile.element!.FullName
+            }
+        }.disposed(by: disposeBag)
+        
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         alpha = saulehImage.alpha
         height = saulehImage.frame.size.height / 2

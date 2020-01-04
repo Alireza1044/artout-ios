@@ -10,18 +10,19 @@ import Foundation
 
 class FriendProfileEntity {
     var FirstName: String
-    var LastName: String
+    var LastName: String?
     var UserName: String
-    var Avatar: String
-    var FollowerCount: String
-    var FollowingCount: String
+    var Avatar: String?
+    var FollowerCount: Int
+    var FollowingCount: Int
+    var State: Int
     var Id: Int
     
     var FullName: String {
-        return FirstName + " " + LastName
+        return FirstName + " " + (LastName ?? "")
     }
     
-    init(FirstName: String, LastName: String, UserName: String, Avatar: String, FollowerCount: String, FollowingCount: String, Id: Int) {
+    init(FirstName: String, LastName: String?, UserName: String, Avatar: String?, FollowerCount: Int, FollowingCount: Int, Id: Int, State: Int) {
         self.UserName = UserName
         self.Id = Id
         self.Avatar = Avatar
@@ -29,5 +30,6 @@ class FriendProfileEntity {
         self.LastName = LastName
         self.FollowerCount = FollowerCount
         self.FollowingCount = FollowingCount
+        self.State = State
     }
 }

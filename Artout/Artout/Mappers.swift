@@ -68,7 +68,10 @@ extension UserDTO {
                           LastName: self.last_name,
                           UserName: self.username,
                           Avatar: self.avatar,
-                          Id: self.id)
+                          Id: self.id,
+                          DateJoined: self.date_joined,
+                          IsPrivate: self.is_private,
+                          Email: self.email, State: self.state)
     }
 }
 
@@ -113,9 +116,9 @@ extension FriendProfileDTO {
                                    LastName: self.last_name,
                                    UserName: self.username,
                                    Avatar: self.avatar,
-                                   FollowerCount: self.followers,
-                                   FollowingCount: self.followings,
-                                   Id: self.id)
+                                   FollowerCount: self.followers_count,
+                                   FollowingCount: self.followings_count,
+                                   Id: self.id, State: self.state)
     }
 }
 

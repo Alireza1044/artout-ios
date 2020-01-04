@@ -20,6 +20,14 @@ class EventsTableViewController: UITableViewController {
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
+    var isUserSearch: Bool = false {
+        willSet {
+            if newValue {
+                viewModel.FetchUsers()
+            }
+        }
+    }
+    
     var isFiltering: Bool {
         let searchBarScopeIsFiltering =
             searchController.searchBar.selectedScopeButtonIndex != 0
@@ -34,7 +42,7 @@ class EventsTableViewController: UITableViewController {
         definesPresentationContext = true
         
         navigationItem.searchController = searchController
-        searchController.searchBar.tintColor = UIColor.white
+        searchController.searchBar.tintColor = UIColor.black
         self.searchController.delegate = self
 //        searchController.searchBar.barTintColor = UIColor.red
 //        searchController.searchBar.scopeButtonTitles = ["Users", "Events"]
@@ -48,7 +56,7 @@ class EventsTableViewController: UITableViewController {
         refreshControlInstance.addTarget(self, action: #selector(CallForRefresh), for: .valueChanged)
         tableView.refreshControl = self.refreshControlInstance
         viewModel.FetchEvents()
-        
+        viewModel.FetchUsers()
         viewModel.refresh.subscribe(onNext: { (status) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -61,34 +69,57 @@ class EventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
-            return viewModel.filteredEvents.count
+            if isUserSearch {
+                return viewModel.filteredUsers.count
+            } else {
+                return viewModel.filteredEvents.count
+            }
         }
         return viewModel.events.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
         if isFiltering {
-            if viewModel.filteredEvents.count > 0 {
-                let item = viewModel.filteredEvents[indexPath.row]
-                ConfigureCell(for: cell, with: item)
+            if isUserSearch {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserSearchTableViewCell
+
+                if viewModel.filteredUsers.count > 0 {
+                    let item = viewModel.filteredUsers[indexPath.row]
+                    ConfigureUserCell(for: cell, with: item)
+                    return cell
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
+
+                if viewModel.filteredEvents.count > 0 {
+                    let item = viewModel.filteredEvents[indexPath.row]
+                    ConfigureCell(for: cell, with: item)
+                    return cell
+                }
+                return cell
             }
+            
         } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
             if viewModel.events.count > 0 {
                 let item = viewModel.events[indexPath.row]
                 ConfigureCell(for: cell, with: item)
+                return cell
             }
+            return cell
         }
-        
-        return cell
-        
     }
     
     func ConfigureCell(for cell: EventTableViewCell, with item: EventDetailEntity) {
         cell.TitleLabel?.text = item.Title
         cell.DateLabel?.text = item.StartDate
         cell.DescriptionLabel?.text = item.Description
+    }
+    
+    func ConfigureUserCell(for cell: UserSearchTableViewCell, with item: UserEntity) {
+        cell.UserSearchLabel!.text = item.FullName
     }
     
     @objc func CallForRefresh () {
@@ -98,9 +129,17 @@ class EventsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
-        viewController?.eventId = viewModel.events[indexPath.row].Id
-        self.navigationController?.pushViewController(viewController!, animated: true)
+        if isUserSearch {
+            let viewController = storyboard?.instantiateViewController(identifier: "FriendProfileViewController") as? FriendProfileViewController
+            viewController?.userId = viewModel.filteredUsers[indexPath.row].Id
+            self.navigationController?.pushViewController(viewController!, animated: true)
+            
+        } else {
+            let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
+            viewController?.eventId = viewModel.events[indexPath.row].Id
+            self.navigationController?.pushViewController(viewController!, animated: true)
+        }
+        
     }
 }
 extension EventsTableViewController: UISearchResultsUpdating {
@@ -114,11 +153,18 @@ extension EventsTableViewController: UISearchResultsUpdating {
 extension EventsTableViewController: UISearchControllerDelegate {
     func didDismissSearchController(_ searchController: UISearchController) {
         self.tableView.reloadData()
+        self.isUserSearch = false
     }
 }
 extension EventsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        let context = SearchContext(rawValue: searchBar.scopeButtonTitles![selectedScope])
+        let searchType = searchBar.scopeButtonTitles![selectedScope]
+        if searchType == "Users" {
+            isUserSearch = true
+        } else {
+            isUserSearch = false
+        }
+        self.tableView.reloadData()
     }
 }
 

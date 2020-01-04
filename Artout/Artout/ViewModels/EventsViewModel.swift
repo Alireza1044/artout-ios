@@ -12,14 +12,19 @@ import RxSwift
 class EventsViewModel {
     let refresh: PublishSubject<Bool>
     var events: [EventDetailEntity]
+    var users: [UserEntity]
     var filteredEvents: [EventDetailEntity]
+    var filteredUsers: [UserEntity]
     var service = EventsService()
+    var searchService = SearchService()
     var disposeBag = DisposeBag()
     
     init() {
         self.refresh = PublishSubject<Bool>()
         events = []
         filteredEvents = []
+        filteredUsers = []
+        users = []
     }
     func filterContentForSearchText(_ searchText: String) {
         filteredEvents = events.filter { (event: EventDetailEntity) -> Bool in
@@ -36,8 +41,12 @@ class EventsViewModel {
                     return event.Title.lowercased().contains(searchText.lowercased())
             }
             case .Users:
-                filteredEvents = events.filter { (event: EventDetailEntity) -> Bool in
-                    return event.Category.lowercased().contains(searchText.lowercased())
+                if searchText == "" {
+                    filteredUsers = users
+                    return
+                }
+                filteredUsers = users.filter { (user: UserEntity) -> Bool in
+                    return user.FullName.lowercased().contains(searchText.lowercased())
             }
             default:
                 return
@@ -53,6 +62,14 @@ class EventsViewModel {
         service.RequestEvents()
             .subscribe(onSuccess: { data in
                 self.events = data.reversed()
+                self.refresh.onNext(true)
+            }).disposed(by: disposeBag)
+    }
+    func FetchUsers() {
+        searchService.fetchUsersList()
+            .subscribe(onSuccess: { data in
+                self.users = data
+                self.filteredUsers = data
                 self.refresh.onNext(true)
             }).disposed(by: disposeBag)
     }
