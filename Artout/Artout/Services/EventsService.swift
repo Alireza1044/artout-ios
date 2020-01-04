@@ -11,41 +11,40 @@ import RxSwift
 
 class EventsService {
     
-    let Formatter = DTOFormatter<EventModel, EventResponse>()
     let isLoading = PublishSubject<Bool>()
     let disposeBag = DisposeBag()
     
-    func RequestEvents () -> Single<[EventResponse]> {
-        return Single<[EventResponse]>.create(subscribe: { single in
+    func RequestEvents () -> Single<[EventDetailEntity]> {
+        return Single<[EventDetailEntity]>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.FetchEvents.rawValue)!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.GET.rawValue
-                    //                    request.httpBody = self.Formatter.Encode(objDTO: rawData)
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
-            .flatMap { request in
+        .flatMap { request in
                 URLSession.shared.rx.response(request: request)
             }
-            .subscribe(onNext: { [weak self] response, data in
+            .subscribe(onNext: {
+                response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        //                        self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.Unauthorized))
                     }
                     return
                 }
-                let decoder = JSONDecoder()
-                guard let responseDTO = try? decoder.decode([EventResponse].self, from: data) else {
+                guard let responseDTO = try? JSONDecoder().decode([EventDetailResponseDTO].self, from: data) else {
                     DispatchQueue.main.async {
-                        //                        self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }
-                single(.success(responseDTO))
+                single(.success(responseDTO.map { event in
+                    event.ToEntity()
+                }))
                 return
                 }, onError: { error in
                     print(error.localizedDescription)
@@ -54,11 +53,9 @@ class EventsService {
         })
     }
     
-    func AddEvent (title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity = LocationEntity(latitude: 0.0, longitude: 0.0)) -> Single<String> {
+    func AddEvent (With Event: EventEntity) -> Single<String> {
         
         isLoading.onNext(true)
-        
-        let rawData = EventModel(title: title, category: category, description: description, start_date: convertDate(date: start_date), end_date: convertDate(date: end_date), picture_url: picture_url, event_owner: event_owner, location: location)
         
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
@@ -66,8 +63,9 @@ class EventsService {
                     let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.POST.rawValue
-                    request.httpBody = self.Formatter.Encode(objDTO: rawData)
+                    request.httpBody = try? JSONEncoder().encode(Event.ToDTO())
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
             .flatMap { request in
@@ -77,14 +75,14 @@ class EventsService {
                 guard response.statusCode == 201 else{
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.BadRequest))
                     }
                     return
                 }
-                guard let responseDTO = self!.Formatter.Decode(data: data) else {
+                guard let responseDTO = try? JSONDecoder().decode(AddEventResponseDTO.self, from: data) else {
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }
@@ -100,15 +98,18 @@ class EventsService {
         })
     }
     
-    func RequestEventDetail(id: Int) -> Single<EventResponse>{
+    func RequestEventDetail(id: Int) -> Single<EventDetailEntity> {
         
-        return Single<EventResponse>.create(subscribe: { single in
+        self.isLoading.onNext(true)
+        
+        return Single<EventDetailEntity>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
-                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.EventDetail.rawValue + "\(id)/")!
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue + "\(id)/")!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.GET.rawValue
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
                     return request
             }
             .flatMap { request in
@@ -117,17 +118,22 @@ class EventsService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
+                        self?.isLoading.onNext(false)
                     }
                     return
                 }
-                guard let responseDTO = self!.Formatter.Decode(data: data) else {
+                guard let event = try? JSONDecoder().decode(EventDetailResponseDTO.self, from: data) else {
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
+                        self?.isLoading.onNext(false)
                     }
                     return
                 }
-                single(.success(responseDTO))
+                DispatchQueue.main.async {
+                    self?.isLoading.onNext(false)
+                }
+                single(.success(event.ToEntity()))
                 return
                 }, onError: { error in
                     print(error.localizedDescription)
@@ -136,48 +142,51 @@ class EventsService {
         })
     }
     
-    func convertDate(date: String) -> String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
-        let newDate = dateFormatter.date(from: date)
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return  dateFormatter.string(from: newDate!)
+    func EditEvent (for event: EventDetailEntity) -> Single<String> {
+        
+        isLoading.onNext(true)
+        
+        return Single<String>.create(subscribe: { single in
+            Observable.from(optional: [String].self)
+                .map {_ in
+                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue + "\(event.Id)/")!
+                    var request = URLRequest(url: url)
+                    request.httpMethod = HTTPMethod.PUT.rawValue
+                    let dto = event.ToDTO()
+                    request.httpBody = try? JSONEncoder().encode(dto)
+                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.addValue("Bearer " + UserDefaults.standard.string(forKey: "AccessToken")!, forHTTPHeaderField: "Authorization")
+                    return request
+            }
+            .flatMap { request in
+                URLSession.shared.rx.response(request: request)
+            }
+            .subscribe(onNext: { [weak self] response, data in
+                guard response.statusCode == 200 else{
+                    DispatchQueue.main.async {
+                        self!.isLoading.onNext(false)
+                        single(.error(HTTPStatusCodes.BadRequest))
+                    }
+                    return
+                }
+                guard let responseDTO = try? JSONDecoder().decode(EventDetailDTO.self, from: data) else {
+                    DispatchQueue.main.async {
+                        self!.isLoading.onNext(false)
+                        single(.error(HTTPStatusCodes.InternalServerError))
+                    }
+                    return
+                }
+                single(.success(responseDTO.title))
+                DispatchQueue.main.async {
+                    self!.isLoading.onNext(false)
+                }
+                return
+                }, onError: { error in
+                    print(error.localizedDescription)
+            }).disposed(by: self.disposeBag)
+            return Disposables.create()
+        })
     }
     
-    //    func Login (With username: String, And password: String) -> Single<String> {
-    //        let rawData = LoginDTO(username: username, password: password)
-    //        return Single<String>.create(subscribe: { single in
-    //            Observable.from(optional: [String].self)
-    //                .map {_ in
-    //                    let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Login.rawValue)!
-    //                    var request = URLRequest(url: url)
-    //                    request.httpMethod = HTTPMethod.POST.rawValue
-    //                    request.httpBody = self.Formatter.Encode(objDTO: rawData)
-    //                    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    //                    return request
-    //            }
-    //            .flatMap { request in
-    //                URLSession.shared.rx.response(request: request)
-    //            }
-    //            .subscribe(onNext: { [weak self] response, data in
-    //                guard response.statusCode == 200 else{
-    //                    DispatchQueue.main.async {
-    //                        single(.error(NetworkingError.CredenttialsNotValid))
-    //                    }
-    //                    return
-    //                }
-    //                guard let responseDTO = try? self!.Formatter.Decode(data: data) else {
-    //                    DispatchQueue.main.async {
-    //                        single(.error(NetworkingError.InternalServerError))
-    //                    }
-    //                    return
-    //                }
-    //                single(.success(responseDTO.access))
-    //                return
-    //                }, onError: { error in
-    //                    print(error.localizedDescription)
-    //            }).disposed(by: self.disposeBag)
-    //            return Disposables.create()
-    //        })
-    //    }
+    
 }

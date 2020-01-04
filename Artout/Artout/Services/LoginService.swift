@@ -12,18 +12,16 @@ import RxSwift
 class LoginService {
 
     let TokenHandler = TokenService()
-    let Formatter = DTOFormatter<LoginDTO, LoginResponseDTO>()
     let disposeBag = DisposeBag()
     
-    func Login (With username: String, And password: String) -> Single<String> {
-        let rawData = LoginDTO(username: username, password: password)
+    func Login (With entity: LoginEntity) -> Single<String> {
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
                 let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Login.rawValue)!
                 var request = URLRequest(url: url)
                 request.httpMethod = HTTPMethod.POST.rawValue
-                request.httpBody = self.Formatter.Encode(objDTO: rawData)
+                request.httpBody = try? JSONEncoder().encode(entity.ToDTO())
                 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                 return request
             }
@@ -33,18 +31,18 @@ class LoginService {
             .subscribe(onNext: { [weak self] response, data in
                 guard response.statusCode == 200 else{
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.CredenttialsNotValid))
+                        single(.error(HTTPStatusCodes.BadRequest))
                     }
                     return
                 }
-                guard let responseDTO = self!.Formatter.Decode(data: data) else {
+                guard let response = try? JSONDecoder().decode(LoginResponseDTO.self, from: data) else {
                     DispatchQueue.main.async {
-                        single(.error(NetworkingError.InternalServerError))
+                        single(.error(HTTPStatusCodes.InternalServerError))
                     }
                     return
                 }
-                self?.TokenHandler.saveToken(access: responseDTO.access, refresh: responseDTO.refresh)
-                single(.success(responseDTO.access))
+                self?.TokenHandler.saveToken(access: response.access, refresh: response.refresh, userId: response.id)
+                single(.success(response.access))
                 return
                 }, onError: { error in
                     print(error.localizedDescription)

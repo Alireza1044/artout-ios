@@ -15,10 +15,36 @@ class EventsTableViewController: UITableViewController {
     var viewModel = EventsViewModel()
     var disposeBag = DisposeBag()
     var refreshControlInstance = UIRefreshControl()
+    let searchController = UISearchController(searchResultsController: nil)
     
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    var isFiltering: Bool {
+        let searchBarScopeIsFiltering =
+            searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive &&
+            (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for users or events"
+        definesPresentationContext = true
+        
+        navigationItem.searchController = searchController
+        searchController.searchBar.tintColor = UIColor.white
+        self.searchController.delegate = self
+//        searchController.searchBar.barTintColor = UIColor.red
+//        searchController.searchBar.scopeButtonTitles = ["Users", "Events"]
+        searchController.searchBar.scopeButtonTitles = SearchContext.allCases
+            .map { $0.rawValue }
+        searchController.searchBar.delegate = self
+        
+        
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         refreshControlInstance.addTarget(self, action: #selector(CallForRefresh), for: .valueChanged)
         tableView.refreshControl = self.refreshControlInstance
         viewModel.FetchEvents()
@@ -28,39 +54,41 @@ class EventsTableViewController: UITableViewController {
                 self.tableView.reloadData()
             }
             }).disposed(by: disposeBag)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-//
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return viewModel.filteredEvents.count
+        }
         return viewModel.events.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
-        if viewModel.events.count > 0 {
-            let item = viewModel.events[indexPath.row]
-            ConfigureCell(for: cell, with: item)
+        if isFiltering {
+            if viewModel.filteredEvents.count > 0 {
+                let item = viewModel.filteredEvents[indexPath.row]
+                ConfigureCell(for: cell, with: item)
+            }
+        } else {
+            if viewModel.events.count > 0 {
+                let item = viewModel.events[indexPath.row]
+                ConfigureCell(for: cell, with: item)
+            }
         }
+        
         return cell
         
     }
     
-    func ConfigureCell(for cell: EventTableViewCell, with item: EventResponse) {
-        cell.TitleLabel?.text = item.title
-        cell.DateLabel?.text = item.start_date
-        cell.DescriptionLabel?.text = item.description
+    func ConfigureCell(for cell: EventTableViewCell, with item: EventDetailEntity) {
+        cell.TitleLabel?.text = item.Title
+        cell.DateLabel?.text = item.StartDate
+        cell.DescriptionLabel?.text = item.Description
     }
     
     @objc func CallForRefresh () {
@@ -71,53 +99,31 @@ class EventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = storyboard?.instantiateViewController(identifier: "EventDetail") as? EventDetailViewController
-        viewController?.eventId = viewModel.events[indexPath.row].id
+        viewController?.eventId = viewModel.events[indexPath.row].Id
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+extension EventsTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let context = SearchContext(rawValue:
+            searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+            viewModel.filterContentForSearchText(searchBar.text!, for: context)
+    }
+}
+extension EventsTableViewController: UISearchControllerDelegate {
+    func didDismissSearchController(_ searchController: UISearchController) {
+        self.tableView.reloadData()
+    }
+}
+extension EventsTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        let context = SearchContext(rawValue: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
+
+enum SearchContext: String, CaseIterable {
+    case Events = "Events"
+    case Users = "Users"
+}
+

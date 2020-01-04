@@ -26,12 +26,12 @@ struct RegisterDTO: Codable {
 }
 
 struct RegisterResponseDTO: Codable {
-    /*var access: String
-    var refresh: String*/
+    var access: String
+    var refresh: String
     var id: Int
-    init(/*access: String, refresh: String,*/ id: Int) {
-        /*self.access = access
-        self.refresh = refresh*/
+    init(access: String, refresh: String, id: Int) {
+        self.access = access
+        self.refresh = refresh
         self.id = id
     }
 }

@@ -13,78 +13,54 @@ import RxSwift
 
 class RegisterService {
     
-    let Formatter = DTOFormatter<RegisterDTO, RegisterResponseDTO>()
     
-    let endpoint = "http://35.202.66.168:8000/api/register/"
     let disposeBag = DisposeBag()
     let isLoading = PublishSubject<Bool>()
     let registerStatus = PublishSubject<Bool>()
     let error = PublishSubject<String>()
     let tokenService = LoginService()
     
-    struct Registerar: Codable {
-        var username: String
-        var first_name: String
-        var last_name: String
-        var password: String
-        var avatar: String = ""
-        var email: String
-        
-        init(username:String, firstName:String,lastName:String,email:String, password:String) {
-            self.first_name = firstName
-            self.last_name = lastName
-            self.username = username
-            self.password = password
-            self.email = email
-        }
-    }
-    
+
     enum RegisterError: Error {
         case CouldNotConnectToHostError
         case RegisterFailed
     }
     
     
-    func Register(username:String, firstName:String,lastName:String,email:String, password:String) -> Single<String> {
+    func Register(with entity: RegisterEntity) -> Single<String> {
         
         isLoading.onNext(true)
-        
-        let rawData = RegisterDTO(username: username, firstName: firstName, lastName: lastName, email: email, password: password)
-//        let jsonData = try! JSONEncoder().encode()
-        
+                
         return Single<String>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
                     let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.Register.rawValue)!
                     var request = URLRequest(url: url)
                     request.httpMethod = HTTPMethod.POST.rawValue
-                    request.httpBody = self.Formatter.Encode(objDTO: rawData)
+                    request.httpBody = try? JSONEncoder().encode(entity.ToDTO())
                     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
                     return request
             }
             .flatMap { request in
-                URLSession.shared.rx.response(request: request).debug("test")
+                URLSession.shared.rx.response(request: request)
             }
             .subscribe(onNext: { [weak self] response, data in
-                let decoder = JSONDecoder()
                 
                 guard response.statusCode == 201 else{
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
-                        self!.error.onNext(try! (decoder.decode([String:[String]].self, from: data).first?.value.first)!)
+                        self!.error.onNext(try! (JSONDecoder().decode([String:[String]].self, from: data).first?.value.first)!)
                     }
                     single(.error(RegisterError.CouldNotConnectToHostError))
-                    print("my")
                     return
                 }
                 
-                guard let json = try? decoder.decode(RegisterResponseDTO.self, from: data) else {
+                guard (try? JSONDecoder().decode(RegisterResponseDTO.self, from: data)) != nil else {
                     single(.error(RegisterError.CouldNotConnectToHostError))
                     DispatchQueue.main.async {
                         self!.isLoading.onNext(false)
                         self?.error.on(.next("Data Decode Error"))
                     }
-                    print("oh")
                     return
                 }
                 
@@ -92,15 +68,6 @@ class RegisterService {
                     self!.isLoading.onNext(false)
                     self?.registerStatus.onNext(true)
                 }
-                
-                /*if let accessToken = json["access"] {
-                    DispatchQueue.main.async {
-                        self!.isLoading.onNext(false)
-                    }
-                    single(.success(accessToken))
-                    print("god")
-                    return
-                }*/
                 
                 },onError: { error in
                     print(error.localizedDescription)

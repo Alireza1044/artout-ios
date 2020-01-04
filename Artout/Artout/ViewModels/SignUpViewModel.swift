@@ -66,7 +66,7 @@ class SignUpViewModel{
             self.error.on(.next($0.element!))
             }).disposed(by: disposeBag)
         
-        try? service.Register(username: usernameText.value(),firstName: firstNameText.value(), lastName: lastNameText.value(), email: emailText.value(), password: passwordText.value()).subscribe({ event in
+        try? service.Register(with: RegisterEntity(Username: usernameText.value(), Password: passwordText.value(), FirstName: firstNameText.value(), LastName: lastNameText.value(), Email: emailText.value())).subscribe({ event in
             switch event{
             case .success:
                 self.registerStatus.on(.next(true))
