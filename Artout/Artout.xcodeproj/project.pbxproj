@@ -21,8 +21,8 @@
 		BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* KeychainAccess */; };
 		BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2C7E8237473BF0079167A /* TokenService.swift */; };
 		BBAA4B9B239E670B00DC44C9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9A239E670B00DC44C9 /* UserDTO.swift */; };
-
-		BBAA4B9F239E807200DC44C9 /* PendingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9E239E807200DC44C9 /* PendingService.swift */; };
+		BBC854C323C1E92D00857BB1 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC854C223C1E92D00857BB1 /* TimelineTableViewController.swift */; };
+		BBC854C523C1EA2500857BB1 /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC854C423C1EA2500857BB1 /* TimelineTableViewCell.swift */; };
 		BBC8C9BC23AEC86600B7173E /* FriendProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8C9BB23AEC86500B7173E /* FriendProfileViewController.swift */; };
 		BBCFD901236E217A00DABEB1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */; };
 		BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */; };
@@ -95,8 +95,8 @@
 		BBA176E22374CDA100A35271 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		BBA2C7E8237473BF0079167A /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		BBAA4B9A239E670B00DC44C9 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
-
-		BBAA4B9E239E807200DC44C9 /* PendingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingService.swift; sourceTree = "<group>"; };
+		BBC854C223C1E92D00857BB1 /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
+		BBC854C423C1EA2500857BB1 /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		BBC8C9BB23AEC86500B7173E /* FriendProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewController.swift; sourceTree = "<group>"; };
 		BBCFD900236E217A00DABEB1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BBCFD902236E26A700DABEB1 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +203,8 @@
 				FA3D9C192375840F0019F1FC /* EventTableViewCell.swift */,
 				FA3D9C23237595130019F1FC /* EventsTableViewController.swift */,
 				BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */,
+				BBC854C223C1E92D00857BB1 /* TimelineTableViewController.swift */,
+				BBC854C423C1EA2500857BB1 /* TimelineTableViewCell.swift */,
 				FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */,
 				FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */,
 				FA28BD12239AAC2D005EE105 /* FollowersAndFollowingTableViewCell.swift */,
@@ -466,6 +468,7 @@
 				FA890533239E784400927172 /* EventRepository.swift in Sources */,
 				BB38381723B014BE0042D5AE /* FriendProfileDTO.swift in Sources */,
 				FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */,
+				BBC854C323C1E92D00857BB1 /* TimelineTableViewController.swift in Sources */,
 				FAAF675323A7E22100214B82 /* PendingsViewModel.swift in Sources */,
 				FA28BD0D239AA8D5005EE105 /* UserEntity.swift in Sources */,
 				FA03F9AD236B081E0089E1FF /* LoginViewController.swift in Sources */,
@@ -510,6 +513,7 @@
 				FAAF674F23A7DEE200214B82 /* PendingsTableViewController.swift in Sources */,
 				BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */,
 				FAAF674B23A7CE0600214B82 /* FriendService.swift in Sources */,
+				BBC854C523C1EA2500857BB1 /* TimelineTableViewCell.swift in Sources */,
 				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
 				FA8E74872378DE5D009C1C79 /* EventEntity.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
