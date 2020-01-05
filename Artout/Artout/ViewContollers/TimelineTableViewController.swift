@@ -16,13 +16,21 @@ class TimelineTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.register(TimelineTableViewCell.self, forCellReuseIdentifier: "TimelineCell")
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTimeline), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         viewModel.FetchEvents()
         viewModel.refresh.subscribe { _ in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }.disposed(by: disposeBag)
+    }
+    
+    @objc func refreshTimeline(){
+        refreshControl?.beginRefreshing()
+        viewModel.FetchEvents()
+        refreshControl?.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,5 +46,11 @@ class TimelineTableViewController: UITableViewController{
             cell.descriptionLabel?.text = info.Description
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = storyboard?.instantiateViewController(identifier: "TimelineDetail") as? TimelineDetailViewController
+        viewController?.eventId = viewModel.events[indexPath.row].Id
+        self.navigationController?.pushViewController(viewController!, animated: true)
     }
 }

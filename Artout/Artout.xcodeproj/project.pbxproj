@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0C994299F38BBA70880A9 /* Pods_Artout.framework */; };
+		BB0F394E23C22DFC007517D6 /* TimelineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0F394D23C22DFC007517D6 /* TimelineDetailViewController.swift */; };
 		BB38381123B003F40042D5AE /* FriendProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38381023B003F40042D5AE /* FriendProfileViewModel.swift */; };
 		BB38381323B009520042D5AE /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38381223B009520042D5AE /* ProfileService.swift */; };
 		BB38381523B00FE50042D5AE /* FriendProfileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB38381423B00FE50042D5AE /* FriendProfileEntity.swift */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		08CC861E9A920D269875F62B /* Pods-Artout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.debug.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.debug.xcconfig"; sourceTree = "<group>"; };
 		40D0C994299F38BBA70880A9 /* Pods_Artout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Artout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0F394D23C22DFC007517D6 /* TimelineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewController.swift; sourceTree = "<group>"; };
 		BB38381023B003F40042D5AE /* FriendProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileViewModel.swift; sourceTree = "<group>"; };
 		BB38381223B009520042D5AE /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		BB38381423B00FE50042D5AE /* FriendProfileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendProfileEntity.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				FA3D9C23237595130019F1FC /* EventsTableViewController.swift */,
 				BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */,
 				BBC854C223C1E92D00857BB1 /* TimelineTableViewController.swift */,
+				BB0F394D23C22DFC007517D6 /* TimelineDetailViewController.swift */,
 				BBC854C423C1EA2500857BB1 /* TimelineTableViewCell.swift */,
 				FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */,
 				FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */,
@@ -466,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA890533239E784400927172 /* EventRepository.swift in Sources */,
+				BB0F394E23C22DFC007517D6 /* TimelineDetailViewController.swift in Sources */,
 				BB38381723B014BE0042D5AE /* FriendProfileDTO.swift in Sources */,
 				FA64DD4A2374077C005EEDA5 /* NetworkingProtocols.swift in Sources */,
 				BBC854C323C1E92D00857BB1 /* TimelineTableViewController.swift in Sources */,
