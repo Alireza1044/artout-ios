@@ -66,7 +66,7 @@ class NewEventViewModel{
             }
         }).disposed(by: disposeBag)
         
-        let entity = EventEntity(Title: try! titleText.value(), Category: try! categoryText.value(), Description: try! descriptionText.value(), StartDate: try! startDateText.value(), EndDate: try! endDateText.value(), Avatar: "", EndTime: try! endTimeText.value(), StartTime: try! startTimeText.value(), Location: LocationEntity(latitude: 0.0, longitude: 0.0))
+        let entity = EventEntity(Title: try! titleText.value(), Category: try! categoryText.value(), Description: try! descriptionText.value(), StartDate: try! startDateText.value(), EndDate: try! endDateText.value(), Avatar: "", EndTime: try! endTimeText.value(), StartTime: try! startTimeText.value(), Location: LocationEntity(latitude: 0.0, longitude: 0.0,id:0))
         
         
         _ = service.AddEvent(With: entity).subscribe{
