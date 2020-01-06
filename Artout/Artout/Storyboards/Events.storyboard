@@ -36,7 +36,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="410.66665649414062" id="yNJ-zr-OZg" customClass="EventTableViewCell" customModule="Artout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="411"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="410.66665649414062"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yNJ-zr-OZg" id="cjj-10-Wca">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="410.66665649414062"/>
@@ -46,7 +46,7 @@
                                             <rect key="frame" x="28" y="19" width="358" height="372.66666666666669"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0T-Rt-jl0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="50.666666666666664"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="31.666666666666668"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -55,20 +55,20 @@
                                                     </variation>
                                                 </label>
                                                 <imageView verifyAmbiguity="ignoreSizes" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="CentralPerk" translatesAutoresizingMaskIntoConstraints="NO" id="nuG-UV-mVr">
-                                                    <rect key="frame" x="0.0" y="50.666666666666686" width="358" height="200"/>
+                                                    <rect key="frame" x="0.0" y="31.666666666666657" width="358" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="7bU-RR-zKN"/>
                                                     </constraints>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6C-u8-nQo">
-                                                    <rect key="frame" x="0.0" y="250.66666666666671" width="358" height="50.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="231.66666666666666" width="358" height="31.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0o-EN-xeR">
-                                                    <rect key="frame" x="0.0" y="301" width="358" height="71.666666666666686"/>
+                                                    <rect key="frame" x="0.0" y="263.33333333333331" width="358" height="109.33333333333331"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -90,7 +90,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="UserCell" rowHeight="73.666656494140625" id="aoH-Wj-V0E" customClass="UserSearchTableViewCell" customModule="Artout" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="439" width="414" height="73"/>
+                                <rect key="frame" x="0.0" y="438.66665649414062" width="414" height="73.666656494140625"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aoH-Wj-V0E" id="UQg-M9-J1C">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="73.666656494140625"/>
