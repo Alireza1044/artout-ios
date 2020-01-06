@@ -59,7 +59,8 @@ class EventsViewModel {
         self.refresh.onNext(true)
     }
     func FetchEvents() {
-        service.RequestEvents()
+        let url = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue)!
+        service.RequestEvents(url: url)
             .subscribe(onSuccess: { data in
                 self.events = data.reversed()
                 self.refresh.onNext(true)
