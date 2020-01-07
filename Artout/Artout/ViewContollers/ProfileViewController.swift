@@ -32,10 +32,12 @@ class ProfileViewController: UIViewController {
         
         viewModel.requestProfileDetail(id: UserDefaults.standard.integer(forKey: "UserId"))
         viewModel.profile.subscribe{ profile in
-            DispatchQueue.main.async { self.followersButton.setTitle(String(profile.element!.FollowerCount), for: .normal)
-                self.followingButton.setTitle(String(profile.element!.FollowingCount), for: .normal)
-                
-                self.nameLabel.text = profile.element!.FullName
+            if let prof = profile.element {
+                DispatchQueue.main.async { self.followersButton.setTitle(String(profile.element!.FollowerCount), for: .normal)
+                    self.followingButton.setTitle(String(profile.element!.FollowingCount), for: .normal)
+                    
+                    self.nameLabel.text = profile.element!.FullName
+                }
             }
         }.disposed(by: disposeBag)
         

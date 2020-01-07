@@ -59,7 +59,7 @@ class EventsViewModel {
         self.refresh.onNext(true)
     }
     func FetchEvents() {
-        service.RequestEvents()
+        service.RequestOwnEvents()
             .subscribe(onSuccess: { data in
                 self.events = data.reversed()
                 self.refresh.onNext(true)
