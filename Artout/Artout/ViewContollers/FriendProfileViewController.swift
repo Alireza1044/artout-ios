@@ -75,7 +75,13 @@ class FriendProfileViewController: UIViewController{
             break
         }
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserCheckinSegue" {
+            let destination = segue.destination as! CheckinEventsTableViewController
+            destination.userId = self.userId
+            
+        }
+    }
     func prepareAvatar(){
         self.avatar.layer.cornerRadius = avatar.frame.size.height / 2;
         self.avatar.clipsToBounds = true;
