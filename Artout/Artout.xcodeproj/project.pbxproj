@@ -20,7 +20,7 @@
 		BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */; };
 		BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC149238D823100824E61 /* EditEventViewModel.swift */; };
 		BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA176E22374CDA100A35271 /* NewEventViewController.swift */; };
-		BBA2C7E723744B7D0079167A /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* SwiftPackageProductDependency */; };
+		BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* KeychainAccess */; };
 		BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2C7E8237473BF0079167A /* TokenService.swift */; };
 		BBAA4B9B239E670B00DC44C9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9A239E670B00DC44C9 /* UserDTO.swift */; };
 		BBC854C323C1E92D00857BB1 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC854C223C1E92D00857BB1 /* TimelineTableViewController.swift */; };
@@ -41,6 +41,13 @@
 		FA03F9B5236B081F0089E1FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA03F9B4236B081F0089E1FF /* Assets.xcassets */; };
 		FA03F9B8236B081F0089E1FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA03F9B6236B081F0089E1FF /* LaunchScreen.storyboard */; };
 		FA11ACD823B771D000873BA1 /* UserSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA11ACD723B771D000873BA1 /* UserSearchTableViewCell.swift */; };
+		FA1CB08823C47AEB00F98B7B /* CheckinEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08723C47AEB00F98B7B /* CheckinEventsTableViewController.swift */; };
+		FA1CB08A23C47B1F00F98B7B /* CheckinEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08923C47B1F00F98B7B /* CheckinEventsViewModel.swift */; };
+		FA1CB08B23C47B1F00F98B7B /* CheckinEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08923C47B1F00F98B7B /* CheckinEventsViewModel.swift */; };
+		FA1CB08D23C4814700F98B7B /* CheckinUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08C23C4814700F98B7B /* CheckinUsersTableViewController.swift */; };
+		FA1CB08E23C4814700F98B7B /* CheckinUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08C23C4814700F98B7B /* CheckinUsersTableViewController.swift */; };
+		FA1CB09023C4821900F98B7B /* CheckinUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08F23C4821900F98B7B /* CheckinUsersViewModel.swift */; };
+		FA1CB09123C4821900F98B7B /* CheckinUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1CB08F23C4821900F98B7B /* CheckinUsersViewModel.swift */; };
 		FA28BD05239AA672005EE105 /* MyFollowingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */; };
 		FA28BD07239AA684005EE105 /* MyFollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */; };
 		FA28BD09239AA75A005EE105 /* MyFollowersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28BD08239AA75A005EE105 /* MyFollowersViewModel.swift */; };
@@ -139,6 +146,10 @@
 		FA03F9B7236B081F0089E1FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA03F9B9236B081F0089E1FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA11ACD723B771D000873BA1 /* UserSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchTableViewCell.swift; sourceTree = "<group>"; };
+		FA1CB08723C47AEB00F98B7B /* CheckinEventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEventsTableViewController.swift; sourceTree = "<group>"; };
+		FA1CB08923C47B1F00F98B7B /* CheckinEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEventsViewModel.swift; sourceTree = "<group>"; };
+		FA1CB08C23C4814700F98B7B /* CheckinUsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinUsersTableViewController.swift; sourceTree = "<group>"; };
+		FA1CB08F23C4821900F98B7B /* CheckinUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinUsersViewModel.swift; sourceTree = "<group>"; };
 		FA28BD04239AA672005EE105 /* MyFollowingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFollowingsTableViewController.swift; sourceTree = "<group>"; };
 		FA28BD06239AA684005EE105 /* MyFollowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFollowersTableViewController.swift; sourceTree = "<group>"; };
 		FA28BD08239AA75A005EE105 /* MyFollowersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFollowersViewModel.swift; sourceTree = "<group>"; };
@@ -196,7 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA2C7E723744B7D0079167A /* BuildFile in Frameworks */,
+				BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */,
 				6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */,
 				B7911EE0AB0D5D9C9FB84419 /* Pods_Artout.framework in Frameworks */,
 			);
@@ -256,6 +267,8 @@
 				FAAF674E23A7DEE200214B82 /* PendingsTableViewController.swift */,
 				FAAF675023A7DEFE00214B82 /* PendingsTableViewCell.swift */,
 				FA11ACD723B771D000873BA1 /* UserSearchTableViewCell.swift */,
+				FA1CB08723C47AEB00F98B7B /* CheckinEventsTableViewController.swift */,
+				FA1CB08C23C4814700F98B7B /* CheckinUsersTableViewController.swift */,
 			);
 			path = ViewContollers;
 			sourceTree = "<group>";
@@ -274,6 +287,8 @@
 				FA28BD0A239AA768005EE105 /* MyFollowingsViewModel.swift */,
 				FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */,
 				FAAF675223A7E22100214B82 /* PendingsViewModel.swift */,
+				FA1CB08923C47B1F00F98B7B /* CheckinEventsViewModel.swift */,
+				FA1CB08F23C4821900F98B7B /* CheckinUsersViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -432,7 +447,7 @@
 			);
 			name = Artout;
 			packageProductDependencies = (
-				BBA2C7E623744B7D0079167A /* SwiftPackageProductDependency */,
+				BBA2C7E623744B7D0079167A /* KeychainAccess */,
 			);
 			productName = Artout;
 			productReference = FA03F9A5236B081E0089E1FF /* Artout.app */;
@@ -467,7 +482,7 @@
 			);
 			mainGroup = FA03F99C236B081E0089E1FF;
 			packageReferences = (
-				BBA2C7E523744B7D0079167A /* RemoteSwiftPackageReference */,
+				BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = FA03F9A6236B081E0089E1FF /* Products */;
 			projectDirPath = "";
@@ -590,6 +605,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBD6ACB223C3A6D500A0D9BB /* timelineTests.swift in Sources */,
+				FA1CB09123C4821900F98B7B /* CheckinUsersViewModel.swift in Sources */,
+				FA1CB08E23C4814700F98B7B /* CheckinUsersTableViewController.swift in Sources */,
+				FA1CB08B23C47B1F00F98B7B /* CheckinEventsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +633,7 @@
 				BB38381523B00FE50042D5AE /* FriendProfileEntity.swift in Sources */,
 				BBCFD903236E26A700DABEB1 /* SignUpViewModel.swift in Sources */,
 				FA64DD462374044D005EEDA5 /* LoginDTO.swift in Sources */,
+				FA1CB08823C47AEB00F98B7B /* CheckinEventsTableViewController.swift in Sources */,
 				FA3D9C1A2375840F0019F1FC /* EventTableViewCell.swift in Sources */,
 				FA41F1A6239BC2BC00F36551 /* FriendEntity.swift in Sources */,
 				FA8E74862378DE5D009C1C79 /* LocationEntity.swift in Sources */,
@@ -630,6 +649,7 @@
 				BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */,
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				FAAF675123A7DEFE00214B82 /* PendingsTableViewCell.swift in Sources */,
+				FA1CB08D23C4814700F98B7B /* CheckinUsersTableViewController.swift in Sources */,
 				BB7984C723B67704004296FD /* SearchService.swift in Sources */,
 				BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */,
 				BB38381323B009520042D5AE /* ProfileService.swift in Sources */,
@@ -647,12 +667,14 @@
 				BB3A092B2375B98100D6CF9A /* NewEventViewModel.swift in Sources */,
 				FAAF674B23A7CE0600214B82 /* FriendService.swift in Sources */,
 				BBC854C523C1EA2500857BB1 /* TimelineTableViewCell.swift in Sources */,
+				FA1CB09023C4821900F98B7B /* CheckinUsersViewModel.swift in Sources */,
 				FA64DD4423734560005EEDA5 /* ProfileViewController.swift in Sources */,
 				FA8E74872378DE5D009C1C79 /* EventEntity.swift in Sources */,
 				FA03F9AB236B081E0089E1FF /* SceneDelegate.swift in Sources */,
 				BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */,
 				BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */,
 				FA11ACD823B771D000873BA1 /* UserSearchTableViewCell.swift in Sources */,
+				FA1CB08A23C47B1F00F98B7B /* CheckinEventsViewModel.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FAAF674D23A7D14A00214B82 /* AddFriendDTO.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
@@ -922,7 +944,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BBA2C7E523744B7D0079167A /* RemoteSwiftPackageReference */ = {
+		BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -933,9 +955,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BBA2C7E623744B7D0079167A /* SwiftPackageProductDependency */ = {
+		BBA2C7E623744B7D0079167A /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BBA2C7E523744B7D0079167A /* RemoteSwiftPackageReference */;
+			package = BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
