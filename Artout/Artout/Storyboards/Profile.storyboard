@@ -583,12 +583,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-Ou-hxt">
-                                        <rect key="frame" x="0.0" y="261.5" width="374" height="298.5"/>
+                                        <rect key="frame" x="0.0" y="261.5" width="374" height="268.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KoS-9F-O0R">
+                                        <rect key="frame" x="0.0" y="530" width="374" height="30"/>
+                                        <state key="normal" title="Check-ins"/>
+                                        <connections>
+                                            <segue destination="GuN-5Z-21x" kind="show" id="4Tu-Zs-6se"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="5vc-dZ-qJi" firstAttribute="width" secondItem="HgB-kt-C3l" secondAttribute="width" id="9G6-Yg-cmN"/>
@@ -726,6 +733,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDm-Mc-keu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5971.0144927536239" y="849.77678571428567"/>
+        </scene>
+        <!--Checkin Users Table View Controller-->
+        <scene sceneID="8Zs-Lx-x4D">
+            <objects>
+                <tableViewController id="GuN-5Z-21x" customClass="CheckinUsersTableViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jdA-No-SW3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="UserCell" rowHeight="73.666656494140625" id="WjJ-5R-aDR" customClass="UserSearchTableViewCell" customModule="Artout" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WjJ-5R-aDR" id="pKr-X4-N7e">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73.666656494140625"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1o-pi-3GO">
+                                            <rect key="frame" x="28" y="26.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Y1o-pi-3GO" firstAttribute="centerY" secondItem="pKr-X4-N7e" secondAttribute="centerY" id="5Tf-IQ-N7V"/>
+                                        <constraint firstItem="Y1o-pi-3GO" firstAttribute="leading" secondItem="pKr-X4-N7e" secondAttribute="leadingMargin" constant="8" id="FNN-pd-FbK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="UserSearchLabel" destination="Y1o-pi-3GO" id="DcJ-lu-yww"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GuN-5Z-21x" id="ATk-al-m1t"/>
+                            <outlet property="delegate" destination="GuN-5Z-21x" id="z5s-rj-HAv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="h2l-sz-U1s"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhr-uT-gtp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5509" y="1567"/>
         </scene>
         <!--Events Collection View Controller-->
         <scene sceneID="MgZ-OM-dOD">
