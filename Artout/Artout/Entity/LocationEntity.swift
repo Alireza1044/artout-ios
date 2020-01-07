@@ -11,9 +11,11 @@ import Foundation
 class LocationEntity: Codable {
     var longitude: Float
     var latitude: Float
+    var id: Int
     
-    init(latitude: Float, longitude: Float) {
+    init(latitude: Float, longitude: Float, id: Int) {
         self.latitude = latitude
         self.longitude = longitude
+        self.id = id
     }
 }

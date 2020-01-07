@@ -8,4 +8,12 @@ target 'Artout' do
   # Pods for Artout
   pod 'RxSwift'
   pod 'RxCocoa'
+
+  target 'ArtoutTests' do
+        #Add pod here if you want the access of pod in Tests target.
+        #Example: pod 'RxSwift'
+        inherit! :search_paths
+        pod 'RxSwift'
+        pod 'RxCocoa'
+    end
 end
