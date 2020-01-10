@@ -30,7 +30,7 @@ public enum APIPaths: String {
     case AddEvent = "events/"
     case FetchEvents = "event/eventsd/"
     case EventDetail = "event/eventdetail/"
-    
+    case Timeline = "timeline/"
     case MyFollowers = "follow/followers/"
     case MyFollowings = "follow/followings/"
     
