@@ -85,10 +85,12 @@ class EventDetailResponseDTO: Codable {
     var start_date: String
     var end_date: String
     var picture_url: String?
+    var checkin_count: Int
+    var is_checked_in: Bool
     var owner: Int
     var location: LocationEntity
     
-    init(id: Int,title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity) {
+    init(id: Int,title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int, checkin_count: Int, is_checked_in: Bool,location:LocationEntity) {
         self.id = id
         self.title = title
         self.category = category
@@ -98,5 +100,7 @@ class EventDetailResponseDTO: Codable {
         self.location = location
         self.start_date = start_date
         self.end_date = end_date
+        self.is_checked_in = is_checked_in
+        self.checkin_count = checkin_count
     }
 }
