@@ -20,7 +20,7 @@
 		BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC147238D7BEF00824E61 /* EditEventViewController.swift */; };
 		BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9AC149238D823100824E61 /* EditEventViewModel.swift */; };
 		BBA176E32374CDA100A35271 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA176E22374CDA100A35271 /* NewEventViewController.swift */; };
-		BBA2C7E723744B7D0079167A /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* SwiftPackageProductDependency */; };
+		BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = BBA2C7E623744B7D0079167A /* KeychainAccess */; };
 		BBA2C7E9237473BF0079167A /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2C7E8237473BF0079167A /* TokenService.swift */; };
 		BBAA4B9B239E670B00DC44C9 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAA4B9A239E670B00DC44C9 /* UserDTO.swift */; };
 		BBC854C323C1E92D00857BB1 /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC854C223C1E92D00857BB1 /* TimelineTableViewController.swift */; };
@@ -31,6 +31,8 @@
 		BBD6ACB223C3A6D500A0D9BB /* timelineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD6ACB123C3A6D500A0D9BB /* timelineTests.swift */; };
 		BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */; };
 		BBF063462378ABA40084A8A6 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF063452378ABA40084A8A6 /* EventDetailViewModel.swift */; };
+		BBF1610423C884ED0036DDF0 /* TimelineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF1610323C884ED0036DDF0 /* TimelineService.swift */; };
+		BBF1610623C885630036DDF0 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF1610523C885630036DDF0 /* TimelineViewModel.swift */; };
 		BBFC7609236E410D00AE5634 /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFC7608236E410D00AE5634 /* RegisterService.swift */; };
 		EA2877B44322B9FF8C4A10EE /* Pods_ArtoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38B1596A2C0AF8CCE514A24 /* Pods_ArtoutTests.framework */; };
 		FA03F9A9236B081E0089E1FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03F9A8236B081E0089E1FF /* AppDelegate.swift */; };
@@ -125,6 +127,8 @@
 		BBD6ACB723C3A81900A0D9BB /* Pods_Artout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Artout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBF063432378A9BB0084A8A6 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		BBF063452378ABA40084A8A6 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
+		BBF1610323C884ED0036DDF0 /* TimelineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineService.swift; sourceTree = "<group>"; };
+		BBF1610523C885630036DDF0 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		BBFC7608236E410D00AE5634 /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		EABA53870E67A7B0A314CADE /* Pods-ArtoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtoutTests.debug.xcconfig"; path = "Target Support Files/Pods-ArtoutTests/Pods-ArtoutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0D5449698CD23048B8E9BCD /* Pods-Artout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Artout.release.xcconfig"; path = "Target Support Files/Pods-Artout/Pods-Artout.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,7 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA2C7E723744B7D0079167A /* BuildFile in Frameworks */,
+				BBA2C7E723744B7D0079167A /* KeychainAccess in Frameworks */,
 				6B0DB087DA854316932CFFD2 /* Pods_Artout.framework in Frameworks */,
 				B7911EE0AB0D5D9C9FB84419 /* Pods_Artout.framework in Frameworks */,
 			);
@@ -271,6 +275,7 @@
 				FA3D9C1B237586870019F1FC /* EventsViewModel.swift */,
 				BB38381023B003F40042D5AE /* FriendProfileViewModel.swift */,
 				FA28BD08239AA75A005EE105 /* MyFollowersViewModel.swift */,
+				BBF1610523C885630036DDF0 /* TimelineViewModel.swift */,
 				FA28BD0A239AA768005EE105 /* MyFollowingsViewModel.swift */,
 				FA8A6CCD239BB4C7006BD166 /* AddFriendViewModel.swift */,
 				FAAF675223A7E22100214B82 /* PendingsViewModel.swift */,
@@ -285,6 +290,7 @@
 				BBA2C7E8237473BF0079167A /* TokenService.swift */,
 				BBFC7608236E410D00AE5634 /* RegisterService.swift */,
 				FA3D9C212375920A0019F1FC /* EventsService.swift */,
+				BBF1610323C884ED0036DDF0 /* TimelineService.swift */,
 				FAAF674A23A7CE0600214B82 /* FriendService.swift */,
 				BB7984C623B67704004296FD /* SearchService.swift */,
 				BB38381223B009520042D5AE /* ProfileService.swift */,
@@ -432,7 +438,7 @@
 			);
 			name = Artout;
 			packageProductDependencies = (
-				BBA2C7E623744B7D0079167A /* SwiftPackageProductDependency */,
+				BBA2C7E623744B7D0079167A /* KeychainAccess */,
 			);
 			productName = Artout;
 			productReference = FA03F9A5236B081E0089E1FF /* Artout.app */;
@@ -467,7 +473,7 @@
 			);
 			mainGroup = FA03F99C236B081E0089E1FF;
 			packageReferences = (
-				BBA2C7E523744B7D0079167A /* RemoteSwiftPackageReference */,
+				BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = FA03F9A6236B081E0089E1FF /* Products */;
 			projectDirPath = "";
@@ -631,6 +637,7 @@
 				FAFAFABD236B1DBD0057E6DA /* LoginService.swift in Sources */,
 				FAAF675123A7DEFE00214B82 /* PendingsTableViewCell.swift in Sources */,
 				BB7984C723B67704004296FD /* SearchService.swift in Sources */,
+				BBF1610623C885630036DDF0 /* TimelineViewModel.swift in Sources */,
 				BBF063442378A9BB0084A8A6 /* EventDetailViewController.swift in Sources */,
 				BB38381323B009520042D5AE /* ProfileService.swift in Sources */,
 				FA28BD07239AA684005EE105 /* MyFollowersTableViewController.swift in Sources */,
@@ -653,6 +660,7 @@
 				BB9AC148238D7BEF00824E61 /* EditEventViewController.swift in Sources */,
 				BB9AC14A238D823100824E61 /* EditEventViewModel.swift in Sources */,
 				FA11ACD823B771D000873BA1 /* UserSearchTableViewCell.swift in Sources */,
+				BBF1610423C884ED0036DDF0 /* TimelineService.swift in Sources */,
 				FA3D9C1C237586870019F1FC /* EventsViewModel.swift in Sources */,
 				FAAF674D23A7D14A00214B82 /* AddFriendDTO.swift in Sources */,
 				FA64DD3923733D54005EEDA5 /* TimelineViewController.swift in Sources */,
@@ -922,7 +930,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BBA2C7E523744B7D0079167A /* RemoteSwiftPackageReference */ = {
+		BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -933,9 +941,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BBA2C7E623744B7D0079167A /* SwiftPackageProductDependency */ = {
+		BBA2C7E623744B7D0079167A /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BBA2C7E523744B7D0079167A /* RemoteSwiftPackageReference */;
+			package = BBA2C7E523744B7D0079167A /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
