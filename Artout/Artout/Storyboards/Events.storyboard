@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zr2-Mn-oS5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zr2-Mn-oS5">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -289,20 +289,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4gM-Bi-NMx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" id="KSv-Gt-Q5H">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="4hN-aE-8QW">
-                            <connections>
-                                <segue destination="wr7-mV-Fev" kind="show" identifier="EditEventSegue" id="pvA-mY-EVY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Details" id="KSv-Gt-Q5H"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="activityIndicator" destination="rzT-gD-qqd" id="IUf-LE-Etd"/>
                         <outlet property="categoryLabel" destination="sXB-tE-E6l" id="Lz3-hu-fLG"/>
                         <outlet property="dateLabel" destination="4ST-Lc-sr1" id="bOo-8H-tRB"/>
                         <outlet property="descriptionTextView" destination="k5Z-b7-fyE" id="fRg-CB-iE8"/>
-                        <outlet property="editButton" destination="4hN-aE-8QW" id="YqS-2D-FYj"/>
                         <outlet property="imageView" destination="AjV-CI-Fyr" id="gRa-6S-vHf"/>
                         <outlet property="titleLabel" destination="31c-kZ-4km" id="zjJ-dY-tYa"/>
                     </connections>
@@ -310,97 +303,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDL-ax-1uu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1878" y="917"/>
-        </scene>
-        <!--Edit Event-->
-        <scene sceneID="0v6-C7-VpA">
-            <objects>
-                <viewController id="wr7-mV-Fev" customClass="EditEventViewController" customModule="Artout" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pby-ho-MVT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="clj-CE-IGr">
-                                <rect key="frame" x="50" y="273" width="314" height="350"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ezE-p0-625">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-9K-5d7">
-                                        <rect key="frame" x="0.0" y="42" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVz-vN-PTB">
-                                        <rect key="frame" x="0.0" y="84" width="314" height="98"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Io-7U-17C">
-                                        <rect key="frame" x="0.0" y="190" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rFO-gb-cOh">
-                                        <rect key="frame" x="0.0" y="232" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R9t-yS-tm2">
-                                        <rect key="frame" x="0.0" y="274" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MdM-dm-wrB">
-                                        <rect key="frame" x="0.0" y="316" width="314" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="350" id="NPS-dQ-dME"/>
-                                </constraints>
-                            </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="UuD-4V-JgM">
-                                <rect key="frame" x="197" y="663" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="sw3-0R-BHA" firstAttribute="trailing" secondItem="clj-CE-IGr" secondAttribute="trailing" constant="50" id="9oC-Bc-TOe"/>
-                            <constraint firstItem="UuD-4V-JgM" firstAttribute="centerX" secondItem="clj-CE-IGr" secondAttribute="centerX" id="Kmq-ng-6t0"/>
-                            <constraint firstItem="UuD-4V-JgM" firstAttribute="top" secondItem="clj-CE-IGr" secondAttribute="bottom" constant="40" id="M2S-do-sYT"/>
-                            <constraint firstItem="clj-CE-IGr" firstAttribute="centerY" secondItem="Pby-ho-MVT" secondAttribute="centerY" id="MTA-pt-wA8"/>
-                            <constraint firstItem="clj-CE-IGr" firstAttribute="centerX" secondItem="Pby-ho-MVT" secondAttribute="centerX" id="hCD-N1-cQB"/>
-                            <constraint firstItem="clj-CE-IGr" firstAttribute="leading" secondItem="sw3-0R-BHA" secondAttribute="leading" constant="50" id="tSj-ll-ohn"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sw3-0R-BHA"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit Event" id="PxD-4a-NSL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Sni-MH-YiU">
-                            <connections>
-                                <action selector="doneButtonPressed:" destination="wr7-mV-Fev" id="dcU-3b-UtM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicatorView" destination="UuD-4V-JgM" id="NDp-WY-rZ1"/>
-                        <outlet property="categoryTextField" destination="X5B-9K-5d7" id="gwb-j5-urr"/>
-                        <outlet property="descriptionTextView" destination="RVz-vN-PTB" id="2xt-BX-loT"/>
-                        <outlet property="doneButton" destination="Sni-MH-YiU" id="2nb-vj-Qkt"/>
-                        <outlet property="endDateTextField" destination="rFO-gb-cOh" id="7DB-Tn-oIZ"/>
-                        <outlet property="endTimeTextField" destination="MdM-dm-wrB" id="dA7-kQ-t4k"/>
-                        <outlet property="startDateTextField" destination="9Io-7U-17C" id="UHS-5l-LH0"/>
-                        <outlet property="startTimeTextField" destination="R9t-yS-tm2" id="LYA-HN-F9g"/>
-                        <outlet property="titleTextField" destination="ezE-p0-625" id="LnC-qI-K5a"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PfB-tk-bZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2936" y="917"/>
         </scene>
         <!--Profile-->
         <scene sceneID="9Z5-RR-5BD">
