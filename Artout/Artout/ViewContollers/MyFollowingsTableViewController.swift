@@ -54,6 +54,20 @@ class MyFollowingsTableViewController: UITableViewController {
     func ConfigureCell(for cell: FollowersAndFollowingTableViewCell, with item: UserEntity) {
         cell.FFFullName?.text = item.FullName
         cell.UserId = String(item.Id)
+        switch (item.State){
+            case 1:
+                cell.stateButton.isHidden = false
+                cell.stateButton.setTitle("Following", for: .normal)
+            case 2:
+                cell.stateButton.isHidden = false
+                cell.stateButton.setTitle("Requested", for: .normal)
+            case 3:
+                cell.stateButton.isHidden = false
+                cell.stateButton.setTitle("Follow", for: .normal)
+            default:
+                cell.stateButton.isHidden = true
+        }
+        
     }
 
     /*
