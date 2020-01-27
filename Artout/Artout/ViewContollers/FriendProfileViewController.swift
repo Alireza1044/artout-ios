@@ -12,6 +12,7 @@ import RxCocoa
 
 class FriendProfileViewController: UIViewController{
     
+    @IBOutlet weak var checkinButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var followButton: UIButton!
@@ -27,6 +28,10 @@ class FriendProfileViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareAvatar()
+        self.checkinButton.backgroundColor = .systemBlue
+        self.checkinButton.setTitleColor(.white, for: .normal)
+        self.checkinButton.layer.cornerRadius = 6
+        self.followButton.layer.cornerRadius = 6
         viewModel.requestProfileDetail(id: self.userId)
         viewModel.profile.subscribe { (profile) in
             DispatchQueue.main.async {
@@ -39,47 +44,66 @@ class FriendProfileViewController: UIViewController{
                 case 1:
                     self.followButton.isHidden = false
                     self.followButton.setTitle("Following", for: .normal)
+                    self.checkinButton.isHidden = false;
+                    self.followButton.backgroundColor = .white
+                    self.followButton.setTitleColor(.systemBlue, for: .normal)
+                    self.followButton.layer.borderWidth = 3
+                    self.followButton.layer.borderColor = UIColor.systemBlue.cgColor
                 case 2:
                     self.followButton.isHidden = false
                     self.followButton.setTitle("Requested", for: .normal)
+                    self.checkinButton.isHidden = true;
+                    self.followButton.backgroundColor = .white
+                    self.followButton.setTitleColor(.systemBlue, for: .normal)
+                    self.followButton.layer.borderWidth = 3
+                    self.followButton.layer.borderColor = UIColor.systemBlue.cgColor
                 case 3:
                     self.followButton.isHidden = false
                     self.followButton.setTitle("Follow", for: .normal)
+                    self.checkinButton.isHidden = true;
                 default:
                     self.followButton.isHidden = true
+                    self.checkinButton.isHidden = true
                 }
                 // set avatar
                 // set follow button state
             }
         }.disposed(by: disposeBag)
     }
-    @IBAction func followButtonPressed(_ sender: Any) {
+    @IBAction func followButtonAction(_ sender: Any) {
         switch self.followButton.titleLabel?.text {
-        case "Following":
-            service.Unfollow(with: String(self.userId)).subscribe { (res) in
-                print("shit")
-            }
-            self.followButton.setTitle("Follow", for: .normal)
-        case "Requested":
-            service.CaancelFriendRequest(id: String(self.userId)).subscribe { (res) in
-                print("shit")
-            }
-            self.followButton.setTitle("Follow", for: .normal)
-            break
-        case "Follow":
-            service.AddFriend(id: String(self.userId)).subscribe { (res) in
-                print("shit")
-            }
-            self.followButton.setTitle("Requested", for: .normal)
-        default:
-            break
+            case "Following":
+                service.Unfollow(with: String(self.userId)).subscribe { (res) in
+                    print("shit")
+                }
+                self.followButton.setTitle("Follow", for: .normal)
+                self.followButton.backgroundColor = .systemBlue
+            self.followButton.setTitleColor(.white, for: .normal)
+            case "Requested":
+                service.CaancelFriendRequest(id: String(self.userId)).subscribe { (res) in
+                    print("shit")
+                }
+                self.followButton.setTitle("Follow", for: .normal)
+                self.followButton.backgroundColor = .systemBlue
+                self.followButton.setTitleColor(.white, for: .normal)
+                break
+            case "Follow":
+                service.AddFriend(id: String(self.userId)).subscribe { (res) in
+                    print("shit")
+                }
+                self.followButton.setTitle("Requested", for: .normal)
+                self.followButton.backgroundColor = .white
+                self.followButton.setTitleColor(.systemBlue, for: .normal)
+                self.followButton.layer.borderWidth = 3
+                self.followButton.layer.borderColor = UIColor.systemBlue.cgColor
+            default:
+                break
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserCheckinSegue" {
-            let destination = segue.destination as! CheckinEventsTableViewController
-            destination.userId = self.userId
-            
+            let destination = segue.destination as! CheckinEventTableViewController
+            destination.usrId = self.userId
         }
     }
     func prepareAvatar(){
