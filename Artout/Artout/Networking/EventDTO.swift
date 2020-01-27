@@ -91,8 +91,6 @@ class EventDetailResponseDTO: Codable {
     var is_checked_in: Bool
     var owner: Int
     var location: LocationEntity
-    var checkin_count: Int
-    var is_checked_in: Bool
     
     init(id: Int,title:String, category: String,description:String,start_date:String,end_date:String,picture_url:String,event_owner:Int,location:LocationEntity, checkin_count: Int, is_checked_in: Bool) {
         self.id = id
