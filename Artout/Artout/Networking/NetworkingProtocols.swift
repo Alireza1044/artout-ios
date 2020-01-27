@@ -24,6 +24,7 @@ public enum HTTPMethod: String {
     case GET, POST, PUT, PATCH, DELETE
 }
 public enum APIPaths: String {
+    case Refresh = "auth/token/refresh/"
     case Login = "auth/login/"
     case Register = "auth/register/"
     
