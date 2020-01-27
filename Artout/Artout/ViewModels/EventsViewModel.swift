@@ -59,6 +59,13 @@ class EventsViewModel {
         self.refresh.onNext(true)
     }
     func FetchEvents() {
+        service.RequestEvents()
+            .subscribe(onSuccess: { data in
+                self.events = data.reversed()
+                self.refresh.onNext(true)
+            }).disposed(by: disposeBag)
+    }
+    func FetchOwnEvents() {
         service.RequestOwnEvents()
             .subscribe(onSuccess: { data in
                 self.events = data.reversed()
