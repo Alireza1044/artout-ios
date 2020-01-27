@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "IsUserLoggedIn"){
+            viewModel.RefreshToken()
             self.performSegue(withIdentifier: "LoginToHomeSegue", sender: self)
         }
     }

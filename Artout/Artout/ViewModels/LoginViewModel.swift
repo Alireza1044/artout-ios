@@ -28,7 +28,11 @@ class LoginViewModel {
             password.count >= 8
         }
     }
-    
+    func RefreshToken() {
+        _ = service.RefreshToken().subscribe(onSuccess: { (String) in
+            print("Token Updated")
+        })
+    }
     func Login() {
         let entity = try? LoginEntity(Username: usernameText.value(), Password: passwordText.value())
         service.Login(With: entity!)
