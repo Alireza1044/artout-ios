@@ -20,23 +20,33 @@ class FollowersAndFollowingTableViewCell: UITableViewCell {
     @IBOutlet weak var FFFullName: UILabel!
     @IBOutlet weak var stateButton: UIButton!
     @IBAction func StateButtonAction(_ sender: Any) {
+        
         switch self.stateButton.titleLabel?.text {
             case "Following":
                 _ = service.Unfollow(with: String(self.UserId)).subscribe { (res) in
                     print("shit")
+                    
                 }
                 self.stateButton.setTitle("Follow", for: .normal)
+                self.stateButton.backgroundColor = .systemBlue
+                self.stateButton.setTitleColor(.white, for: .normal)
             case "Requested":
                 _ = service.CaancelFriendRequest(id: String(self.UserId)).subscribe { (res) in
                     print("shit")
                 }
                 self.stateButton.setTitle("Follow", for: .normal)
+                self.stateButton.backgroundColor = .systemBlue
+                self.stateButton.setTitleColor(.white, for: .normal)
                 break
             case "Follow":
                 _ = service.AddFriend(id: String(self.UserId)).subscribe { (res) in
                     print("shit")
                 }
                 self.stateButton.setTitle("Requested", for: .normal)
+                self.stateButton.backgroundColor = .white
+                self.stateButton.setTitleColor(.systemBlue, for: .normal)
+                self.stateButton.layer.borderWidth = 3
+                self.stateButton.layer.borderColor = UIColor.systemBlue.cgColor
             default:
                 break
         }
@@ -51,9 +61,11 @@ class FollowersAndFollowingTableViewCell: UITableViewCell {
     }
     override func prepareForReuse() {
         UserId = ""
+        self.stateButton.layer.cornerRadius = 6
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        
 //        FFPhoto.layer.masksToBounds = true
 //        FFPhoto.layer.cornerRadius = FFPhoto.bounds.width / 2
     }
