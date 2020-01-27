@@ -87,6 +87,8 @@ class EventDetailResponseDTO: Codable {
     var start_date: String
     var end_date: String
     var picture_url: String?
+    var checkin_count: Int
+    var is_checked_in: Bool
     var owner: Int
     var location: LocationEntity
     var checkin_count: Int
@@ -104,5 +106,6 @@ class EventDetailResponseDTO: Codable {
         self.end_date = end_date
         self.checkin_count = checkin_count
         self.is_checked_in = is_checked_in
+        self.checkin_count = checkin_count
     }
 }

@@ -1,0 +1,6 @@
+framework module Pods_ArtoutTests {
+  umbrella header "Pods-ArtoutTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
