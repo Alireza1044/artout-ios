@@ -106,6 +106,8 @@ extension EventDetailResponseDTO {
                            Avatar: self.picture_url ?? "",
                            EndTime: endTime,
                            StartTime: startTime,
+                           CheckinCount: self.checkin_count,
+                           IsCheckedIn: self.is_checked_in, 
                            Location: self.location)
     }
 }
@@ -121,6 +123,15 @@ extension FriendProfileDTO {
                                    Id: self.id, State: self.state)
     }
 }
+extension CheckinDTO {
+    func ToCheckinEntity()  -> CheckinEntity {
+        return CheckinEntity(User: self.checkin_user.ToEntity(),
+                             Event: self.checkin_event.ToEntity())
+    }
+}
+
+
+
 
 func convertDateToDTO(date: String, time: String) -> String{
     let dateFormatter = DateFormatter()
