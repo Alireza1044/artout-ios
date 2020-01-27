@@ -22,10 +22,18 @@ class TokenService {
         UserDefaults.standard.set(refresh, forKey: "RefreshToken")
         UserDefaults.standard.set(true, forKey: "IsUserLoggedIn")
         UserDefaults.standard.set(userId, forKey: "UserId")
-        }
+    }
     
-    func refreshToken(refresh:String) {
-        
+    func RenewAccessToken(access:String) {
+        keychainInstance["AccessToken"] = access
+        UserDefaults.standard.set(access, forKey: "AccessToken")
+    }
+    
+    func GetRefreshToken() -> String {
+        if let refresh = UserDefaults.standard.string(forKey: "RefreshToken") {
+            return refresh
+        }
+        return ""
     }
     
 }
