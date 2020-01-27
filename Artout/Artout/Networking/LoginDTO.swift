@@ -27,3 +27,17 @@ struct LoginResponseDTO: Codable {
         self.id = id
     }
 }
+
+struct RefreshResponseDTO: Codable {
+    var access: String
+    init(access: String) {
+        self.access = access
+    }
+}
+
+class RefreshDTO: Codable {
+    var refresh: String
+    init(Refresh: String) {
+        self.refresh = Refresh
+    }
+}
