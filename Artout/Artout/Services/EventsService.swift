@@ -14,7 +14,7 @@ class EventsService {
     let isLoading = PublishSubject<Bool>()
     let disposeBag = DisposeBag()
     
-    func RequestEvents (url:URL) -> Single<[EventDetailEntity]> {
+    func RequestEvents (url:URL = URL(string: Endpoint.GCPServer.rawValue + APIPaths.AddEvent.rawValue)!) -> Single<[EventDetailEntity]> {
         return Single<[EventDetailEntity]>.create(subscribe: { single in
             Observable.from(optional: [String].self)
                 .map {_ in
