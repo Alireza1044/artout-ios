@@ -52,15 +52,28 @@ class MyFollowersTableViewController: UITableViewController {
     }
 
     func ConfigureCell(for cell: FollowersAndFollowingTableViewCell, with item: UserEntity) {
+        cell.stateButton.layer.cornerRadius = 6
+        cell.FFPhoto.layer.cornerRadius = cell.FFPhoto.frame.size.height / 2;
+        cell.FFPhoto.clipsToBounds = true;
+        cell.FFPhoto.layer.borderWidth = 3.0;
+        cell.FFPhoto.layer.borderColor = UIColor.white.cgColor;
         cell.FFFullName?.text = item.FullName
         cell.UserId = String(item.Id)
         switch (item.State){
             case 1:
                 cell.stateButton.isHidden = false
                 cell.stateButton.setTitle("Following", for: .normal)
+                cell.stateButton.backgroundColor = .white
+                cell.stateButton.setTitleColor(.systemBlue, for: .normal)
+                cell.stateButton.layer.borderWidth = 3
+                cell.stateButton.layer.borderColor = UIColor.systemBlue.cgColor
             case 2:
                 cell.stateButton.isHidden = false
                 cell.stateButton.setTitle("Requested", for: .normal)
+                cell.stateButton.backgroundColor = .white
+                cell.stateButton.setTitleColor(.systemBlue, for: .normal)
+                cell.stateButton.layer.borderWidth = 3
+                cell.stateButton.layer.borderColor = UIColor.systemBlue.cgColor
             case 3:
                 cell.stateButton.isHidden = false
                 cell.stateButton.setTitle("Follow", for: .normal)
