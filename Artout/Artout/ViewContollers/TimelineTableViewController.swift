@@ -78,7 +78,8 @@ class TimelineTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = storyboard?.instantiateViewController(identifier: "TimelineDetail") as? TimelineDetailViewController
+        let s = UIStoryboard(name: "Events", bundle: nil)
+        let viewController = s.instantiateViewController(identifier: "OtherEventDetail") as? OtherEventDetailViewController
         viewController?.eventId = viewModel.events[indexPath.row].Id
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
