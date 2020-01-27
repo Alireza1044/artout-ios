@@ -21,7 +21,14 @@ class PendingsTableViewCell: UITableViewCell {
     var userId: String = ""
     override func awakeFromNib() {
         super.awakeFromNib()
+        acceptButtonOutlet.layer.cornerRadius = 6
+        deleteButtonOutlet.layer.cornerRadius = 6
         doneButtonOutlet.isHidden = true
+        doneButtonOutlet.layer.borderWidth = 3
+        doneButtonOutlet.layer.borderColor = UIColor.systemGreen.cgColor
+        doneButtonOutlet.layer.cornerRadius = 6
+        doneButtonOutlet.backgroundColor = .white
+        doneButtonOutlet.setTitleColor(.systemGreen, for: .normal)
         // Initialization code
     }
 
@@ -38,6 +45,7 @@ class PendingsTableViewCell: UITableViewCell {
     @IBAction func acceptButtonPressed(_ sender: Any) {
         viewModel.AcceptWithID(Id: self.userId)
         doneButtonOutlet.isHidden = false
+        
     }
     @IBAction func deleteButttonPressed(_ sender: Any) {
         viewModel.RejectWithID(Id: self.userId)
