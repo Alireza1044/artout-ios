@@ -42,7 +42,7 @@ class EventsTableViewController: UITableViewController {
         definesPresentationContext = true
         
         navigationItem.searchController = searchController
-        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.tintColor = UIColor.white
         self.searchController.delegate = self
 //        searchController.searchBar.barTintColor = UIColor.red
 //        searchController.searchBar.scopeButtonTitles = ["Users", "Events"]
