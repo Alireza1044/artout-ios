@@ -58,6 +58,8 @@ class EventDetailEntity {
         return UserDefaults.standard.integer(forKey: "UserId")
     }
     var Location: LocationEntity
+    var CheckinCount: Int
+    var IsCheckedIn: Bool
     
     init(Id: Int,
          Title: String,
@@ -68,6 +70,8 @@ class EventDetailEntity {
          Avatar: String,
          EndTime: String,
          StartTime: String,
+         CheckinCount: Int,
+         IsCheckedIn: Bool,
          Location: LocationEntity) {
         self.Id = Id
         self.Avatar = Avatar
@@ -79,6 +83,8 @@ class EventDetailEntity {
         self.Title = Title
         self.EndTime = EndTime
         self.StartTime = StartTime
+        self.CheckinCount = CheckinCount
+        self.IsCheckedIn = IsCheckedIn
     }
     
 }
