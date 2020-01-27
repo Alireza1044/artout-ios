@@ -12,14 +12,24 @@ import RxCocoa
 
 class EventDetailViewController: UIViewController{
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var checkinListButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
-    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBAction func checkinListButtonAction(_ sender: Any) {
+        let s = UIStoryboard(name: "Events", bundle: nil)
+        let vc = s.instantiateViewController(identifier: "CheckinUserListTable") as? CheckinUserTableViewController
+        vc?.eventId = self.eventId
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+//    @IBAction func checkinListButtonAction(_ sender: Any) {
+//        
+//    }
     var startDate = ""
     var endDate = ""
     var eventDetailViewModel = EventDetailViewModel()
@@ -46,6 +56,9 @@ class EventDetailViewController: UIViewController{
         
         self.eventDetailViewModel.event.subscribe { event in
             DispatchQueue.main.async {
+                if let checkinCount = event.element?.CheckinCount {
+                    self.checkinListButton.setTitle("\(checkinCount) People have Checked-In", for: .normal)
+                }
                 self.titleLabel.text = event.element!.Title
                 self.categoryLabel.text = event.element!.Category
                 self.startDate = event.element!.StartDate
