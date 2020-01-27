@@ -83,6 +83,12 @@ class MyFollowingsTableViewController: UITableViewController {
         
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let s = UIStoryboard(name: "Events", bundle: nil)
+        let viewController = s.instantiateViewController(identifier: "FriendProfileViewController") as? FriendProfileViewController
+        viewController?.userId = viewModel.Followings[indexPath.row].Id
+        self.navigationController?.pushViewController(viewController!, animated: true)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
