@@ -1,33 +1,27 @@
 //
-//  CheckinUsersTableViewController.swift
+//  CheckinEventTableViewController.swift
 //  Artout
 //
-//  Created by Pooya Kabiri on 1/7/20.
+//  Created by Pooya Kabiri on 1/27/20.
 //  Copyright © 2020 Pooya Kabiri. All rights reserved.
 //
 
 import UIKit
-import RxSwift
 
-class CheckinUsersTableViewController: UITableViewController {
+class CheckinEventTableViewController: UITableViewController {
 
-    var eventId: Int = 0
-    var viewModel = CheckinUsersViewModel()
-    var disposeBag = DisposeBag()
-    var refreshControlInstance = UIRefreshControl()
-    
+    var usrId: Int = 0
+    let viewModel = CheckinViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.refresh.subscribe(onNext: { (status) in
+        viewModel.FetchUserCheckins(for: usrId)
+        
+        viewModel.reload.subscribe(onNext: { (reload) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-        }).disposed(by: disposeBag)
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        viewModel.FetchEventCheckins(for: eventId)
+        })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,29 +31,31 @@ class CheckinUsersTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return viewModel.users.count
+        return viewModel.checkinObjects.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserSearchTableViewCell
-        
-        if viewModel.users.count > 0 {
-            let item = viewModel.users[indexPath.row]
-            ConfigureUserCell(for: cell, with: item)
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
+
+        if viewModel.checkinObjects.count > 0 {
+            ConfigureCell(for: cell, with: viewModel.checkinObjects[indexPath.row].Event)
         }
+
         return cell
     }
-    
-    func ConfigureUserCell(for cell: UserSearchTableViewCell, with item: UserEntity) {
-        cell.UserSearchLabel!.text = item.FullName
+
+    func ConfigureCell(for cell: EventTableViewCell, with item: EventDetailEntity) {
+        cell.TitleLabel?.text = item.Title
+        cell.DateLabel?.text = item.StartDate
+        cell.DescriptionLabel?.text = item.Description
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = storyboard?.instantiateViewController(identifier: "FriendProfileViewController") as? FriendProfileViewController
-        viewController?.userId = viewModel.users[indexPath.row].Id
+        let viewController = storyboard?.instantiateViewController(identifier: "OtherEventDetail") as? OtherEventDetailViewController
+        viewController?.eventId = viewModel.checkinObjects[indexPath.row].Event.Id
         self.navigationController?.pushViewController(viewController!, animated: true)
     }
     /*
