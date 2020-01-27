@@ -45,7 +45,7 @@ class FriendProfileViewController: UIViewController{
                     self.followButton.isHidden = false
                     self.followButton.setTitle("Following", for: .normal)
                     self.checkinButton.isHidden = false;
-                    self.followButton.backgroundColor = .white
+                    self.followButton.backgroundColor = .black
                     self.followButton.setTitleColor(.systemBlue, for: .normal)
                     self.followButton.layer.borderWidth = 3
                     self.followButton.layer.borderColor = UIColor.systemBlue.cgColor
@@ -53,7 +53,7 @@ class FriendProfileViewController: UIViewController{
                     self.followButton.isHidden = false
                     self.followButton.setTitle("Requested", for: .normal)
                     self.checkinButton.isHidden = true;
-                    self.followButton.backgroundColor = .white
+                    self.followButton.backgroundColor = .black
                     self.followButton.setTitleColor(.systemBlue, for: .normal)
                     self.followButton.layer.borderWidth = 3
                     self.followButton.layer.borderColor = UIColor.systemBlue.cgColor
@@ -92,7 +92,7 @@ class FriendProfileViewController: UIViewController{
                     print("shit")
                 }
                 self.followButton.setTitle("Requested", for: .normal)
-                self.followButton.backgroundColor = .white
+                self.followButton.backgroundColor = .black
                 self.followButton.setTitleColor(.systemBlue, for: .normal)
                 self.followButton.layer.borderWidth = 3
                 self.followButton.layer.borderColor = UIColor.systemBlue.cgColor

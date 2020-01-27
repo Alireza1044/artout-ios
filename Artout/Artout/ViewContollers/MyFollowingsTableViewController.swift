@@ -63,14 +63,14 @@ class MyFollowingsTableViewController: UITableViewController {
             case 1:
                 cell.stateButton.isHidden = false
                 cell.stateButton.setTitle("Following", for: .normal)
-                cell.stateButton.backgroundColor = .white
+                cell.stateButton.backgroundColor = .black
                 cell.stateButton.setTitleColor(.systemBlue, for: .normal)
                 cell.stateButton.layer.borderWidth = 3
                 cell.stateButton.layer.borderColor = UIColor.systemBlue.cgColor
             case 2:
                 cell.stateButton.isHidden = false
                 cell.stateButton.setTitle("Requested", for: .normal)
-                cell.stateButton.backgroundColor = .white
+                cell.stateButton.backgroundColor = .black
                 cell.stateButton.setTitleColor(.systemBlue, for: .normal)
                 cell.stateButton.layer.borderWidth = 3
                 cell.stateButton.layer.borderColor = UIColor.systemBlue.cgColor

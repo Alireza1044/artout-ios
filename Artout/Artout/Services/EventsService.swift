@@ -206,14 +206,8 @@ class EventsService {
                     }
                     return
                 }
-                guard let responseDTO = try? JSONDecoder().decode(EventDetailDTO.self, from: data) else {
-                    DispatchQueue.main.async {
-                        self!.isLoading.onNext(false)
-                        single(.error(HTTPStatusCodes.InternalServerError))
-                    }
-                    return
-                }
-                single(.success(responseDTO.title))
+//                
+                single(.success("success"))
                 DispatchQueue.main.async {
                     self!.isLoading.onNext(false)
                 }

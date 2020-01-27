@@ -43,7 +43,7 @@ class FollowersAndFollowingTableViewCell: UITableViewCell {
                     print("shit")
                 }
                 self.stateButton.setTitle("Requested", for: .normal)
-                self.stateButton.backgroundColor = .white
+                self.stateButton.backgroundColor = .black
                 self.stateButton.setTitleColor(.systemBlue, for: .normal)
                 self.stateButton.layer.borderWidth = 3
                 self.stateButton.layer.borderColor = UIColor.systemBlue.cgColor

@@ -36,7 +36,7 @@ class OtherEventDetailViewController: UIViewController{
         switch self.IsCheckedIn {
             case false:
                 self.checkMeInButton.setTitle("Already Checked-In", for: .normal)
-                self.checkMeInButton.backgroundColor = .white
+                self.checkMeInButton.backgroundColor = .black
                 self.checkMeInButton.setTitleColor(.systemBlue, for: .normal)
                 self.checkMeInButton.layer.borderWidth = 3
                 self.checkMeInButton.layer.borderColor = UIColor.systemBlue.cgColor
@@ -84,7 +84,7 @@ class OtherEventDetailViewController: UIViewController{
                     self.IsCheckedIn = eventEntity.IsCheckedIn
                     if eventEntity.IsCheckedIn {
                         self.checkMeInButton.setTitle("Already Checked-In", for: .normal)
-                        self.checkMeInButton.backgroundColor = .white
+                        self.checkMeInButton.backgroundColor = .black
                         self.checkMeInButton.setTitleColor(.systemBlue, for: .normal)
                         self.checkMeInButton.layer.borderWidth = 3
                         self.checkMeInButton.layer.borderColor = UIColor.systemBlue.cgColor
